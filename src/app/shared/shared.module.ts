@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 
 
@@ -12,8 +13,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxDropzoneModule
     
   ],
-  exports: [ReactiveFormsModule,FormsModule]
+  exports: [ReactiveFormsModule,FormsModule,NgxDropzoneModule]
 })
 export class SharedModule { }

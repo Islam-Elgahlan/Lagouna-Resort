@@ -10,6 +10,6 @@ export class AuthService {
   constructor(private _httpClient:HttpClient) { }
 
   handleRegister(data:any):Observable<any>{
-return this._httpClient.post('Portal/users/',data)
+return this._httpClient.post('portal/users',data)
   }
 }
