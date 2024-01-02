@@ -1,61 +1,170 @@
-<section class="">
-  <div class="container-fluid h-100 p-4">
+<section class="p-3">
+  <div class="container-fluid h-100">
     <div class="row h-100">
       <div class="col-md-6">
-        
-          <div class="col-md-3">
-            <div>
-              <img src="../../../../../assets/images/Staycation..svg" alt="" />
-            </div>
-         
+        <div class="col-md-3">
+          <div>
+            <img src="../../../../../assets/images/Staycation..svg" alt="" />
+          </div>
         </div>
-       <div class="container">
-        <div class="content ">
-            <h2>Sign Up</h2>
-            <p>
-              If you already have an account register<br>
-              You can <a routerLink="/auth/login">Login Here!</a>
-            </p>
+        <div class="container">
+          <div class="content">
+            <div class="row">
+              <div class="col-md-9">
+                <h2>Sign Up</h2>
+                <p>
+                  If you already have an account, You can
+                  <a routerLink="/auth/login">Login Here!</a>
+                </p>
+              </div>
+              <div class="col-md-3">
+                <ngx-dropzone
+                  class="drop-image"
+                  (change)="onSelect($event)"
+                  [multiple]="false"
+                >
+                  <ngx-dropzone-label *ngIf="!imgSrc">
+                    <i class="fa-solid fa-arrow-up-from-bracket d-block"></i>
+                    Upload
+                  </ngx-dropzone-label>
+
+                  <ngx-dropzone-image-preview
+                    class="w-100"
+                    ngProjectAs="ngx-dropzone-preview"
+                    *ngFor="let f of files"
+                    [removable]="true"
+                    [file]="f"
+                    (removed)="onRemove(f)"
+                  >
+                  </ngx-dropzone-image-preview>
+                </ngx-dropzone>
+              </div>
+            </div>
+
             <form [formGroup]="registerForm" (submit)="onSubmit(registerForm)">
               <div class="row">
                 <div class="col-md-12">
+                  <div class="">
                     <label for="">User Name</label>
-                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="userName">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Please Type Here.."
+                      formControlName="userName"
+                    />
+                  </div>
+                  <div
+                    class="alert alert-danger p-1"
+                    *ngIf="
+                      registerForm.get('userName')?.touched &&
+                      registerForm.get('userName')?.status == 'INVALID'
+                    "
+                  >
+                    <p class="mb-0"
+                      *ngIf="registerForm.get('userName')?.getError('required')"
+                    >
+                      UserName is required
+                    </p>
+                    <p class="mb-0"
+                      *ngIf="registerForm.get('userName')?.getError('pattern')"
+                    >
+                      must contain nums&char and no spaces
+                    </p>
+                  </div>
                 </div>
                 <div class="col-md-6">
-                    <label for="">Phone Number</label>
-                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="phoneNumber">
+                 <div class="">
+                  <label for="">Phone Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Please Type Here.."
+                    formControlName="phoneNumber"
+                  />
+                 </div>
+                 <div class="alert alert-danger p-1" *ngIf="registerForm.get('phoneNumber')?.touched && registerForm.get('phoneNumber')?.status == 'INVALID'">
+                  <p class="mb-0" *ngIf="registerForm.get('phoneNumber')?.getError('required')">phoneNumber is required</p>
+                  <p class="mb-0" *ngIf="registerForm.get('phoneNumber')?.getError('pattern')">Egyptian number</p>
+              </div>
                 </div>
                 <div class="col-md-6">
-                    <label for="">Country</label>
-                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="country">
+                 <div>
+                  <label for="">Country</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Please Type Here.."
+                    formControlName="country"
+                  />
+                 </div>
+                 <div class="alert alert-danger p-1" *ngIf="registerForm.get('country')?.touched && registerForm.get('country')?.status == 'INVALID'">
+                  <p class="mb-0" *ngIf="registerForm.get('country')?.getError('required')">Country is required</p>
+                  <p class="mb-0" *ngIf="registerForm.get('country')?.getError('pattern')">Only Alphapets</p>
+              </div>
                 </div>
                 <div class="col-md-12">
+                  <div>
                     <label for="">Email</label>
-                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="email">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Please Type Here.."
+                    formControlName="email"
+                  />
+                  </div>
+                  <div class="alert alert-danger p-1" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.status == 'INVALID'">
+                    <p class="mb-0" *ngIf="registerForm.get('email')?.getError('required')">Email is required</p>
+                    <p class="mb-0" *ngIf="registerForm.get('email')?.getError('pattern')">Ex: test@ bbb.nn</p>
                 </div>
-                <div class="col-md-12">
-                    <label for="">Password</label>
-                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="password">
                 </div>
-                <div class="col-md-12">
-                    <label for="">Confirm Password</label>
-                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="confirmPassword">
+                <div class="col-md-12 position-relative">
+                 <div>
+                  <label for="">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Please Type Here.."
+                    formControlName="password"
+                  />
+                 </div>
+                  <div class="eye-icon">
+                    <i class="fa-solid fa-eye-slash"></i>
+                  </div>
+                  <div class="alert alert-danger p-1" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.status == 'INVALID'">
+                    <p class="mb-0" *ngIf="registerForm.get('password')?.getError('required')">password is required</p>
+                    <p class="mb-0" *ngIf="registerForm.get('password')?.getError('pattern')">min eight digit contains number ,special char</p>
+                </div>
+                </div>
+                <div class="col-md-12 position-relative">
+                 <div>
+                  <label for="">Confirm Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Please Type Here.."
+                    formControlName="confirmPassword"
+                  />
+                 </div>
+                  <div class="eye-icon">
+                    <i class="fa-solid fa-eye-slash"></i>
+                  </div>
+                  <div class="alert alert-danger p-1" *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.get('confirmPassword')?.status == 'INVALID'">
+                    <p class="mb-0" *ngIf="registerForm.get('confirmPassword')?.getError('required')">Confirm Password is required</p>
+                    <p class="mb-0" *ngIf="registerForm.get('confirmPassword')?.getError('invalid')">Not Match</p>
+                </div>
                 </div>
                 <div class="col-md-6 mx-auto">
-                    <button class="main-btn w-100">Register</button>
+                  <button class="main-btn w-100">Register</button>
                 </div>
               </div>
-                 
-            
             </form>
           </div>
-       </div>
+        </div>
       </div>
-      <div class="col-md-6  image d-flex justify-content-center align-items-end">
+      <div class="col-md-6 image d-flex justify-content-center align-items-end">
         <div class="image-content">
-           <h3>Sign up to Roamhome</h3>
-           <span>Homes as unique as you.</span>
+          <h3>Sign up to Roamhome</h3>
+          <span>Homes as unique as you.</span>
         </div>
       </div>
     </div>
