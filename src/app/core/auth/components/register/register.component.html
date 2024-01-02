@@ -16,31 +16,31 @@
               If you already have an account register<br>
               You can <a routerLink="/auth/login">Login Here!</a>
             </p>
-            <form [formGroup]="registerForm" >
+            <form [formGroup]="registerForm" (submit)="onSubmit(registerForm)">
               <div class="row">
                 <div class="col-md-12">
                     <label for="">User Name</label>
-                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="">
+                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="userName">
                 </div>
                 <div class="col-md-6">
                     <label for="">Phone Number</label>
-                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="">
+                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="phoneNumber">
                 </div>
                 <div class="col-md-6">
                     <label for="">Country</label>
-                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="">
+                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="country">
                 </div>
                 <div class="col-md-12">
                     <label for="">Email</label>
-                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="">
+                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="email">
                 </div>
                 <div class="col-md-12">
                     <label for="">Password</label>
-                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="">
+                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="password">
                 </div>
                 <div class="col-md-12">
                     <label for="">Confirm Password</label>
-                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="">
+                    <input type="text" class="form-control" placeholder="Please Type Here.." formControlName="confirmPassword">
                 </div>
                 <div class="col-md-6 mx-auto">
                     <button class="main-btn w-100">Register</button>

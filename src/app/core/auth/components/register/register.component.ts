@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -7,7 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  constructor(){}
+  constructor(private _authService:AuthService){}
   registerForm= new FormGroup({
     userName:new FormControl(null,[Validators.required,Validators.pattern(/^[a-zA-z]{3,10}[0-9]{1,5}$/)]),
       email:new FormControl(null,[Validators.required,Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),
@@ -15,7 +16,7 @@ export class RegisterComponent {
       phoneNumber:new FormControl(null,[Validators.required,Validators.pattern(/^01[0125][0-9]{8}$/)]),
       password:new FormControl(null,[Validators.required,Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/)]),
       confirmPassword:new FormControl(null,[Validators.required]  ),
-      profileImage:new FormControl(null,[Validators.required])
+      profileImage:new FormControl(null)
     
       },  {validators:this.creatConfirmation})
   
@@ -29,5 +30,20 @@ if (pswrd?.value == confirmPswrd?.value) {
   return {invalid:'notMatch'}
 }
 
+  }
+
+  onSubmit(data:FormGroup){
+    console.log(this.registerForm.value);
+this._authService.handleRegister(this.registerForm.value).subscribe({
+  next:(res)=>{
+    console.log(res);
+    
+  },error:(err)=>{
+
+  },complete:()=> {
+    
+  },
+})
+    
   }
 }
