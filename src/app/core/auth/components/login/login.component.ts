@@ -23,7 +23,8 @@ export class LoginComponent {
     console.log(data.value)
     this._AuthService.login(data.value).subscribe((res)=>{
       localStorage.setItem('userToken', res.data.token);
-      console.log(res);
+      localStorage.setItem('role', res.data.user.role);
+      // console.log(res.data.user.role);
       this._ToastrService.success(res.data.user.userName , 'message')
     },(error)=>{
       this._ToastrService.error(error.error.message , 'error')
