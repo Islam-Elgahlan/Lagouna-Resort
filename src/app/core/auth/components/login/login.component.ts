@@ -24,7 +24,8 @@ export class LoginComponent {
     this._AuthService.login(data.value).subscribe((res)=>{
       localStorage.setItem('userToken', res.data.token);
       console.log(res);
-      this._ToastrService.success(res.data.user.userName , 'message')
+      this._ToastrService.success(res.data.user.userName , 'message');
+      this._Router.navigate(['/admin/dashboard'])
     },(error)=>{
       this._ToastrService.error(error.error.message , 'error')
     })
