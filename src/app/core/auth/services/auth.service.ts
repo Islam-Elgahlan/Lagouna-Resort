@@ -34,6 +34,6 @@ export class AuthService {
     return this._httpClient.post('admin/users/login' , data)
   }
   handleRegister(data:any):Observable<any>{
-return this._httpClient.post('Portal/users/',data)
+return this._httpClient.post('portal/users',data)
   }
 }

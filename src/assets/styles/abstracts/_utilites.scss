@@ -25,3 +25,19 @@ form{
         margin-bottom: 8px ;
     }
 }
+.drop-image {
+    width: 120px;
+    height: 120px !important;
+    border-radius: 50% !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden;
+    justify-content: center;
+    align-items: center;
+  }
+  .eye-icon {
+    position: absolute;
+    right: 3%;
+     transform: translateY(-160%);
+    cursor: pointer;
+    // z-index: 99;
+  }
