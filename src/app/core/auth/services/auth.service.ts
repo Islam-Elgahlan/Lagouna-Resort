@@ -33,7 +33,11 @@ export class AuthService {
   login(data:any):Observable<any>{
     return this._httpClient.post('admin/users/login' , data)
   }
+
   handleRegister(data:any):Observable<any>{
 return this._httpClient.post('portal/users',data)
+  }
+  handleForget(data:string):Observable<any>{
+return this._httpClient.post('portal/users/forgot-password',data)
   }
 }

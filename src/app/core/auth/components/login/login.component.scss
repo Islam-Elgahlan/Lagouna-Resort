@@ -12,8 +12,13 @@ section{
                 font-size: 18px;
                 line-height: 1.5;
                 a{
-                    color: $color-primary;
+                    color: $color-secondary;
                     font-weight: 600;
+                }
+            }
+            form{
+                a{
+                    color: $color-tertiary;
                 }
             }
         }
