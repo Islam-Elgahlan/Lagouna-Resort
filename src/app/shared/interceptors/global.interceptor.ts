@@ -17,7 +17,7 @@ export class GlobalInterceptor implements HttpInterceptor {
     const baseUrl:string='http://upskilling-egypt.com:3000/api/v0/';
     let newHeaders={};
     if (token!==null) {
-      newHeaders ={"Authorization":`Bearer ${token}`}
+      newHeaders ={"Authorization":token}
     }
     let cloned =request.clone({
       setHeaders:newHeaders,url:baseUrl + request.url
