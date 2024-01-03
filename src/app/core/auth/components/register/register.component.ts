@@ -15,7 +15,7 @@ export class RegisterComponent {
     country: new FormControl(null, [Validators.required, Validators.pattern(/^[a-zA-Z]{2,20}$/)]),
     phoneNumber: new FormControl(null, [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)]),
     password: new FormControl(null, [Validators.required, Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/)]),
-    profileImage: new FormControl(null),
+    confirmPassword: new FormControl(null, [Validators.required]),
     role: new FormControl('user'),
 
   }, { validators: this.creatConfirmation })
