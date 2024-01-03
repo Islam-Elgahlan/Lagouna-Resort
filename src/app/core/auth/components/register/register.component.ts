@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +13,9 @@ import { AuthService } from '../../services/auth.service';
 export class RegisterComponent {
   imgSrc:any;
   files: File[] = [];
-  constructor(private _authService:AuthService){}
+  constructor(private _authService:AuthService,
+    private _ToastrService :ToastrService,
+    private _Router :Router,){}
   registerForm= new FormGroup({
     userName:new FormControl(null,[Validators.required,Validators.pattern(/^[a-zA-z]{3,10}[0-9]{1,5}$/)]),
       email:new FormControl(null,[Validators.required,Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),
@@ -57,7 +61,8 @@ if (pswrd?.value == confirmPswrd?.value) {
   },error:(err)=>{
 
   },complete:()=> {
-    
+    this._ToastrService.success('Account built successfully')
+this._Router.navigate(['/auth/login'])
   },
 })
     
