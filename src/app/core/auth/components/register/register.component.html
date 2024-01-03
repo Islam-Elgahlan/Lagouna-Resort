@@ -114,7 +114,7 @@
                   </div>
                   <div class="alert alert-danger p-1" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.status == 'INVALID'">
                     <p class="mb-0" *ngIf="registerForm.get('email')?.getError('required')">Email is required</p>
-                    <p class="mb-0" *ngIf="registerForm.get('email')?.getError('pattern')">Ex: test@ bbb.nn</p>
+                    <p class="mb-0" *ngIf="registerForm.get('email')?.getError('pattern')">Ex: test@bbb.nn</p>
                 </div>
                 </div>
                 <div class="col-md-12 position-relative">
@@ -153,8 +153,8 @@
                     <p class="mb-0" *ngIf="registerForm.get('confirmPassword')?.getError('invalid')">Not Match</p>
                 </div>
                 </div>
-                <div class="col-md-6 mx-auto">
-                  <button class="main-btn w-100">Register</button>
+                <div class="col-md-12 ">
+                  <button class="main-btn w-100">Sign Up</button>
                 </div>
               </div>
             </form>
