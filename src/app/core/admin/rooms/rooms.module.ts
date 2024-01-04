@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RoomsComponent } from './rooms.component';
-import { RouterModule, Routes } from '@angular/router';
-  
-const routes:Routes=[
-  {path:'',component:RoomsComponent}
-]
+
+import { RoomsRoutingModule } from './rooms-routing.module';
+import { RoomsHomeComponent } from './components/rooms-home/rooms-home.component';
+import { AddEditViewRoomsComponent } from './components/add-edit-view-rooms/add-edit-view-rooms.component';
+
+
 @NgModule({
+  declarations: [
+    RoomsHomeComponent,
+    AddEditViewRoomsComponent
+  ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
-    
-  ],
-  declarations: [RoomsComponent]
+    RoomsRoutingModule
+  ]
 })
 export class RoomsModule { }

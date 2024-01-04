@@ -39,32 +39,32 @@ export class SidebarComponent {
     {
       icon: 'fa-solid fa-house fs-4',
       title: 'home',
-      link: '/admin/dashboard/home',
+      link: '/admin/dashboard/dashboard/home',
       isActive: true,
     },
     {
       icon: 'fa-solid fa-user-group fs-4',
       title: 'Users',
-      link: '/admin/dashboard/users',
+      link: '/admin/dashboard/dashboard/users',
       isActive: true,
     },
     {
       icon:'fa-solid fa-cubes-stacked fs-4',
       title: 'Rooms',
-      link: '/admin/dashboard/rooms',
+      link: '/admin/dashboard/dashboard/rooms',
       isActive: true,
     },
 
     {
       icon: 'fa-brands fa-buysellads fs-4',
       title: 'Ads',
-      link: '/admin/dashboard/ads',
+      link: '/admin/dashboard/dashboard/ads',
       isActive: true,
     },
     {
       icon: 'fa-solid fa-users fs-4',
       title: 'Bookings',
-      link: '/admin/dashboard/bookings',
+      link: '/admin/dashboard/dashboard/bookings',
       isActive: true,
     },
     {
