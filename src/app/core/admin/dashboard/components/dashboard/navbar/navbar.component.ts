@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  userName:string=''
+constructor(){
+  this.getUserName()
+}
 
+getUserName(){
+this.userName=localStorage.getItem('userName')!
+}
 }

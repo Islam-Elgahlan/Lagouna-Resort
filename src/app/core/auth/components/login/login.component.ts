@@ -22,9 +22,12 @@ export class LoginComponent {
   onLogin(data:FormGroup){
     console.log(data.value)
     this._AuthService.login(data.value).subscribe((res)=>{
+      console.log(res);
+      
       localStorage.setItem('userToken', res.data.token);
 
       localStorage.setItem('role', res.data.user.role);
+      localStorage.setItem('userName', res.data.user.userName);
       // console.log(res.data.user.role);
       this._ToastrService.success(res.data.user.userName , 'message')
 
