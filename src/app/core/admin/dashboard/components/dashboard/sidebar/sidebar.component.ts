@@ -43,7 +43,7 @@ export class SidebarComponent {
       isActive: true,
     },
     {
-      icon: 'fa-solid fa-user fs-4',
+      icon: 'fa-solid fa-user-group fs-4',
       title: 'Users',
       link: '/admin/dashboard/users',
       isActive: true,
