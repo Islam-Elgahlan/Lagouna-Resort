@@ -24,11 +24,18 @@
                         
                       </mat-select>
                     </mat-form-field>
-                    <!-- <select class="form-select form-control" id="multiple-select-field" formControlName="faclities" data-placeholder="Choose anything" multiple>
+                    <!-- <select class="form-select form-control" [multiple]="true"  formControlName="faclities" data-placeholder="Choose anything" multiple>
                         <option value="" >Faclities</option>
                         <option value="{{facility._id}}" *ngFor="let facility of facilities">{{facility.name}}</option>
                   
-                    </select> -->
+                    </select>
+                    <select [multiple]="true">
+                        <option>Select all</option>
+                        <option *ngFor="let option of facilities" [value]="option._id">{{
+                          option.name
+                        }}</option>
+                      </select> -->
+                     
                 </div>
                 <div class="col-md-12">
                     <div >
