@@ -92,4 +92,5 @@ constructor(private _RoomsService:RoomsService,private _ActivatedRoute:Activated
     
     this.files.splice(this.files.indexOf(event), 1);
   }
+
 }
