@@ -4,11 +4,11 @@ import { Observable } from 'rxjs';
 import { IRoom } from '../interfaces/rooms';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RoomsService {
 
-  constructor(private _HttpClient:HttpClient) { }
+  constructor(private _HttpClient: HttpClient) {}
 
   addRoom(data:any):Observable<any>{
     return this._HttpClient.post('admin/rooms',data)
@@ -16,5 +16,8 @@ export class RoomsService {
 
   getFacilities():Observable<any>{
     return this._HttpClient.get('admin/room-facilities')
+  }
+  onGetRooms(data: any): Observable<any> {
+    return this._HttpClient.get('admin/rooms',{params:data})
   }
 }
