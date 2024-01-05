@@ -1,0 +1,23 @@
+.custom-table {
+  width: 100%;
+  margin: 0p 15px;
+  margin: 0;
+
+  thead {
+    font-size: 17px;
+    height: 60px;
+    background-color: #e2e5eb;
+    color: black;
+    text-align: center;
+    th{
+    font-weight: 400;
+        
+    }
+  }
+  tr {
+    text-align: center;
+    &:hover {
+      box-shadow: 2px 4px 10px #5c5959;
+    }
+  }
+}
