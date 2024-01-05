@@ -51,11 +51,16 @@ constructor(private _RoomsService:RoomsService,private _ActivatedRoute:Activated
   onSubmit(data:FormGroup){
    let mydata=new FormData;
    let myMap = new Map(Object.entries(data.value))
-   for (const [key,value] of myMap) {
-    mydata.append(key,data.value[key])
-    console.log(key,data.value[key]);
+   mydata.append('roomNumber',data.value.roomNumber),
+   mydata.append('price',data.value.price),
+   mydata.append('discount',data.value.discount),
+   mydata.append('capacity',data.value.capacity),
+   mydata.append('facilities',JSON.stringify(data.value.facilities)),
+  //  for (const [key,value] of myMap) {
+  //   mydata.append(key,data.value[key])
+  //   console.log(key,data.value[key]);
     
-   }
+  //  }
    console.log(mydata);
    
    if (this.imgSrc == null) {
