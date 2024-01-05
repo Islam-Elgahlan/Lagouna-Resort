@@ -9,15 +9,16 @@
     background-color: #e2e5eb;
     color: black;
     text-align: center;
-    th{
-    font-weight: 400;
-        
+    th {
+      font-weight: 400;
     }
   }
   tr {
+    transition: all 0.5 s;
     text-align: center;
+    height: 50px;
     &:hover {
-      box-shadow: 2px 4px 10px #5c5959;
+      box-shadow: 2px 2px 10px #aaa3a3;
     }
   }
 }
