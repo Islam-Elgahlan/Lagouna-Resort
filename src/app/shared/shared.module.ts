@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import {MatIconModule} from '@angular/material/icon';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 
@@ -15,9 +15,10 @@ import {MatInputModule} from '@angular/material/input';
     FormsModule,
     NgxDropzoneModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatPaginatorModule
     
   ],
-  exports: [ReactiveFormsModule,FormsModule,NgxDropzoneModule,MatIconModule,MatButtonModule]
+  exports: [ReactiveFormsModule,FormsModule,NgxDropzoneModule,MatIconModule,MatButtonModule,MatPaginatorModule]
 })
 export class SharedModule { }
