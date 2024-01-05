@@ -2,25 +2,40 @@
     <div class="container h-100">
 <div class="row mt-5">
     <div class="col-md-9 mx-auto">
-        <form action="">
+        <form action="" [formGroup]="roomForm" (submit)="onSubmit(roomForm)">
             <div class="row">
                 <div class="col-md-12">
-                    <input type="number" class="form-control" placeholder="Room Number">
+                    <input type="number" class="form-control" placeholder="Room Number" formControlName="roomNumber">
                 </div>
                 <div class="col-md-6">
-                    <input type="number" class="form-control" placeholder="Price">
+                    <input type="number" class="form-control" placeholder="Price" formControlName="price">
                 </div>
                 <div class="col-md-6">
-                    <input type="number" class="form-control"placeholder="Capacity">
+                    <input type="number" class="form-control"placeholder="Capacity" formControlName="capacity">
                 </div>
                 <div class="col-md-6">
-                    <input type="number" class="form-control"placeholder="Discount">
+                    <input type="number" class="form-control"placeholder="Discount" formControlName="discount">
                 </div>
                 <div class="col-md-6">
-                    <select name="facilities" id="" class="form-control">
-                        <option value="">Faclities</option>
+                    <mat-form-field appearance="outline" class="w-100" [hideRequiredMarker]="hideRequiredMarker">
+                    <mat-select  multiple  formControlName="facilities">
+                         
+                          <mat-option [value]="facility._id" *ngFor="let facility of facilities">{{facility.name}}</mat-option>
+                        
+                      </mat-select>
+                    </mat-form-field>
+                    <!-- <select class="form-select form-control" [multiple]="true"  formControlName="faclities" data-placeholder="Choose anything" multiple>
+                        <option value="" >Faclities</option>
+                        <option value="{{facility._id}}" *ngFor="let facility of facilities">{{facility.name}}</option>
+                  
                     </select>
-                    
+                    <select [multiple]="true">
+                        <option>Select all</option>
+                        <option *ngFor="let option of facilities" [value]="option._id">{{
+                          option.name
+                        }}</option>
+                      </select> -->
+                     
                 </div>
                 <div class="col-md-12">
                     <div >
