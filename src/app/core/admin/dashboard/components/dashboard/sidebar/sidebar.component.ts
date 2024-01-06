@@ -69,10 +69,17 @@ export class SidebarComponent {
     },
     {
       icon: 'fa-solid fa-layer-group fs-4',
+      title: 'Facilities',
+      link: '/admin/dashboard/change',
+      isActive: true,
+    },
+    {
+      icon: 'fa-solid fa-layer-group fs-4',
       title: 'Change Password',
       link: '/admin/dashboard/change',
       isActive: true,
     },
+    
     {
       icon: 'fa-solid fa-right-from-bracket fs-4',
       title: 'Logout',
