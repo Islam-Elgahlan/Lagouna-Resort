@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class FacilitiesHomeComponent implements OnInit {
   tableData: any;
   constructor(
-    private _Facilities: FacilitiesService,
+    private _FacilitiesService: FacilitiesService,
     public dialog: MatDialog,
     private _toastr: ToastrService
   ) {}
@@ -21,7 +21,7 @@ export class FacilitiesHomeComponent implements OnInit {
   }
 
   getAllFacilities() {
-    this._Facilities.getAllFacilities().subscribe({
+    this._FacilitiesService.getAllFacilities().subscribe({
       next: (res) => {
         console.log(res.data.facilities);
         this.tableData = res.data.facilities;
@@ -47,7 +47,7 @@ export class FacilitiesHomeComponent implements OnInit {
     });
   }
   deleteItem(id: string) {
-    this._Facilities.deleteFacility(id).subscribe({
+    this._FacilitiesService.deleteFacility(id).subscribe({
       next: (res) => {
         console.log(res);
       },
