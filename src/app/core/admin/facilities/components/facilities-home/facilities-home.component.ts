@@ -85,7 +85,7 @@ onEditFacility(data:any ,id:number) {
 
 
   
-  openDelDialog(data: any) {
+  openDeleteDialog(data: any) {
     // console.log(data);
 
     const dialogRef = this._MatDialog.open(DeleteItemComponent, {
