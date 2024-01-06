@@ -29,15 +29,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   exports: [ReactiveFormsModule,FormsModule,NgxDropzoneModule,MatIconModule,MatButtonModule,MatSelectModule,MatPaginatorModule,MatFormFieldModule]
 
 
-  exports: [
-    ReactiveFormsModule,
-    FormsModule,
-    NgxDropzoneModule,
-    MatIconModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatPaginatorModule,
-    MatFormFieldModule,
-  ],
+ 
 })
 export class SharedModule {}
