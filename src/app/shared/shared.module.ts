@@ -8,9 +8,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MaterialModule } from './material/material/material.module';
+import { DeleteItemComponent } from './delete-item/delete-item.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    DeleteItemComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -22,11 +26,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatPaginatorModule,
     MatSelectModule,
     MatFormFieldModule,
+    MaterialModule
   ],
 
   
   
-  exports: [ReactiveFormsModule,FormsModule,NgxDropzoneModule,MatIconModule,MatButtonModule,MatSelectModule,MatPaginatorModule,MatFormFieldModule]
+  exports: [MaterialModule,ReactiveFormsModule,FormsModule,NgxDropzoneModule,MatIconModule,MatButtonModule,MatSelectModule,MatPaginatorModule,MatFormFieldModule]
 
 
  
