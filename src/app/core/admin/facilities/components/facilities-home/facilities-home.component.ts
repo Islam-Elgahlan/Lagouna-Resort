@@ -8,13 +8,13 @@ import { FacilitiesService } from '../../services/facilities.service';
 })
 export class FacilitiesHomeComponent implements OnInit{
 tableData:any;
-constructor(private _Facilities:FacilitiesService,){}
+constructor(private _FacilitiesService:FacilitiesService,){}
   ngOnInit(): void {
     this.getAllFacilities()
   }
  
 getAllFacilities(){
-  this._Facilities.getAllFacilities().subscribe({
+  this._FacilitiesService.getAllFacilities().subscribe({
     next:(res)=>{
       console.log(res.data.facilities);
       this.tableData=res.data.facilities
