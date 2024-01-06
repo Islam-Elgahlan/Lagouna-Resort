@@ -18,10 +18,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     NgxDropzoneModule,
     MatIconModule,
     MatButtonModule,
+
     MatPaginatorModule,
     MatSelectModule,
     MatFormFieldModule,
   ],
+
+  
+  
+  exports: [ReactiveFormsModule,FormsModule,NgxDropzoneModule,MatIconModule,MatButtonModule,MatSelectModule,MatPaginatorModule,MatFormFieldModule]
+
 
   exports: [
     ReactiveFormsModule,
