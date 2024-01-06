@@ -12,7 +12,7 @@ export class FacilitiesService {
 
   
 
-  getFacilities():Observable<any>{
+  getAllFacilities():Observable<any>{
     return this._HttpClient.get('admin/room-facilities')
   }
 }

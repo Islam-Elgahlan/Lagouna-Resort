@@ -22,15 +22,11 @@
             *ngFor="let item of tableData; let isEven = even"
             [class]="isEven ? '' : 'bg-secondary-subtle'"
           >
-            <td>{{ item.roomNumber }}</td>
+            <td>{{item.name}}</td>
             <td class="py-3">
-              <img
-                [src]="'http://upskilling-egypt.com:3000/' + item.images[0]"
-                class="img-fluid"
-                alt=""
-              />
+                {{item.createdBy?.userName}}
             </td>
-            <td>{{ item.price }}</td>
+            <td>{{item.createdAt}}</td>
             
             
             <td class="taxt-center">
