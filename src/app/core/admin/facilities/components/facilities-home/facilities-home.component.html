@@ -1,11 +1,10 @@
-
 <section>
     <div class="container py-3">
       <div class="page-header">
         <h2>Rooms Table Details</h2>
         <span class="text-muted">You can check all details</span>
         <div class="col-md-3 ms-auto text-end">
-          <button class="main-btn px-4" (click)="openDialog()">Add New Room</button>
+          <button class="main-btn px-4" (click)="openAddDialogue()">Add New Room</button>
         </div>
       </div>
     </div>
@@ -47,7 +46,7 @@
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item pointer py-2" [routerLink]="'/admin/dashboard/dashboard/rooms/addeditview/'+item._id"
+                    <a class="dropdown-item pointer py-2" (click)="onEditDialog(item.id)"
                       ><span
                         ><i class="fa-regular fa-pen-to-square blue px-2"></i
                       ></span>
