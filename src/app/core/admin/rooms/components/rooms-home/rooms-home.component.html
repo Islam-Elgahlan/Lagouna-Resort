@@ -3,6 +3,9 @@
     <div class="page-header">
       <h2>Rooms Table Details</h2>
       <span class="text-muted">You can check all details</span>
+      <div class="col-md-3 ms-auto text-end">
+        <button class="main-btn px-4">Add New Room</button>
+      </div>
     </div>
 
     <!-- <div>
@@ -24,6 +27,7 @@
         <th>Price</th>
         <th>Discount</th>
         <th>Capacity</th>
+        <th></th>
       </thead>
       <tbody>
         <tr
@@ -41,6 +45,40 @@
           <td>{{ item.price }}</td>
           <td>{{ item.discount }}</td>
           <td>{{ item.capacity }}</td>
+          <td class="taxt-center">
+            <div class="dropdown">
+              <a
+                class="dropdown-toggle text-muted"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-ellipsis fa-2x"></i>
+              </a>
+
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item pointer"
+                    ><span><i class="fa-solid fa-eye blue px-2"></i></span> view
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item pointer py-2"
+                    ><span
+                      ><i class="fa-regular fa-pen-to-square blue px-2"></i
+                    ></span>
+                    Edit
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item pointer"
+                    ><span><i class="fa-solid fa-trash blue px-2"></i></span>
+                    Delete
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>
