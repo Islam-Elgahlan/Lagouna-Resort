@@ -26,5 +26,8 @@ export class RoomsService {
   updateRoom(id:string,data:any):Observable<any>{
     return this._HttpClient.put(`admin/rooms/${id}`,data)
   }
+  deleteRoom(id:string):Observable<any>{
+    return this._HttpClient.delete(`admin/rooms/${id}`)
+  }
   
 }
