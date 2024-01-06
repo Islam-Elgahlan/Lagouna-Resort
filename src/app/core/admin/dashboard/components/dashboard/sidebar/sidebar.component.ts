@@ -70,7 +70,7 @@ export class SidebarComponent {
     {
       icon: 'fa-solid fa-layer-group fs-4',
       title: 'Facilities',
-      link: '/admin/dashboard/change',
+      link: '/admin/dashboard/dashboard/facilities',
       isActive: true,
     },
     {
