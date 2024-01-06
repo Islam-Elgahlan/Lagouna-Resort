@@ -11,13 +11,14 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./add-edit-view-rooms.component.scss']
 })
 export class AddEditViewRoomsComponent implements OnInit{
-  files: File[] = [];
+files: File[] = [];
 imgSrc:any;
 roomId:string='';
 hideRequiredMarker:boolean=true;
 facilities:IFacilities[]=[]
 isUpdatePge:boolean=false;
 roomData:any;
+fac:[] = [];
 constructor(private _RoomsService:RoomsService,private _ActivatedRoute:ActivatedRoute, private _ToastrService :ToastrService,
   private _Router :Router){
 this.roomId=_ActivatedRoute.snapshot.params['id']
@@ -62,19 +63,20 @@ if (this.roomId) {
 
 
   onSubmit(data:FormGroup){
-   let mydata=new FormData;
-   let myMap = new Map(Object.entries(data.value))
-   mydata.append('roomNumber',data.value.roomNumber),
-   mydata.append('price',data.value.price),
-   mydata.append('discount',data.value.discount),
-   mydata.append('capacity',data.value.capacity),
-   mydata.append('facilities',data.value.facilities[0]),
-   mydata.append('facilities',data.value.facilities[1])
-  //  for (const [key,value] of myMap) {
-  //   mydata.append(key,data.value[key])
-  //   console.log(key,data.value[key]);
-    
-  //  }
+    let facc = data.value.facilities
+   console.log(facc);
+   let mydata=new FormData();
+   let myMap = Object.entries(data.value)
+
+   myMap.forEach(([key,value]:any) => {
+    if (key == 'facilities' ) {
+      value = facc
+          mydata.append(key , value)
+        }else{
+          mydata.append(key,data.value[key])
+        }
+   });
+  
   
    if (this.imgSrc == null) {
     // No Action
