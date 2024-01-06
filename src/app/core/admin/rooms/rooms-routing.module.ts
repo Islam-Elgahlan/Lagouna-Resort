@@ -7,6 +7,7 @@ const routes: Routes = [
   {path:'',redirectTo:'roomsHome',pathMatch:'full'},
   {path:'roomsHome',component:RoomsHomeComponent},
   {path:'addeditview',component:AddEditViewRoomsComponent},
+  {path:'addeditview/:id',component:AddEditViewRoomsComponent},
 ];
 
 @NgModule({
