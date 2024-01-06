@@ -20,4 +20,7 @@ export class RoomsService {
   onGetRooms(data: any): Observable<any> {
     return this._HttpClient.get('admin/rooms',{params:data})
   }
+  getRoombyId(id:string):Observable<any>{
+    return this._HttpClient.get(`admin/rooms/${id}`)
+  }
 }

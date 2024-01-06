@@ -12,11 +12,21 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddEditViewRoomsComponent implements OnInit{
   files: File[] = [];
-imgSrc:any
+imgSrc:any;
+roomId:string='';
 hideRequiredMarker:boolean=true;
 facilities:IFacilities[]=[]
+isUpdatePge:boolean=false;
 constructor(private _RoomsService:RoomsService,private _ActivatedRoute:ActivatedRoute, private _ToastrService :ToastrService,
-  private _Router :Router){}
+  private _Router :Router){
+this.roomId=_ActivatedRoute.snapshot.params['id']
+if (this.roomId) {
+  this.isUpdatePge=true;
+  this.getRoomById(this.roomId)
+}else{
+  this.isUpdatePge=false
+}
+  }
   ngOnInit(): void {
     this.getAllFaclities()
   }
@@ -55,14 +65,14 @@ constructor(private _RoomsService:RoomsService,private _ActivatedRoute:Activated
    mydata.append('price',data.value.price),
    mydata.append('discount',data.value.discount),
    mydata.append('capacity',data.value.capacity),
-   mydata.append('facilities',JSON.stringify(data.value.facilities)),
+   mydata.append('facilities',data.value.facilities[0]),
+   mydata.append('facilities',data.value.facilities[1])
   //  for (const [key,value] of myMap) {
   //   mydata.append(key,data.value[key])
   //   console.log(key,data.value[key]);
     
   //  }
-   console.log(mydata);
-   
+  
    if (this.imgSrc == null) {
     // No Action
   } else {
@@ -74,13 +84,26 @@ constructor(private _RoomsService:RoomsService,private _ActivatedRoute:Activated
   this._RoomsService.addRoom(mydata).subscribe({
     next:(res)=>{
       console.log(res);
-      
+      this._ToastrService.success(res.message)
     },error:(err)=>{
 
     },complete:()=> {
-      
+      this._Router.navigate(['/admin/dashboard/dashboard/rooms/roomsHome'])
     },
   })
+  }
+
+  getRoomById(id:string){
+    this._RoomsService.getRoombyId(id).subscribe({
+      next:(res)=>{
+        console.log(res);
+        
+      },error:(err)=>{
+  
+      },complete:()=> {
+        
+      },
+    })
   }
   onSelect(event: any) {
     
