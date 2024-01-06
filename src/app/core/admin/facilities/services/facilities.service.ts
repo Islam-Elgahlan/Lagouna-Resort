@@ -15,4 +15,10 @@ export class FacilitiesService {
   getAllFacilities():Observable<any>{
     return this._HttpClient.get('admin/room-facilities')
   }
+  addFacility(data:any):Observable<any>{
+    return this._HttpClient.post('admin/room-facilities' , {name: data})
+  }
+  updateFacility(data:any , id:number):Observable<any>{
+    return this._HttpClient.put(`admin/room-facilities/${id}` , {name: data});
+  }
 }
