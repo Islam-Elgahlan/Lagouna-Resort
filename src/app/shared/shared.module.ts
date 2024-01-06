@@ -10,10 +10,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MaterialModule } from './material/material/material.module';
 import { DeleteItemComponent } from './delete-item/delete-item.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
-    DeleteItemComponent
+    DeleteItemComponent,
+    LogoutComponent
   ],
   imports: [
     CommonModule,

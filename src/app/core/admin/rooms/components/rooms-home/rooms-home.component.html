@@ -4,7 +4,7 @@
       <h2>Rooms Table Details</h2>
       <span class="text-muted">You can check all details</span>
       <div class="col-md-3 ms-auto text-end">
-        <button class="main-btn px-4" routerLink="/admin/dashboard/dashboard/rooms/addeditview">Add New Room</button>
+        <button class="main-btn px-4" routerLink="addeditview">Add New Room</button>
       </div>
     </div>
 
@@ -22,8 +22,9 @@
 
     <table class="custom-table my-3">
       <thead class="text-capitalize">
+        
         <th>Room No.</th>
-        <th>Image</th>
+        <th >Image</th>
         <th>Price</th>
         <th>Discount</th>
         <th>Capacity</th>
@@ -34,14 +35,17 @@
           *ngFor="let item of tableData; let isEven = even"
           [class]="isEven ? '' : 'bg-secondary-subtle'"
         >
+        
           <td>{{ item.roomNumber }}</td>
-          <td class="py-3">
-            <img
-              [src]="'http://upskilling-egypt.com:3000/' + item.images[0]"
-              class="img-fluid"
-              alt=""
-            />
-          </td>
+          <td class="d-flex justify-content-center ">
+            <div class="table-img">
+             <img crossorigin="anonymous" 
+             [src]="'http://upskilling-egypt.com:3000/' + item.images[0]"
+             
+             alt=""
+           />
+            </div>
+           </td>
           <td>{{ item.price }}</td>
           <td>{{ item.discount }}</td>
           <td>{{ item.capacity }}</td>
@@ -63,7 +67,7 @@
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item pointer py-2" [routerLink]="'/admin/dashboard/dashboard/rooms/addeditview/'+item._id"
+                  <a class="dropdown-item pointer py-2" [routerLink]="'addeditview/'+item._id"
                     ><span
                       ><i class="fa-regular fa-pen-to-square blue px-2"></i
                     ></span>

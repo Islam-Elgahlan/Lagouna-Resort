@@ -31,7 +31,7 @@ export class LoginComponent {
       // console.log(res.data.user.role);
       this._ToastrService.success(res.data.user.userName , 'message')
 
-      this._Router.navigate(['/admin/dashboard'])
+      this._Router.navigate(['/admin'])
 
     },(error)=>{
       this._ToastrService.error(error.error.message , 'error')

@@ -23,9 +23,10 @@
           >
             <td>{{item.name}}</td>
             <td class="py-3">
-                {{item.createdBy?.userName}}
+               <span *ngIf="item.createdBy">{{item.createdBy?.userName}}</span> 
+               <span *ngIf="!item.createdBy">Admin</span> 
             </td>
-            <td>{{item.createdAt}}</td>
+            <td>{{item.createdAt | date:'dd MM yyyy'}}</td>
             
             
             <td class="taxt-center">

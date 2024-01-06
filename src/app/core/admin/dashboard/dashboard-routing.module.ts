@@ -4,10 +4,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'dashboard',pathMatch:'full'},
-  {path:'dashboard',component:DashboardComponent,children:[
+  {path:'',redirectTo:'DashboardComponent',pathMatch:'full'},
+  {path:'',component:DashboardComponent,children:[
     {path:'',redirectTo:'home' ,pathMatch:'full'},
-    {path:'home',component:HomeComponent},
+    {path:'',component:HomeComponent},
     
     {
       path:"users",loadChildren: () => import('../users/users.module').then(m => m.UsersModule)

@@ -1,0 +1,18 @@
+<section class="logout">
+    <h2 mat-dialog-title class="w-100 p-3 text-white fw-normal">
+      Are you sure you want to logout?
+    </h2>
+  
+    <div mat-dialog-actions class="d-flex justify-content-between">
+      <button
+        (click)="onLogout()"
+        class="btn danger-btn"
+        
+      >
+        Yes
+      </button>
+      <button class="btn  white-btn"  (click)="onNoClick()">
+        Cancel
+      </button>
+    </div>
+  </section>

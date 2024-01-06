@@ -5,7 +5,7 @@
                 <div class="profile pointer" >
                     <div class="profile-img" >
                         <!-- <img *ngIf="userName.imagePath"  [src]="'https://upskilling-egypt.com/'+user.imagePath" alt=""> -->
-                        <img  src="../../../../../../../assets/images/reset-bg.png" alt="" >
+                        <img   src="../../../../../../../assets/images/reset-bg.png" alt="" >
                     </div>
                     <span class="text-success ps-2">{{userName}}</span>
                    <div class="dropdown">
@@ -13,9 +13,9 @@
     
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <li><button class="dropdown-item" type="button">Action</button></li>
-    <li><button class="dropdown-item" type="button">Another action</button></li>
-    <li><button class="dropdown-item" type="button">Something else here</button></li>
+    <li><button class="dropdown-item" type="button">Profile</button></li>
+    <li><button class="dropdown-item" type="button">Change Password</button></li>
+    <li><button class="dropdown-item" type="button" (click)="openLogOutDialogue()">Logout</button></li>
   </ul>
 </div>
                 </div>

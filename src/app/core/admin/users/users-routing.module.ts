@@ -5,7 +5,7 @@ import { AddEditViewUserComponent } from './components/add-edit-view-user/add-ed
 
 const routes: Routes = [
   {path:'',redirectTo:'usersHome',pathMatch:'full'},
-  {path:'usersHome',component:UsersHomeComponent},
+  {path:'',component:UsersHomeComponent},
   {path:'addeditview',component:AddEditViewUserComponent},
 ];
 
