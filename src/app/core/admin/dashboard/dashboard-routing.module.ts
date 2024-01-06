@@ -21,6 +21,9 @@ const routes: Routes = [
       {
         path:"rooms",loadChildren: () => import('../ads/ads.module').then(m => m.AdsModule)
         },
+      {
+        path:"facilities",loadChildren: () => import('../facilities/facilities.module').then(m => m.FacilitiesModule)
+        },
   ]},
 ];
 
