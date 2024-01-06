@@ -1,69 +1,76 @@
-
 <section>
-    <div class="container py-3">
-      <div class="page-header">
-        <h2>Rooms Table Details</h2>
-        <span class="text-muted">You can check all details</span>
-        <div class="col-md-3 ms-auto text-end">
-          <button class="main-btn px-4" routerLink="/admin/dashboard/dashboard/facilities/addeditview">Add New Room</button>
-        </div>
+  <div class="container py-3">
+    <div class="page-header">
+      <h2>Rooms Table Details</h2>
+      <span class="text-muted">You can check all details</span>
+      <div class="col-md-3 ms-auto text-end">
+        <button
+          class="main-btn px-4"
+          routerLink="/admin/dashboard/dashboard/facilities/addeditview"
+        >
+          Add New Room
+        </button>
       </div>
     </div>
-    <table class="custom-table my-3">
-        <thead class="text-capitalize">
-          <th>Facility.</th>
-          <th>Created By</th>
-          <th>Creaded At</th>
-         
-          <th></th>
-        </thead>
-        <tbody>
-          <tr
-            *ngFor="let item of tableData; let isEven = even"
-            [class]="isEven ? '' : 'bg-secondary-subtle'"
-          >
-            <td>{{item.name}}</td>
-            <td class="py-3">
-                {{item.createdBy?.userName}}
-            </td>
-            <td>{{item.createdAt}}</td>
-            
-            
-            <td class="taxt-center">
-              <div class="dropdown">
-                <a
-                  class="dropdown-toggle text-muted"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i class="fa-solid fa-ellipsis fa-2x"></i>
+  </div>
+  <table class="custom-table my-3">
+    <thead class="text-capitalize">
+      <th>Facility.</th>
+      <th>Created By</th>
+      <th>Creaded At</th>
+
+      <th></th>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let item of tableData; let isEven = even"
+        [class]="isEven ? '' : 'bg-secondary-subtle'"
+      >
+        <td>{{ item.name }}</td>
+        <td class="py-3">
+          {{ item.createdBy?.userName }}
+        </td>
+        <td>{{ item.createdAt }}</td>
+
+        <td class="taxt-center">
+          <div class="dropdown">
+            <a
+              class="dropdown-toggle text-muted"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fa-solid fa-ellipsis fa-2x"></i>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item pointer"
+                  ><span><i class="fa-solid fa-eye blue px-2"></i></span> view
                 </a>
-  
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item pointer"
-                      ><span><i class="fa-solid fa-eye blue px-2"></i></span> view
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item pointer py-2" [routerLink]="'/admin/dashboard/dashboard/rooms/addeditview/'+item._id"
-                      ><span
-                        ><i class="fa-regular fa-pen-to-square blue px-2"></i
-                      ></span>
-                      Edit
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item pointer" 
-                      ><span><i class="fa-solid fa-trash blue px-2"></i></span>
-                      Delete
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item pointer py-2"
+                  [routerLink]="
+                    '/admin/dashboard/dashboard/rooms/addeditview/' + item._id
+                  "
+                  ><span
+                    ><i class="fa-regular fa-pen-to-square blue px-2"></i
+                  ></span>
+                  Edit
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item pointer" (click)="openAddDialog(item)"
+                  ><span><i class="fa-solid fa-trash blue px-2"></i></span>
+                  Delete
+                </a>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
