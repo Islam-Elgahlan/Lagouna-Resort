@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./facilities-home.component.scss']
 })
 export class FacilitiesHomeComponent {
-
+tableData:any;
 }
