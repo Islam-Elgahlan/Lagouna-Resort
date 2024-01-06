@@ -4,7 +4,7 @@
       <h2>Rooms Table Details</h2>
       <span class="text-muted">You can check all details</span>
       <div class="col-md-3 ms-auto text-end">
-        <button class="main-btn px-4">Add New Room</button>
+        <button class="main-btn px-4" routerLink="/admin/dashboard/dashboard/rooms/addeditview">Add New Room</button>
       </div>
     </div>
 
@@ -63,7 +63,7 @@
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item pointer py-2"
+                  <a class="dropdown-item pointer py-2" [routerLink]="'/admin/dashboard/dashboard/rooms/addeditview/'+item._id"
                     ><span
                       ><i class="fa-regular fa-pen-to-square blue px-2"></i
                     ></span>

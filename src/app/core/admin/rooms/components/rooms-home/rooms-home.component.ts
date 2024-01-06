@@ -10,7 +10,7 @@ import { RoomsService } from '../../services/rooms.service';
 export class RoomsHomeComponent {
   view: boolean = true;
   pageIndex: number = 0;
-  pageSize: number = 5;
+  pageSize: number = 15;
   pageNumber: number | undefined = 1;
   tableResponse: any;
   tableData: any[] = [];

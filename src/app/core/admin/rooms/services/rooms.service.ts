@@ -23,4 +23,8 @@ export class RoomsService {
   getRoombyId(id:string):Observable<any>{
     return this._HttpClient.get(`admin/rooms/${id}`)
   }
+  updateRoom(id:string,data:any):Observable<any>{
+    return this._HttpClient.put(`admin/rooms/${id}`,data)
+  }
+  
 }

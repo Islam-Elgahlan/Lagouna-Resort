@@ -17,9 +17,12 @@ roomId:string='';
 hideRequiredMarker:boolean=true;
 facilities:IFacilities[]=[]
 isUpdatePge:boolean=false;
+roomData:any;
 constructor(private _RoomsService:RoomsService,private _ActivatedRoute:ActivatedRoute, private _ToastrService :ToastrService,
   private _Router :Router){
 this.roomId=_ActivatedRoute.snapshot.params['id']
+console.log(this.roomId);
+
 if (this.roomId) {
   this.isUpdatePge=true;
   this.getRoomById(this.roomId)
@@ -80,28 +83,53 @@ if (this.roomId) {
   }
 
   console.log(mydata);
+  if (this.roomId) {
+    this._RoomsService.updateRoom(this.roomId,mydata).subscribe({
+      next:(res)=>{
+        console.log(res);
+        this._ToastrService.success(res.message)
+      },error:(err)=>{
+        this._ToastrService.error(err.message)
+      },complete:()=> {
+        this._Router.navigate(['/admin/dashboard/dashboard/rooms/roomsHome'])
+      },
+    })
+  } else {
+    this._RoomsService.addRoom(mydata).subscribe({
+      next:(res)=>{
+        console.log(res);
+        this._ToastrService.success(res.message)
+      },error:(err)=>{
   
-  this._RoomsService.addRoom(mydata).subscribe({
-    next:(res)=>{
-      console.log(res);
-      this._ToastrService.success(res.message)
-    },error:(err)=>{
-
-    },complete:()=> {
-      this._Router.navigate(['/admin/dashboard/dashboard/rooms/roomsHome'])
-    },
-  })
+      },complete:()=> {
+        this._Router.navigate(['/admin/dashboard/dashboard/rooms/roomsHome'])
+      },
+    })
+  }
+ 
   }
 
   getRoomById(id:string){
     this._RoomsService.getRoombyId(id).subscribe({
       next:(res)=>{
-        console.log(res);
-        
+        console.log(res.data.room);
+        this.roomData=res.data.room
       },error:(err)=>{
   
       },complete:()=> {
-        
+        this.imgSrc='http://upskilling-egypt.com/'+ this.roomData.images
+        this.roomForm.patchValue(
+          {
+            roomNumber:this.roomData.roomNumber,
+            price:this.roomData.price,
+            discount:this.roomData.discount,
+            capacity:this.roomData.capacity,
+            facilities:this.roomData.facilities
+            
+
+          }
+        )
+
       },
     })
   }
