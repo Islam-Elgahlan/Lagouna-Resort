@@ -2,10 +2,11 @@
 section{
     background-color: $color-blue;
     color: white;
-    width: 243px;
-    height: 100vh;
-    // min-height: 90vh;
-    
+    // width: 243px;
+    height: 100%;
+    min-height: 90vh;
+    position: relative;
+
    
     a{
         display: block;
@@ -31,24 +32,24 @@ section{
         }
     }
 
-    // .toggle-btn{
-    //     background-color: #ef9b28;
-    //     border-radius: 8px 0  0px 8px;
-    //     padding: 10px 5px;
-    //     position: absolute;
-    //     right: 0;
+    .toggle-btn{
+        background-color: #ef9b28;
+        border-radius: 8px 0  0px 8px;
+        padding: 10px 5px;
+        position: absolute;
+        right: 0;
        
-    // }
-    // .reverse-btn{
-    //      background-color: #ef9b28;
-    //     border-radius: 8px 0  0px 8px;
-    //     padding: 10px 5px;
-    //     transform: scale(-1.1);
-    //      z-index: 5555;
-    //      position: absolute;
-    //     left:100%
+    }
+    .reverse-btn{
+         background-color: #ef9b28;
+        border-radius: 8px 0  0px 8px;
+        padding: 10px 5px;
+        transform: scale(-1.1);
+         z-index: 5555;
+         position: absolute;
+        left:100%
         
-    // }
+    }
 }
 
 .active{

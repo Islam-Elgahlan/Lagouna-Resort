@@ -1,11 +1,11 @@
 <section class="">
   <div class="py-4">
-    <!-- <button
+    <button
       (click)="toggleSidebar()"
       [ngClass]="isOpened ? 'toggle-btn' : 'reverse-btn'"
     >
       <i class="fa-solid fa-angle-left"></i>
-    </button> -->
+    </button>
   </div>
   <div [ngClass]="isOpened ? 'text-start' : 'text-center'">
     <ng-container *ngFor="let item of menu">
