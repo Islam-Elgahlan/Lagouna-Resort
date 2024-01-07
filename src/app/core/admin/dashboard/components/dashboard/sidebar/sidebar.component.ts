@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 interface Imenu {
   title: string;
   icon: string;
@@ -11,29 +11,15 @@ interface Imenu {
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
-  isOpened: boolean = true;
+  @Output() isOpenedflag = new EventEmitter<boolean>();
+   isOpened:boolean=true;
   toggleSidebar(){
     this.isOpened=!this.isOpened;
 
-    // this.isOpenedflag.emit(this.isOpened)
+    this.isOpenedflag.emit(this.isOpened)
   }
 
-  isManager(): boolean {
-    // if (this._auth.role == 'Manager') {
-    //   return this._auth.role == 'Manager'
-    // }else{
-    //   return false
-    // }
-    return true;
-  }
-  isEmployee(): boolean {
-    // if (this._auth.role == 'Employee') {
-    //   return true
-    // }else{
-    //   return false
-    // }
-    return true;
-  }
+ 
 
   menu: Imenu[] = [
     {
