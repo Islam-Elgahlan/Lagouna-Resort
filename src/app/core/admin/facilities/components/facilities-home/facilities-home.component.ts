@@ -17,74 +17,67 @@ export class FacilitiesHomeComponent implements OnInit {
     private _FacilitiesService: FacilitiesService,
     public _MatDialog: MatDialog,
     private _toastr: ToastrService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getAllFacilities();
   }
- 
-getAllFacilities(){
-  this._FacilitiesService.getAllFacilities().subscribe({
-    next:(res)=>{
-      console.log(res.data.facilities);
-      this.tableData=res.data.facilities
-    },error:(err)=>{
 
-    },complete:()=> {
-      
-    },
-  })
-}
+  getAllFacilities() {
+    this._FacilitiesService.getAllFacilities().subscribe({
+      next: (res) => {
+        console.log(res.data.facilities);
+        this.tableData = res.data.facilities
+      }, error: (err) => {
+
+      }, complete: () => {
+
+      },
+    })
+  }
 
 
+  openAddDialogue(): void {
+    const dialogRef = this._MatDialog.open(AddeditviewFacilityComponent, {
+      data: {},
+      width: '40%',
+    });
 
-openAddDialogue(): void {
-  const dialogRef = this._MatDialog.open(AddeditviewFacilityComponent, {
-    data: {},
-    width: '40%',
-  });
-
-  dialogRef.afterClosed().subscribe(result => {
-    console.log(result);
-    if (result) {
-      this.onAddFacility(result)
-    
-    }
-  });
-}
-onAddFacility(data: string) {
-  this._FacilitiesService.addFacility(data).subscribe((res) => {
-this.getAllFacilities()
-    console.log(res)
-  })
-}
-
-onEditDialog(data: any): void {
-  const dialogRef = this._MatDialog.open(AddeditviewFacilityComponent, {
-    data: {data},
-    width: '40%',
-  
-  });
-  // console.log(categoryData.id)
-  dialogRef.afterClosed().subscribe(result => {
-    console.log(data.id);
-    if (result) {
+    dialogRef.afterClosed().subscribe(result => {
       console.log(result);
+      if (result) {
+        this.onAddFacility(result)
+      }
+    });
+  }
+  onAddFacility(data: string) {
+      this._FacilitiesService.addFacility(data).subscribe((res) => {
+      this.getAllFacilities()
+    })
+  }
 
-      this.onEditFacility(result ,data.id)
-      // this.getTableData()
-    }
-  });
-}
+  onEditDialog(data: any): void {
+    const dialogRef = this._MatDialog.open(AddeditviewFacilityComponent, {
+      data: { data },
+      width: '40%',
 
-onEditFacility(data:any ,id:number) {
-  this._FacilitiesService.updateFacility(data , id).subscribe((res) => {
-    // this.getTableData()
-    // console.log(res)
-  })
-}
+    });
+    dialogRef.afterClosed().subscribe(result => {
 
+      if (result) {
+        this.onEditFacility(result, data._id)
+      }
+    });
+  }
 
-  
+  onEditFacility(data: any, id: number) {
+    this._FacilitiesService.updateFacility(data, id).subscribe((res) => {
+      this._toastr.success('Facility  Updated', 'Success');
+      this.getAllFacilities()
+    }, (error) => {
+      this._toastr.error(error, 'Failed');
+    })
+  }
+
   openDeleteDialog(data: any) {
     // console.log(data);
 
@@ -109,7 +102,7 @@ onEditFacility(data:any ,id:number) {
         this._toastr.error('Try Again');
       },
       complete: () => {
-        this._toastr.success('Room deleted Successfully');
+        this._toastr.success('Facility deleted Successfully');
         this.getAllFacilities();
       },
     });
