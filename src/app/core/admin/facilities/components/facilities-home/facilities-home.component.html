@@ -1,11 +1,11 @@
 <section>
     <div class="container py-3">
       <div class="page-header">
-        <h2>Rooms Table Details</h2>
-        <span class="text-muted">You can check all details</span>
-        <div class="col-md-3 ms-auto text-end">
+        <h2>Room Facilities Table Details</h2>
+        <span class="text-muted">You can check all details here!</span>
+        <!-- <div class="col-md-3 ms-auto text-end">
           <button class="main-btn px-4" (click)="openAddDialogue()">Add New Room</button>
-        </div>
+        </div> -->
       </div>
     </div>
     <table class="custom-table my-3">
@@ -41,22 +41,18 @@
                 </a>
   
                 <ul class="dropdown-menu">
+                 
                   <li>
-                    <a class="dropdown-item pointer"
-                      ><span><i class="fa-solid fa-eye blue px-2"></i></span> view
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item pointer py-2" (click)="onEditDialog(item)"
+                    <a class="dropdown-item pointer py-2 blue" (click)="onEditDialog(item)"
                       ><span
-                        ><i class="fa-regular fa-pen-to-square blue px-2"></i
+                        ><i class="fa-regular fa-pen-to-square  px-2"></i
                       ></span>
                       Edit
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item pointer" (click)="openDeleteDialog(item)"
-                      ><span><i class="fa-solid fa-trash blue px-2"></i></span>
+                    <a class="dropdown-item pointer blue" (click)="openDeleteDialog(item)"
+                      ><span><i class="fa-solid fa-trash  px-2"></i></span>
                       Delete
                     </a>
                   </li>

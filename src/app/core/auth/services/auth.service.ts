@@ -39,9 +39,12 @@ export class AuthService {
 
   onResetPassword(data: any): Observable<any> {
     return this._httpClient.post('portal/users/reset-password', data);
-
   }
-  handleForget(data:string):Observable<any>{
-return this._httpClient.post('portal/users/forgot-password',data)
+
+  onChangePassword(data: any): Observable<any> {
+    return this._httpClient.post('portal/users/change-password', data);
+  }
+  handleForget(data: string): Observable<any> {
+    return this._httpClient.post('portal/users/forgot-password', data);
   }
 }
