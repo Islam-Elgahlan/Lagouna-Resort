@@ -51,7 +51,7 @@
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item pointer py-2" [routerLink]="'/admin/dashboard/dashboard/rooms/addeditview/'+item._id"
+                    <a class="dropdown-item pointer py-2" (click)="onEditDialog(item)"
                       ><span
                         ><i class="fa-regular fa-pen-to-square blue px-2"></i
                       ></span>
