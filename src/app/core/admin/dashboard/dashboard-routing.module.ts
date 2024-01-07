@@ -7,7 +7,7 @@ const routes: Routes = [
   {path:'',redirectTo:'DashboardComponent',pathMatch:'full'},
   {path:'',component:DashboardComponent,children:[
     {path:'',redirectTo:'home' ,pathMatch:'full'},
-    {path:'',component:HomeComponent},
+    {path:'home',component:HomeComponent},
     
     {
       path:"users",loadChildren: () => import('../users/users.module').then(m => m.UsersModule)
