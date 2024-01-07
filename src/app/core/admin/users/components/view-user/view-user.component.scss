@@ -1,0 +1,30 @@
+@import "../../../../../../assets/styles/abstracts/variables";
+section{
+    .row{
+       background-color: $color-blue; 
+       border-radius: 15px;
+       box-shadow: 1px 1px  10px #c3c7c651;
+        .user-image{
+            img{
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                border: $color-blue solid 1px;
+                box-shadow: 1px 1px  10px #c3c7c651;
+            }
+        }
+        .user-content{
+           
+            h2{
+                color: #EF9B28;
+                margin: 15px 0;
+                span{
+                    color: #fff;
+                    font-size: 20px;
+                    margin-right: 2px;
+                }
+            }
+        }
+    }
+  
+}

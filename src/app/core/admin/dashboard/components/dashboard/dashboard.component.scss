@@ -1,3 +1,6 @@
-.row>div{
-    transition: all 1s;
+section{
+    height: 100vh;
+    .row>div{
+        transition: all 1s;
+    }
 }

@@ -12,4 +12,7 @@ export class UsersService {
   getAllUsers(data:any):Observable<any>{
     return this._HttpClient.get('admin/users' , {params:data})
   }
+  getUserProfile(id:string):Observable<any>{
+return this._HttpClient.get(`admin/users/${id}`)
+  }
 }
