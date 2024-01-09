@@ -1,0 +1,40 @@
+<section class="mt-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class=" col-md-9 mx-auto ">
+   
+                <form [formGroup]="adsForm" (submit)="onSubmit(adsForm)">
+                    <div class="input-group mb-3 my-4" >
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
+                        <select class="form-select form-control" aria-label="Default select example" formControlName="room" >
+                            <option [ngValue]="null" selected disabled hidden>Select Room Number</option>
+                            <option [value]="room._id" *ngFor="let room of rooms">{{room.roomNumber}}</option>
+                            
+                            
+                          </select>
+                    </div>
+                    <div class="input-group mb-3 my-4">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
+                        <input   type="number"  class="form-control" placeholder="Discount" formControlName="discount">
+                      </div>
+                    <div class="input-group mb-3 my-4">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
+                        <select class="form-select form-control" aria-label="Default select example" formControlName="isActive" >
+                            <option [ngValue]="null" selected disabled hidden>Is Active</option>
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                            
+                          </select>
+                      </div>
+                      <div class="text-end">
+                    <button type="button"   class="sec-btn"  >Cancel</button>
+
+                    <button type="submit"   class="blue-btn" [disabled]="adsForm.invalid" >Save</button>
+
+                      </div>
+                </form>
+                    
+             </div>
+        </div>
+    </div>
+</section>

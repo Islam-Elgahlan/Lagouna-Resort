@@ -12,4 +12,11 @@ export class AdsService {
   getAllAds(): Observable<any> {
     return this._HttpClient.get('admin/ads');
   }
+  addAds(data:any): Observable<any> {
+    return this._HttpClient.post('admin/ads',data);
+  }
+  updateAds(id:string,data:any): Observable<any> {
+    return this._HttpClient.put(`admin/ads/${id}`,data);
+  }
+ 
 }

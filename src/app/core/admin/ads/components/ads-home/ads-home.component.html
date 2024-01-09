@@ -3,14 +3,15 @@
       <div class="page-header">
         <h2>Room Facilities Table Details</h2>
         <span class="text-muted">You can check all details here!</span>
-        <!-- <div class="col-md-3 ms-auto text-end">
-          <button class="main-btn px-4" (click)="openAddDialogue()">Add New Room</button>
-        </div> -->
+        <div class="col-md-3 ms-auto text-end">
+          <button class="main-btn px-4" routerLink="addAds">Add New Ads</button>
+        </div>
       </div>
     </div>
     <table class="custom-table my-3">
         <thead class="text-capitalize">
           <th>Room</th>
+          <th>Discount</th>
           <th>Created By</th>
           <th>Created At</th>
           <th>Is Active</th>
@@ -22,8 +23,11 @@
             *ngFor="let item of adsData; let isEven = even"
             [class]="isEven ? '' : 'bg-secondary-subtle'"
           >
-            <td><span *ngIf="item.room">{{item.room}}</span>
-                <span *ngIf="!item.room">---</span></td>
+            <td><span *ngIf="item.room">{{item.room.roomNumber}}</span>
+                <span *ngIf="!item.room?.roomNumber">---</span></td>
+            <td><span *ngIf="item.room">{{item.room.discount}}</span>
+                <span *ngIf="!item.room?.discount">---</span></td>
+                
             <td class="py-3">
                <span *ngIf="item.createdBy">{{item.createdBy.userName}}</span> 
                <span *ngIf="!item.createdBy">Admin</span> 
@@ -44,9 +48,16 @@
                 </a>
   
                 <ul class="dropdown-menu">
-                 
+                    <li>
+                        <a class="dropdown-item pointer py-2 blue" (click)="openViewDialog(item)"
+                          ><span
+                            ><i class="fa-regular fa-pen-to-square  px-2"></i
+                          ></span>
+                          View
+                        </a>
+                      </li>
                   <li>
-                    <a class="dropdown-item pointer py-2 blue" 
+                    <a class="dropdown-item pointer py-2 blue" (click)="openViewDialog(item)"
                       ><span
                         ><i class="fa-regular fa-pen-to-square  px-2"></i
                       ></span>

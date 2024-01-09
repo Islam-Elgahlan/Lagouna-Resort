@@ -1,0 +1,25 @@
+<div class=" my-card ">
+    <h2 class="d-flex align-items-center justify-content-between">
+        <span>Ads</span>
+        <span (click)="onNoClick()" routerLink="/admin/dashboard/ads"><i  class="pointer fa-regular fa-circle-xmark text-danger "></i></span>
+    </h2>
+    <form [formGroup]="editForm" (submit)="onSubmit(editForm)">
+        
+        <div class="input-group mb-3 my-4">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
+            <input   type="number"  class="form-control" placeholder="Discount" formControlName="discount">
+          </div>
+        <div class="input-group mb-3 my-4">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
+            <select class="form-select form-control" aria-label="Default select example" placeholder="Is Active"formControlName="isActive" >
+                <option value="true">True</option>
+                <option value="false">False</option>
+                
+              </select>
+          </div>
+        <button type="submit"  cdkFocusInitial class="btn btn-primary w-100"[disabled]="editForm.invalid" >Save</button>
+    </form>
+        
+ </div>
+ <!-- [(ngModel)]="data.data.name"
+ [mat-dialog-close]="data.data.name || facility" -->
