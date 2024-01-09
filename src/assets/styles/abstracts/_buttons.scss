@@ -66,3 +66,6 @@
 button:active{
 transform: translateY(2px);
 }
+button:disabled{
+    background-color: rgb(120, 142, 240);
+}

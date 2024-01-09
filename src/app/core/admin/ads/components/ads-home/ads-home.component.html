@@ -25,7 +25,7 @@
           >
             <td><span *ngIf="item.room">{{item.room.roomNumber}}</span>
                 <span *ngIf="!item.room?.roomNumber">---</span></td>
-            <td><span *ngIf="item.room">{{item.room.discount}}</span>
+            <td><span *ngIf="item.room?.discount">{{item.room.discount}}</span>
                 <span *ngIf="!item.room?.discount">---</span></td>
                 
             <td class="py-3">

@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { DeleteItemComponent } from 'src/app/shared/delete-item/delete-item.component';
 import { AddEditViewComponent } from '../edit-view/add-edit-view.component';
+import { ViewAdsComponent } from '../view-ads/view-ads.component';
 
 ToastrService;
 @Component({
@@ -53,7 +54,7 @@ openEditDialog(data:any){
   });
 }
 openViewDialog(data:any){
-  const dialogRef = this.dialog.open(AddEditViewComponent, {
+  const dialogRef = this.dialog.open(ViewAdsComponent, {
     data: data,
     width: '30%'
   });

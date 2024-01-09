@@ -27,9 +27,9 @@ export class AddEditViewComponent implements OnInit{
       console.log(data);
       this.roomId=data?._id
       
-      if(this.roomId){
+      
       this.getAdsbyId(data)
-      }
+      
       
      }
 ngOnInit(): void {
@@ -64,7 +64,7 @@ editForm=new FormGroup({
      getAdsbyId(data:any){
       this.editForm.patchValue({
         
-        discount:data.room.discount,
+        discount:data.room?.discount,
         isActive:data.isActive
       })
      }

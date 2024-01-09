@@ -23,4 +23,10 @@ export class BookingsHomeComponent implements OnInit {
       complete: () => {},
     });
   }
+  onViewDialog(item:any){
+
+  }
+  onDeleteDialog(item:any){
+
+  }
 }
