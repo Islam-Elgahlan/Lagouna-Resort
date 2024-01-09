@@ -12,4 +12,8 @@ export class AdsService {
   getAllAds(): Observable<any> {
     return this._HttpClient.get('admin/ads');
   }
+
+  deleteAd(id:string):Observable<any>{
+    return this._HttpClient.delete(`admin/ads/${id}`)
+  }
 }
