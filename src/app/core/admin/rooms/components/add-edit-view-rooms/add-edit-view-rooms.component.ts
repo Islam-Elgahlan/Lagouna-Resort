@@ -91,7 +91,7 @@ if (this.roomId) {
       },error:(err)=>{
         this._ToastrService.error(err.message)
       },complete:()=> {
-        this._Router.navigate(['/admin/dashboard/dashboard/rooms/roomsHome'])
+        this._Router.navigate(['/admin/dashboard/rooms'])
       },
     })
   } else {
@@ -102,7 +102,7 @@ if (this.roomId) {
       },error:(err)=>{
   
       },complete:()=> {
-        this._Router.navigate(['/admin/dashboard/dashboard/rooms/roomsHome'])
+        this._Router.navigate(['/admin/dashboard/rooms'])
       },
     })
   }

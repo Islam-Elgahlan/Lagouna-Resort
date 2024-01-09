@@ -19,6 +19,9 @@ const routes: Routes = [
         path:"bookings",loadChildren: () => import('../bookings/bookings.module').then(m => m.BookingsModule)
         },
       {
+        path:"ads",loadChildren: () => import('../ads/ads.module').then(m => m.AdsModule)
+        },
+      {
         path:"rooms",loadChildren: () => import('../ads/ads.module').then(m => m.AdsModule)
         },
       {
