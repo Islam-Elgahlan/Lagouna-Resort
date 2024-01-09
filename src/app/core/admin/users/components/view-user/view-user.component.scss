@@ -1,7 +1,8 @@
 @import "../../../../../../assets/styles/abstracts/variables";
 section{
     .row{
-       background-color: $color-blue; 
+
+       background-color:rgb(199, 211, 237); 
        border-radius: 15px;
        box-shadow: 1px 1px  10px #c3c7c651;
         .user-image{
@@ -14,17 +15,26 @@ section{
             }
         }
         .user-content{
-           
+    
             h2{
-                color: #EF9B28;
-                margin: 15px 0;
+                color: $color-primary;
+
+                font-weight: 400;
+                font-size: 18px;
+                margin: 10px 0;
                 span{
-                    color: #fff;
+                color: $color-blue;
+
                     font-size: 20px;
+                    font-weight: 500;
+                    padding: 0px 5px;
                     margin-right: 2px;
                 }
             }
         }
     }
-  
+  button{
+    color: $color-primary;
+
+  }
 }

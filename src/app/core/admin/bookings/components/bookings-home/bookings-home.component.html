@@ -1,1 +1,40 @@
-<p>bookings-home works!</p>
+<section>
+    <div class="container py-3">
+      <div class="page-header">
+        <h2>Booking Table Details</h2>
+        <span class="text-muted">You can check all details here!</span>
+        <!-- <div class="col-md-3 ms-auto text-end">
+          <button class="main-btn px-4" (click)="openAddDialogue()">Add New Room</button>
+        </div> -->
+      </div>
+    </div>
+    <table class="custom-table my-3">
+        <thead class="text-capitalize">
+          <th>Room No.</th>
+          <th>Price</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>User</th>
+          <th>View</th>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let item of tableData; let isEven = even"
+            [class]="isEven ? '' : 'bg-secondary-subtle'"
+          >
+            <td>{{item.room}}</td>
+            <td class="py-3">
+               <span > {{item.totalPrice}} </span> 
+            </td>
+            <td>{{item.startDate | date:'dd-MM-yyyy'}}</td>
+            <td>{{item.endDate | date:'dd-MM-yyyy'}}</td>
+            <td>{{item.user}}</td>
+
+            
+            <td class="taxt-center">
+                <a href="" [routerLink]="'view/'+item._id" class=""><i class="fa-solid fa-eye px-2"></i></a>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>

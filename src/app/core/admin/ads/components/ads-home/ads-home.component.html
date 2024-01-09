@@ -57,7 +57,7 @@
                         </a>
                       </li>
                   <li>
-                    <a class="dropdown-item pointer py-2 blue" (click)="openViewDialog(item)"
+                    <a class="dropdown-item pointer py-2 blue" (click)="openEditDialog(item)"
                       ><span
                         ><i class="fa-regular fa-pen-to-square  px-2"></i
                       ></span>
@@ -65,7 +65,7 @@
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item pointer blue" 
+                    <a class="dropdown-item pointer blue" (click)="openDeleteDialog(item)"
                       ><span><i class="fa-solid fa-trash  px-2"></i></span>
                       Delete
                     </a>
@@ -77,3 +77,4 @@
         </tbody>
       </table>
     </section>
+ 
