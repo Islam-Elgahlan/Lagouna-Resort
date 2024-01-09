@@ -15,24 +15,54 @@
           <th>Start Date</th>
           <th>End Date</th>
           <th>User</th>
-          <th>View</th>
+          <th>Actions</th>
         </thead>
         <tbody>
           <tr
             *ngFor="let item of tableData; let isEven = even"
             [class]="isEven ? '' : 'bg-secondary-subtle'"
           >
-            <td>{{item.room}}</td>
+            <td><span *ngIf="item.room">{{item.room}}</span>
+              <span *ngIf="!item.room">---</span>
+            </td>
             <td class="py-3">
                <span > {{item.totalPrice}} </span> 
             </td>
             <td>{{item.startDate | date:'dd-MM-yyyy'}}</td>
             <td>{{item.endDate | date:'dd-MM-yyyy'}}</td>
-            <td>{{item.user}}</td>
+            <td><span *ngIf="item.user">{{item.user}}</span>
+              <span *ngIf="!item.user">---</span></td>
 
             
             <td class="taxt-center">
-                <a href="" [routerLink]="'view/'+item._id" class=""><i class="fa-solid fa-eye px-2"></i></a>
+              <div class="dropdown">
+                <a
+                  class="dropdown-toggle text-muted"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa-solid fa-ellipsis fa-2x"></i>
+                </a>
+  
+                <ul class="dropdown-menu">
+                 
+                  <li>
+                    <a class="dropdown-item pointer py-2 blue" (click)="onViewDialog(item)"
+                      ><span
+                        ><i class="fa-regular fa-eye  px-2"></i
+                      ></span>
+                      View
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item pointer blue" (click)="onDeleteDialog(item)"
+                      ><span><i class="fa-solid fa-trash  px-2"></i></span>
+                      Delete
+                    </a>
+                  </li>
+                </ul>
+              </div>
               </td>
           </tr>
         </tbody>

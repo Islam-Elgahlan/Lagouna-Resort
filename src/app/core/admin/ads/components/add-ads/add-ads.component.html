@@ -15,7 +15,7 @@
                     </div>
                     <div class="input-group mb-3 my-4">
                         <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
-                        <input   type="number"  class="form-control" placeholder="Discount" formControlName="discount">
+                        <input   type="number"  class="form-control mb-0" placeholder="Discount" formControlName="discount">
                       </div>
                     <div class="input-group mb-3 my-4">
                         <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
@@ -27,7 +27,7 @@
                           </select>
                       </div>
                       <div class="text-end">
-                    <button type="button"   class="sec-btn"  >Cancel</button>
+                    <button type="button"   class="sec-btn" routerLink="/admin/dashboard/ads" >Cancel</button>
 
                     <button type="submit"   class="blue-btn" [disabled]="adsForm.invalid" >Save</button>
 
