@@ -26,12 +26,17 @@
         
           <td>{{ item.roomNumber }}</td>
           <td class="d-flex justify-content-center ">
-            <div class="table-img">
-             <img crossorigin="anonymous" 
+            <div class="m-auto" *ngIf="!item.images[0]">
+              <span>No Image</span>
+            </div>
+            
+            <div class="table-img" *ngIf="item.images[0]">
+             <img  crossorigin="anonymous" 
              [src]="'http://upskilling-egypt.com:3000/' + item.images[0]"
              
              alt=""
            />
+           
             </div>
            </td>
           <td>{{ item.price }}</td>

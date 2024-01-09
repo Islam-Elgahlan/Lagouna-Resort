@@ -64,12 +64,15 @@ if (this.roomId) {
   onSubmit(data:FormGroup){
    let mydata=new FormData;
    let myMap = new Map(Object.entries(data.value))
+   for (const f of data.value.facilities) {
+    mydata.append('facilities', f);
+  }
    mydata.append('roomNumber',data.value.roomNumber),
    mydata.append('price',data.value.price),
    mydata.append('discount',data.value.discount),
-   mydata.append('capacity',data.value.capacity),
-   mydata.append('facilities',data.value.facilities[0]),
-   mydata.append('facilities',data.value.facilities[1])
+   mydata.append('capacity',data.value.capacity);
+   
+  
   //  for (const [key,value] of myMap) {
   //   mydata.append(key,data.value[key])
   //   console.log(key,data.value[key]);
