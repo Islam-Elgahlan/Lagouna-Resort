@@ -3,7 +3,6 @@ import { FacilitiesService } from '../../services/facilities.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteItemComponent } from 'src/app/shared/delete-item/delete-item.component';
 import { ToastrService } from 'ngx-toastr';
-
 import { AddeditviewFacilityComponent } from '../addeditview-facility/addeditview-facility.component';
 
 @Component({

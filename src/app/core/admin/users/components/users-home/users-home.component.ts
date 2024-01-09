@@ -14,7 +14,6 @@ export class UsersHomeComponent {
   pageNumber: number | undefined = 1;
   tableResponse: any;
   tableData: any[] = [];
-
   constructor(
     private _toastr: ToastrService,
     private _UsersService: UsersService,

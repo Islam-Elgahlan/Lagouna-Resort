@@ -1,68 +1,74 @@
 <section>
-    <div class="container py-3">
-      <div class="page-header">
-        <h2>Room Facilities Table Details</h2>
-        <span class="text-muted">You can check all details here!</span>
-        <!-- <div class="col-md-3 ms-auto text-end">
+  <div class="container py-3">
+    <div class="page-header">
+      <h2>Room Facilities Table Details</h2>
+      <span class="text-muted">You can check all details here!</span>
+      <!-- <div class="col-md-3 ms-auto text-end">
           <button class="main-btn px-4" (click)="openAddDialogue()">Add New Room</button>
         </div> -->
-      </div>
     </div>
-    <table class="custom-table my-3">
-        <thead class="text-capitalize">
-          <th>Room</th>
-          <th>Created By</th>
-          <th>Created At</th>
-          <th>Is Active</th>
-         
-          <th>Actions</th>
-        </thead>
-        <tbody>
-          <tr
-            *ngFor="let item of adsData; let isEven = even"
-            [class]="isEven ? '' : 'bg-secondary-subtle'"
+  </div>
+  <table class="custom-table my-3">
+    <thead class="text-capitalize">
+      <th>Room</th>
+      <th>Created By</th>
+      <th>Created At</th>
+      <th>Is Active</th>
+
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let item of adsData; let isEven = even"
+        [class]="isEven ? '' : 'bg-secondary-subtle'"
+      >
+        <td>
+          <span *ngIf="item.room">{{ item.room }}</span>
+          <span *ngIf="!item.room">---</span>
+        </td>
+        <td class="py-3">
+          <span *ngIf="item.createdBy">{{ item.createdBy.userName }}</span>
+          <span *ngIf="!item.createdBy">Admin</span>
+        </td>
+        <td>{{ item.createdAt | date : "dd-MM-yyyy" }}</td>
+        <td>
+          <span
+            class="status"
+            [class]="item.isActive ? 'active' : 'notActive'"
+            >{{ item.isActive ? "Active" : "NotActive" }}</span
           >
-            <td><span *ngIf="item.room">{{item.room}}</span>
-                <span *ngIf="!item.room">---</span></td>
-            <td class="py-3">
-               <span *ngIf="item.createdBy">{{item.createdBy.userName}}</span> 
-               <span *ngIf="!item.createdBy">Admin</span> 
-            </td>
-            <td>{{item.createdAt | date:'dd-MM-yyyy'}}</td>
-            <td><span class="status" [class]="item.isActive?'active':'notActive'">{{item.isActive?'Active':'NotActive'}}</span></td>
-            
-            
-            <td class="taxt-center">
-              <div class="dropdown">
-                <a
-                  class="dropdown-toggle text-muted"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i class="fa-solid fa-ellipsis fa-2x"></i>
+        </td>
+
+        <td class="taxt-center">
+          <div class="dropdown">
+            <a
+              class="dropdown-toggle text-muted"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fa-solid fa-ellipsis fa-2x"></i>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item pointer py-2 blue"
+                  ><span><i class="fa-regular fa-pen-to-square px-2"></i></span>
+                  Edit
                 </a>
-  
-                <ul class="dropdown-menu">
-                 
-                  <li>
-                    <a class="dropdown-item pointer py-2 blue" 
-                      ><span
-                        ><i class="fa-regular fa-pen-to-square  px-2"></i
-                      ></span>
-                      Edit
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item pointer blue" 
-                      ><span><i class="fa-solid fa-trash  px-2"></i></span>
-                      Delete
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item pointer blue"
+                  (click)="openDeleteDialog(item)"
+                  ><span><i class="fa-solid fa-trash px-2"></i></span>
+                  Delete
+                </a>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
