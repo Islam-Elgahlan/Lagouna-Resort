@@ -4,7 +4,7 @@
         <span class="pointer" (click)="onNoClick()" routerLink="/admin/dashboard/facilities"><i  class="fa-regular fa-circle-xmark text-danger "></i></span>
     </h2>
         <div class="input-group mb-3 my-4">
-            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-wifi"></i></span>
             <input [(ngModel)]="data.data.name"  type="text"  class="form-control" placeholder="Facility name" >
           </div>
         <button [mat-dialog-close]="data.data.name || facility" cdkFocusInitial class="btn btn-primary my-2 w-100">Save</button>
