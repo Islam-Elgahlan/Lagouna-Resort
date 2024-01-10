@@ -9,8 +9,8 @@ export class AdsService {
 
   constructor(private _HttpClient: HttpClient) {}
 
-  getAllAds(): Observable<any> {
-    return this._HttpClient.get('admin/ads');
+  getAllAds(data:any): Observable<any> {
+    return this._HttpClient.get('admin/ads', {params:data});
   }
   addAds(data:any): Observable<any> {
     return this._HttpClient.post('admin/ads',data);

@@ -20,7 +20,7 @@
         </thead>
         <tbody>
           <tr
-            *ngFor="let item of adsData; let isEven = even"
+            *ngFor="let item of tableData; let isEven = even"
             [class]="isEven ? '' : 'bg-secondary-subtle'"
           >
             <td><span *ngIf="item.room">{{item.room.roomNumber}}</span>
@@ -76,5 +76,16 @@
           </tr>
         </tbody>
       </table>
+      <div class="">
+        <mat-paginator
+          [length]="tableResponse?.totalCount"
+          [pageSizeOptions]="[5, 10, 50, 100]"
+          [pageSize]="tableResponse?.pageSize"
+          (page)="handlePageEvent($event)"
+          [pageIndex]="pageIndex"
+          aria-label="Select page"
+        >
+        </mat-paginator>
+      </div>
     </section>
  

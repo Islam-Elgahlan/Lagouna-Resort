@@ -31,10 +31,10 @@ export class UsersHomeComponent {
 
     this._UsersService.getAllUsers(param).subscribe({
       next: (res) => {
-        console.log(res);
+        // console.log(res);
         this.tableResponse = res.data;
         this.tableData = res.data.users;
-        console.log(this.tableData);
+        // console.log(this.tableData);
 
       },
       error: (err) => {
