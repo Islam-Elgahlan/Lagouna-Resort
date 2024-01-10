@@ -17,7 +17,12 @@ ToastrService;
   styleUrls: ['./ads-home.component.scss'],
 })
 export class AdsHomeComponent {
-adsData!:Ads[]
+  pageIndex: number = 0;
+  pageSize: number = 5;
+  pageNumber: number | undefined = 1;
+  tableResponse: any;
+  tableData: any[] = [];
+  
 constructor(private _AdsService:AdsService,
   private _toastr: ToastrService,
   public dialog:MatDialog){
@@ -26,10 +31,16 @@ this.getAllAds()
  
 
   getAllAds() {
-    this._AdsService.getAllAds().subscribe({
+    let param = {
+      size: this.pageSize,
+      page: this.pageNumber,
+    }
+    this._AdsService.getAllAds(param).subscribe({
       next: (res) => {
-        console.log(res.data.ads);
-        this.adsData = res.data.ads;
+        // console.log(res.data.ads);
+        // this.adsData = res.data.ads;
+        this.tableResponse = res.data;
+        this.tableData = res.data.ads;
       },
       error: (err) => {},
       complete: () => {},
@@ -94,5 +105,10 @@ openViewDialog(data:any){
         this.getAllAds();
       },
     });
+  }
+  handlePageEvent(e: any) {
+    this.pageSize = e.pageSize;
+    this.pageNumber = e.pageIndex + 1;
+    this.getAllAds();
   }
 }
