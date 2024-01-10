@@ -1,1 +1,30 @@
-<p>view-booking works!</p>
+<div class=" my-card ">
+    <h2 class="d-flex align-items-center justify-content-between">
+        <span>Bookings</span>
+        <span class="pointer" (click)="onNoClick()" routerLink="/admin/dashboard/ads"><i  class=" fa-regular fa-circle-xmark text-danger "></i></span>
+    </h2>
+    <form [formGroup]="viewForm">
+        <div class="input-group mb-3 my-4" >
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
+            <input   type="text"  class="form-control mb-0 "  formControlName="roomNumber">
+
+        </div>
+        <div class="input-group mb-3 my-4">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
+            <input   type="number"  class="form-control mb-0"  formControlName="price">
+          </div>
+        <div class="input-group mb-3 my-4">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
+            <input   type="text"  class="form-control mb-0"  formControlName="startDate">
+           
+          </div>
+        <div class="input-group mb-3 my-4">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
+            <input   type="text"  class="form-control mb-0"  formControlName="endDate">
+           
+          </div>
+         
+    </form>
+        
+ </div>
+

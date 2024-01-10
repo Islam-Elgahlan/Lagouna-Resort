@@ -3,6 +3,7 @@ import { BookingsService } from '../../services/bookings.service';
 import { DeleteItemComponent } from 'src/app/shared/delete-item/delete-item.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { ViewBookingComponent } from '../view-booking/view-booking.component';
 
 @Component({
   selector: 'app-bookings-home',
@@ -28,8 +29,16 @@ export class BookingsHomeComponent implements OnInit {
       complete: () => {},
     });
   }
-  onViewDialog(item:any){
-
+  onViewDialog(data:any){
+    const dialogRef = this.dialog.open(ViewBookingComponent, {
+      data: data,
+      width: '30%'
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    
+    });
   }
   openDeleteDialog(data: any) {
     const dialogRef = this.dialog.open(DeleteItemComponent, {

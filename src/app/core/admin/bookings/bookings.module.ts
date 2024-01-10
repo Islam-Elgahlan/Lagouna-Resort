@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BookingsRoutingModule } from './bookings-routing.module';
 import { BookingsHomeComponent } from './components/bookings-home/bookings-home.component';
 import { ViewBookingComponent } from './components/view-booking/view-booking.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ViewBookingComponent } from './components/view-booking/view-booking.com
   ],
   imports: [
     CommonModule,
-    BookingsRoutingModule
+    BookingsRoutingModule,
+    SharedModule
   ]
 })
 export class BookingsModule { }
