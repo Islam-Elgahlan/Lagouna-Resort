@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 export class FacilitiesService {
   constructor(private _HttpClient: HttpClient) {}
 
-  getAllFacilities(): Observable<any> {
-    return this._HttpClient.get('admin/room-facilities');
+  getAllFacilities(data:any): Observable<any> {
+    return this._HttpClient.get('admin/room-facilities', {params:data});
   }
   deleteFacility(id: string): Observable<any> {
     return this._HttpClient.delete(`admin/room-facilities/${id}`);

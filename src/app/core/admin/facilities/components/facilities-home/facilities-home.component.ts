@@ -11,7 +11,11 @@ import { AddeditviewFacilityComponent } from '../addeditview-facility/addeditvie
   styleUrls: ['./facilities-home.component.scss'],
 })
 export class FacilitiesHomeComponent implements OnInit {
-  tableData: any;
+  pageIndex: number = 0;
+  pageSize: number = 5;
+  pageNumber: number | undefined = 1;
+  tableResponse: any;
+  tableData: any[] = [];
   constructor(
     private _FacilitiesService: FacilitiesService,
     public _MatDialog: MatDialog,
@@ -22,9 +26,13 @@ export class FacilitiesHomeComponent implements OnInit {
   }
 
   getAllFacilities() {
-    this._FacilitiesService.getAllFacilities().subscribe({
+    let param = {
+      size: this.pageSize,
+      page: this.pageNumber,
+    }
+    this._FacilitiesService.getAllFacilities(param).subscribe({
       next: (res) => {
-        console.log(res.data.facilities);
+        this.tableResponse = res.data
         this.tableData = res.data.facilities
       }, error: (err) => {
 
@@ -105,5 +113,10 @@ export class FacilitiesHomeComponent implements OnInit {
         this.getAllFacilities();
       },
     });
+  }
+  handlePageEvent(e: any) {
+    this.pageSize = e.pageSize;
+    this.pageNumber = e.pageIndex + 1;
+    this.getAllFacilities();
   }
 }
