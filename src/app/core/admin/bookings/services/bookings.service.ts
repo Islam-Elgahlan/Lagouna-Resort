@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 export class BookingsService {
   constructor(private _HttpClient: HttpClient) {}
 
-  onGetAllBookings(): Observable<any> {
-    return this._HttpClient.get('admin/booking');
+  onGetAllBookings(data:any): Observable<any> {
+    return this._HttpClient.get('admin/booking' , {params:data});
   }
   deleteBooking(id:string): Observable<any> {
     return this._HttpClient.delete(`admin/booking/${id}`);

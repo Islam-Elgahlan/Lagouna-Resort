@@ -11,7 +11,11 @@ import { ViewBookingComponent } from '../view-booking/view-booking.component';
   styleUrls: ['./bookings-home.component.scss'],
 })
 export class BookingsHomeComponent implements OnInit {
-  tableData: any;
+  pageIndex: number = 0;
+  pageSize: number = 5;
+  pageNumber: number | undefined = 1;
+  tableResponse: any;
+  tableData: any[] = [];
 
   ngOnInit() { 
     this.getAllBookings()
@@ -20,9 +24,14 @@ export class BookingsHomeComponent implements OnInit {
     private dialog:MatDialog,
     private _toastr:ToastrService) {}
   getAllBookings() {
-    this._BookingsService.onGetAllBookings().subscribe({
+    let param = {
+      size: this.pageSize,
+      page: this.pageNumber,
+    }
+    this._BookingsService.onGetAllBookings(param).subscribe({
       next: (res) => {
-        console.log(res.data.booking);
+        // console.log(res.data.booking);
+        this.tableResponse = res.data;
         this.tableData = res.data.booking;
       },
       error: (err) => {},
@@ -70,5 +79,10 @@ export class BookingsHomeComponent implements OnInit {
         this.getAllBookings();
       },
     });
+  }
+  handlePageEvent(e: any) {
+    this.pageSize = e.pageSize;
+    this.pageNumber = e.pageIndex + 1;
+    this.getAllBookings();
   }
 }
