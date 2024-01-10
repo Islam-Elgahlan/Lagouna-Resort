@@ -3,14 +3,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookingsService {
+  constructor(private _HttpClient: HttpClient) {}
 
-  constructor(private _HttpClient:HttpClient) { }
-
-  
   onGetAllBookings(): Observable<any> {
     return this._HttpClient.get('admin/booking');
+  }
+  deleteBooking(id:string): Observable<any> {
+    return this._HttpClient.delete(`admin/booking/${id}`);
   }
 }

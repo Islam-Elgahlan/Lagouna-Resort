@@ -1,6 +1,10 @@
 @import "../../../assets/styles/abstracts/variables";
 @import "../../../assets/styles/abstracts/buttons";
 .logout {
-    background-color: $color-blue;
+    background-color: rgb(199, 211, 237);
     padding: 2rem 1rem;
+    h2{
+      color: $color-primary;
+      font-weight: 600;
+    }
   }

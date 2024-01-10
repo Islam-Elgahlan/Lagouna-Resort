@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BookingsService } from '../../services/bookings.service';
+import { DeleteItemComponent } from 'src/app/shared/delete-item/delete-item.component';
+import { MatDialog } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-bookings-home',
@@ -12,7 +15,9 @@ export class BookingsHomeComponent implements OnInit {
   ngOnInit() { 
     this.getAllBookings()
   }
-  constructor(private _BookingsService: BookingsService) {}
+  constructor(private _BookingsService: BookingsService,
+    private dialog:MatDialog,
+    private _toastr:ToastrService) {}
   getAllBookings() {
     this._BookingsService.onGetAllBookings().subscribe({
       next: (res) => {
@@ -26,7 +31,35 @@ export class BookingsHomeComponent implements OnInit {
   onViewDialog(item:any){
 
   }
-  onDeleteDialog(item:any){
+  openDeleteDialog(data: any) {
+    const dialogRef = this.dialog.open(DeleteItemComponent, {
+      data: data,
+      width: '30%',
+    });
 
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        console.log(result);
+        
+        this.deleteItem(result._id);
+        this.getAllBookings();
+      }
+    });
+  }
+  deleteItem(id: string) {
+    this._BookingsService.deleteBooking(id).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+        
+        this._toastr.error('Try Again');
+      },
+      complete: () => {
+        this._toastr.success('Booking deleted Successfully');
+        this.getAllBookings();
+      },
+    });
   }
 }
