@@ -29,7 +29,7 @@ export class LoginComponent {
       localStorage.setItem('role', res.data.user.role);
       localStorage.setItem('userName', res.data.user.userName);
       // console.log(res.data.user.role);
-      this._ToastrService.success(res.data.user.userName , 'message')
+      this._ToastrService.success(res.data.user.userName , 'Welcome')
 
       this._Router.navigate(['/admin'])
 
