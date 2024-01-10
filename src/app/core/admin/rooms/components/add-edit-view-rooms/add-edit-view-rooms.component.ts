@@ -103,7 +103,7 @@ if (this.roomId) {
         console.log(res);
         this._ToastrService.success(res.message)
       },error:(err)=>{
-  
+        this._ToastrService.error(err.errors.message)
       },complete:()=> {
         this._Router.navigate(['/admin/dashboard/rooms'])
       },
