@@ -42,14 +42,12 @@ export class AddAdsComponent implements OnInit{
       };
       this._RoomsService.onGetRooms(x).subscribe({
         next:(res)=>{
-          console.log(res.data.rooms);
           this.rooms=res.data.rooms
-        
         }
       })
      }
      onSubmit(form:FormGroup){
-      console.log(form.value);
+      // console.log(form.value);
      
         this._AdsService.addAds(form.value).subscribe({
           next:(res)=>{
@@ -57,7 +55,7 @@ export class AddAdsComponent implements OnInit{
             this._Toastr.success(res.message)
            
           },error:(err)=>{
-            this._Toastr.success(err.error.message)
+            this._Toastr.error(err.error.message)
           },complete:()=> {
             
             this._Router.navigate(['/admin/dashboard/ads'])
