@@ -49,4 +49,8 @@ export class UsersHomeComponent {
     this.pageNumber = e.pageIndex + 1;
     this.onGetAllUsers();
   }
+colorMode:boolean=true
+  toggleMode(){
+this.colorMode=!this.colorMode
+  }
 }
