@@ -120,7 +120,9 @@ if (this.roomId) {
       },error:(err)=>{
   
       },complete:()=> {
-        this.imgSrc='http://upskilling-egypt.com/'+ this.roomData.images
+        this.imgSrc= this.roomData.images[0]
+        console.log(this.roomData.images[0]);
+        
         this.roomForm.patchValue(
           {
             roomNumber:this.roomData.roomNumber,
