@@ -3,10 +3,12 @@
       <div class="page-header">
         <h2>Users Table Details</h2>
         <span class="text-muted">You can check all details</span>
-       
+        <div class="col-md-3 ms-auto text-end">
+          <mat-slide-toggle (change)="toggleMode()">{{colorMode?'LightMode':'darkMode'}}</mat-slide-toggle>
+        </div>
       </div>
       
-      <table class="custom-table my-3">
+      <table class="custom-table my-3"  [ngClass]="colorMode?'lightMode':'darkMode'">
         <thead class="text-capitalize">
           
           <th>User Name</th>

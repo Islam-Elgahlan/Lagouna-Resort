@@ -38,3 +38,15 @@ $Lagouna-Resort-theme: mat.define-light-theme((
 @import "./assets/styles/main.scss";
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.lightMode{
+  background-color: white;
+  color: black;
+  
+}
+.darkMode{
+  background-color: $color-blue;
+  color: #fff;
+
+}

@@ -15,6 +15,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -32,7 +33,7 @@ const MaterialComponents = [
   MatListModule,
   MatCheckboxModule,
   MatMenuModule
-
+,MatSlideToggleModule
 ]
 
 @NgModule({
