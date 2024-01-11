@@ -1,0 +1,50 @@
+@import "../../../../../../assets/styles/abstracts/variables";
+.home {
+  background-image: url(../../../../../../assets/images/hotel-1831072_1280.jpg);
+  height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow-y: hidden;
+  border-radius: 20px;
+  position: relative;
+}
+
+.layer {
+  background-color: rgba(216, 217, 246, 0.183);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+.card {
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  span{
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+
+  }
+
+  
+//   .icon-circle{
+    // display: block;
+    // float: right;
+    // width: 36px;
+    // height: 36px;
+    // border-radius: 50%;
+    // background-color: $color-blue;
+    // i{
+        // padding: 12px 11px;
+        // font-size: 20px;
+        // color: #fffcfc;
+        // margin: auto;
+        
+        
+    // }
+//   }
+}
