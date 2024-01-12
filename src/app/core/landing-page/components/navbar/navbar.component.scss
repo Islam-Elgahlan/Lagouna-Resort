@@ -1,9 +1,15 @@
+@import "../../../../../assets/styles/abstracts/variables";
 section{
-    padding: 10px 0;
+    
     border-bottom: 1px dashed #E5E5E5;
     ul{
        a{
         font-size: 20px;
+        color: $color-primary;
+        &.active{
+            color: $color-blue;
+        }
        }
     }
+   
 }
