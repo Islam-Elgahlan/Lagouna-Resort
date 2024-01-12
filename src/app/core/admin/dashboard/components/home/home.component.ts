@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AddAdsComponent } from '../../../ads/components/add-ads/add-ads.component';
 
 @Component({
   selector: 'app-home',
