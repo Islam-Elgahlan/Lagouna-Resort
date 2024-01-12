@@ -1,0 +1,50 @@
+@import "../../../../../../assets/styles/abstracts/variables";
+section{
+    .header{
+        h2{
+            font-size: 3.5rem;
+            color: $color-primary;
+            font-weight: 500;
+        }
+        p{
+            color: $color-tertiary;
+            font-size: 1.1rem;
+            padding: 10px 0;
+        }
+    }
+    .icon-count{
+    li{
+        margin-right: 2rem;
+        i{
+            font-size: 2.5rem;
+          }
+          p{
+            color: $color-tertiary;
+            font-size: .7rem;
+            span{
+                color: $color-primary;
+                font-size: 1rem;
+                padding-right: 5px;
+            }
+    }
+
+        
+      }
+    }
+    .img-block{
+     border: 1px solid $color-tertiary;
+     padding: 3px;
+     border-radius: 16px;
+     position: relative;
+     height: 500px;
+     width: 600px;
+     background-color: white;
+     
+     img{
+          position: absolute;
+          bottom: 50px;
+          right: 50px;
+
+     }
+    }
+}
