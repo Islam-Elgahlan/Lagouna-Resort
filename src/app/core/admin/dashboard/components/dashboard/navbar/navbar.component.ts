@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ChangePasswordComponent } from 'src/app/core/auth/components/chabge-password/change-password.component';
+import { AuthService } from 'src/app/core/auth/services/auth.service';
 import { LogoutComponent } from 'src/app/shared/logout/logout.component';
 
 @Component({
@@ -8,16 +9,18 @@ import { LogoutComponent } from 'src/app/shared/logout/logout.component';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
   userName: string = '';
+  
   constructor(private dialog: MatDialog) {
-    this.getUserName();
+    
   }
-
+ngOnInit(): void {
+  this.getUserName()
+}
   getUserName() {
     this.userName = localStorage.getItem('userName')!;
   }
-
   openLogOutDialogue() {
     const dialogRef = this.dialog.open(LogoutComponent, {
       width: '30%',

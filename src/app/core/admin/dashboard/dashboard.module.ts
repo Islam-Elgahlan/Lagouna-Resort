@@ -7,6 +7,7 @@ import { SidebarComponent } from './components/dashboard/sidebar/sidebar.compone
 import { NavbarComponent } from './components/dashboard/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     DashboardComponent,
     SidebarComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

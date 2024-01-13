@@ -30,6 +30,9 @@ export class AuthService {
       this.role = localStorage.getItem('role');
     }
   }
+  getCurrentProfile(id:string): Observable<any> {
+    return this._httpClient.get(`admin/users/${id}`);
+  }
   login(data: any): Observable<any> {
     return this._httpClient.post('admin/users/login', data);
   }
