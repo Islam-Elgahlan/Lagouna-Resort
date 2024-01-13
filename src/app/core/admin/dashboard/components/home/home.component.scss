@@ -1,7 +1,7 @@
 @import "../../../../../../assets/styles/abstracts/variables";
 .home {
   background-image: url(../../../../../../assets/images/hotel-1749602_1280.jpg);
-  height: 100vh;
+  height: 88vh;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -11,6 +11,7 @@
   position: relative;
   // font-family:  'Cinzel', serif;
   font-family: "Economica", sans-serif;
+  
 }
 
 .layer {
@@ -30,7 +31,7 @@
   font-family: "Economica", sans-serif;
 }
 .row {
-  height: 86vh;
+  height:100%;
 }
 .i-circle {
   background-color: $color-blue;
