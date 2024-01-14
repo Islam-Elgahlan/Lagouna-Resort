@@ -82,7 +82,10 @@ if (this.roomId) {
    if (this.imgSrc == null) {
     // No Action
   } else {
-    mydata.append('imgs', this.imgSrc, this.imgSrc.name);
+    for (let index = 0; index < this.imgSrc.length; index++) {
+      const element = this.imgSrc[index];
+    mydata.append('imgs', this.imgSrc[index], this.imgSrc[index].name);
+    }
   }
 
   console.log(mydata);
@@ -140,7 +143,7 @@ if (this.roomId) {
   }
   onSelect(event: any) {
     
-    this.imgSrc = event.addedFiles[0];
+    this.imgSrc = event.addedFiles;
     this.files.push(...event.addedFiles);
   }
 
