@@ -1,13 +1,14 @@
 <section class="navbar-section">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-3 ms-auto">
+      <div class="col-md-6 me-auto">
         <div class="profile pointer">
           <div class="profile-img">
             <!-- <img *ngIf="userName.imagePath"  [src]="'https://upskilling-egypt.com/'+user.imagePath" alt=""> -->
             <img src="../../../../../../../assets/images/reset-bg.png" alt="" />
           </div>
-          <span class="text-blue ps-2">{{userName }}</span>
+          <span class="text-blue "> Hello {{ userName }}!</span>
+
 
           <div class="dropdown">
             <button
@@ -48,7 +49,54 @@
             </ul>
           </div>
           
+
+         
         </div>
+
+        
+      </div>
+      <div class="col-md-6 ms-auto">
+        <div class="dropdown text-end">
+          <button
+            class="btn dropdown-toggle text-blue fs-3 text-blue ms-auto"
+            type="button"
+            id="dropdownMenu2"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          ></button>
+          <ul
+            class="dropdown-menu py-3 bg-blue"
+            aria-labelledby="dropdownMenu2"
+          >
+            <li class="">
+              <button class="dropdown-item text-blue" type="button">
+                <i class="fa-regular fa-user px-2"></i> Profile
+              </button>
+            </li>
+            <li>
+              <button
+                class="dropdown-item text-blue"
+                type="button"
+
+                (click)="openDialog()"
+              >
+                <i class="fa-solid fa-lock px-2 py-1"></i> Change Password
+              </button>
+            </li>
+            <li>
+              <button
+                class="dropdown-item text-blue"
+                type="button"
+                (click)="openLogOutDialogue()"
+              >
+                <i class="fa-solid fa-right-from-bracket px-2"></i> Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+        <!-- <div>
+          <i class="fa-regular fa-moon fs-5 ms"></i>
+        </div> -->
       </div>
     </div>
   </div>

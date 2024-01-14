@@ -2,27 +2,34 @@
   <div class="container-fluid layer">
     <div class="row flex-column justify-content-between">
       <div
-        class="col-md-3 rounded-5 my-4 py-3 px-2 pointer ms-5 d-flex landing-card justify-content-center align-items-center text-center"
+        [routerLink]="'/landingPage/home'"
+        class="col-md-3 rounded-5 my-4 py-2 pointer ms-5 d-flex landing-card justify-content-evenly align-items-center text-center"
       >
-        <span class="px-2 font"> Landing Page </span>
+        <span class="font" [routerLink]="'/landingPage/home'">
+          Landing Page
+        </span>
         <span class="i-circle pointer shadow-lg"
           ><i class="fa-solid fa-caret-up"></i
         ></span>
       </div>
-      <div class="m-auto  text-center ">
+
+      <div class="m-auto text-center">
         <div>
-          <i class="fa-solid fa-mountain-city fs-1 text-white-50 "></i>
+          <i class="fa-solid fa-mountain-city fs-1 text-white-50"></i>
         </div>
-        <h2 class="m-auto text-center text-white py-2  fs-4">
+        <h2 class="m-auto text-center text-white py-2 fs-3">
           Welcome to Staycation Hotel
-      </h2>
-        <span class="m-auto grey ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, ipsam?
+        </h2>
+        <span class="m-auto grey">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
+          ipsam?
         </span>
-   
       </div>
       <div class="d-flex justify-content-evenly g-5">
-        <div class="col-md-3 home-card">
+        <div
+          class="col-md-3 home-card"
+          [routerLink]="'/admin/dashboard/rooms/addeditview'"
+        >
           <span class=""> ADD ROOM</span>
           <div
             class="my-2 me-5 d-flex justify-content-center align-items-center text-center"
@@ -32,8 +39,11 @@
           </div>
           <span>shortcut</span>
         </div>
-        <div class="col-md-3 home-card" >
-          <span class=""> ADD Ad.</span>
+        <div
+          class="col-md-3 home-card"
+          [routerLink]="'/admin/dashboard/ads/addAds'"
+        >
+          <span class=""> ADD Ads.</span>
           <div
             class="my-2 me-5 d-flex justify-content-center align-items-center text-center"
           >
@@ -57,7 +67,7 @@
           <div
             class="my-2 me-5 d-flex justify-content-center align-items-center text-center"
           >
-          <i class="fa-solid fa-mountain-city fs-1 px-5 text-white-50  "></i>
+            <i class="fa-solid fa-mountain-city fs-1 px-5 text-white-50"></i>
             <span class="i-circle reverse">
               <i class="fa-solid fa-plus"></i
             ></span>

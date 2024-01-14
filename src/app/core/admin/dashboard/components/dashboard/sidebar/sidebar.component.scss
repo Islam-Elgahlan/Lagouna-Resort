@@ -37,7 +37,7 @@ section {
     border: transparent;
   }
   .reverse-btn {
-    background-color: #203FC7;
+    background-color: #203fc7;
     border-radius: 8px 0 0px 8px;
     padding: 10px 5px;
     transform: scale(-1.4);
@@ -52,4 +52,5 @@ section {
 .active {
   background-color: rgba(26, 27, 30, 0.17);
   border-radius: 8px;
+  color: white !important;
 }
