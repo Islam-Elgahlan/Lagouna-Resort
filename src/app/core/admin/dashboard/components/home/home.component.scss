@@ -50,13 +50,13 @@
 }
 
 .i-circle:hover {
-  background-color: rgba(169, 169, 248, 0.772);
+  background-color: rgba(70, 70, 75, 0.772);
   color: black;
   transition: all 0.5s;
 }
 
 .home-card {
-  background-color: rgba(255, 255, 255, 0.384);
+  background-color: rgba(255, 255, 255, 0.418);
   padding: 15px 25px;
   border-radius: 35px;
   margin: 10px 5px;
@@ -83,8 +83,9 @@
     background-color: rgba(255, 255, 255, 0.457);
     color: black !important;
     i {
-      color: $color-blue !important;
+      color: black !important;
     }
+    
   }
 }
 
