@@ -14,7 +14,7 @@
 }
 
 .layer {
-  background-color: rgba(137, 138, 156, 0.158);
+  background-color: rgba(122, 123, 143, 0.055);
   position: absolute;
   top: 0;
   left: 0;
@@ -27,7 +27,7 @@
   font-weight: 500;
   font-size: 20px;
   color: rgb(48, 47, 47);
-  font-family: "Economica", sans-serif;
+  font-family: 'Rubik Doodle Shadow', system-ui;
 }
 .row {
   height: 86vh;
@@ -55,12 +55,12 @@
 }
 
 .home-card {
-  background-color: rgba(255, 255, 255, 0.336);
+  background-color: rgba(255, 255, 255, 0.384);
   padding: 15px 25px;
   border-radius: 35px;
   margin: 10px 5px;
   &:hover {
-    background-color: rgba(227, 225, 225, 0.495);
+    background-color: rgba(227, 225, 225, 0.326);
     transition: all 0.5s;
     cursor: pointer;
   }
@@ -79,7 +79,7 @@
   margin: 10px 5px;
   &:hover {
     transition: all 0.5s;
-    background-color: rgba(255, 255, 255, 0.336);
+    background-color: rgba(255, 255, 255, 0.457);
     color: black !important;
     i {
       color: $color-blue !important;

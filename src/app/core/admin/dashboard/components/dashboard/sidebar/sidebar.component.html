@@ -18,7 +18,8 @@
         *ngIf="item.isActive"
         class="mt-2"
       >
-        <div class="content">
+        <div class="content" >
+          
           <div class="content-li" [ngClass]="isOpened ? 'ps-3' : 'ps-0'">
             <span><i [class]="item.icon" style="color: #ffffff"></i></span>
             <span [ngClass]="isOpened ? 'd-inline' : 'd-none'">{{

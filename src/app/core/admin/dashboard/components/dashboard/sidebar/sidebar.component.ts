@@ -8,18 +8,17 @@ interface Imenu {
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
   @Output() isOpenedflag = new EventEmitter<boolean>();
-   isOpened:boolean=true;
-  toggleSidebar(){
-    this.isOpened=!this.isOpened;
+  isActive: boolean = true;
+  isOpened: boolean = true;
+  toggleSidebar() {
+    this.isOpened = !this.isOpened;
 
-    this.isOpenedflag.emit(this.isOpened)
+    this.isOpenedflag.emit(this.isOpened);
   }
-
- 
 
   menu: Imenu[] = [
     {
@@ -35,7 +34,7 @@ export class SidebarComponent {
       isActive: true,
     },
     {
-      icon:'fa-solid fa-cubes-stacked fs-4',
+      icon: 'fa-solid fa-cubes-stacked fs-4',
       title: 'Rooms',
       link: '/admin/dashboard/rooms',
       isActive: true,
@@ -59,6 +58,5 @@ export class SidebarComponent {
       link: '/admin/dashboard/facilities',
       isActive: true,
     },
-   
   ];
 }
