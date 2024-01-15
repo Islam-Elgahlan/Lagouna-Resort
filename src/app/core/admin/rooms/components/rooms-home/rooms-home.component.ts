@@ -47,8 +47,8 @@ export class RoomsHomeComponent {
     });
 
   }
-  openAddDialog(data: any) {
-    // console.log(data);
+  openDeleteDialog(data: any) {
+     console.log(data);
 
     const dialogRef = this.dialog.open(DeleteItemComponent, {
       data: data,

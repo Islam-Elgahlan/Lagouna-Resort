@@ -7,7 +7,11 @@
              <img src="../../../assets/images/3d-illustration-website-ui-kit-trash-bin-png.png" alt="" class="w-25"> 
         </div>
         <h3>Delete this item</h3>
-        <p>Are you sure you want to delete?<span class="text-success text-capitalize fw-bold">{{data.roomNumber}}</span></p>
+        <p>Are you sure you want to delete?
+            <span class="text-success text-capitalize fw-bold" >{{data.roomNumber}}</span>
+            <!-- <span class="text-success text-capitalize fw-bold" *ngIf="data.room.roomNumber">{{data.room.roomNumber}}</span>
+            <span class="text-success text-capitalize fw-bold" *ngIf="data.name">{{data.name}}</span> -->
+        </p>
         <button [mat-dialog-close]="data" class="btn btn-outline-danger py-1 px-3 my-2">Delete</button>
     </div>
 </section>

@@ -64,14 +64,15 @@ if (this.roomId) {
   onSubmit(data:FormGroup){
    let mydata=new FormData;
    let myMap = new Map(Object.entries(data.value))
-   for (const f of data.value.facilities) {
-    mydata.append('facilities', f);
-  }
+   
    mydata.append('roomNumber',data.value.roomNumber),
    mydata.append('price',data.value.price),
    mydata.append('discount',data.value.discount),
    mydata.append('capacity',data.value.capacity);
    
+   for (const f of data.value.facilities) {
+    mydata.append('facilities', f);
+  }
   
   //  for (const [key,value] of myMap) {
   //   mydata.append(key,data.value[key])
@@ -86,10 +87,11 @@ if (this.roomId) {
       const element = this.imgSrc[index];
     mydata.append('imgs', this.imgSrc[index], this.imgSrc[index].name);
     }
+    console.log(mydata);
+    
   }
-
-  console.log(mydata);
   if (this.roomId) {
+    console.log(mydata);
     this._RoomsService.updateRoom(this.roomId,mydata).subscribe({
       next:(res)=>{
         console.log(res);
@@ -123,8 +125,8 @@ if (this.roomId) {
       },error:(err)=>{
   
       },complete:()=> {
-        this.imgSrc= this.roomData.images[0]
-        console.log(this.roomData.images[0]);
+        this.imgSrc= this.roomData.images
+        console.log(this.roomData.images);
         
         this.roomForm.patchValue(
           {
@@ -132,14 +134,13 @@ if (this.roomId) {
             price:this.roomData.price,
             discount:this.roomData.discount,
             capacity:this.roomData.capacity,
-            facilities:this.roomData.facilities
-            
-
+            facilities:this.roomData.facilities,
           }
+         
         )
-
-      },
-    })
+        
+        
+    }})
   }
   onSelect(event: any) {
     
