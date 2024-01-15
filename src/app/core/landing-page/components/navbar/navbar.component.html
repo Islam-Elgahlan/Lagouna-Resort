@@ -21,11 +21,14 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Best</a>
               </li>
-              <li class="nav-item">
+              <li *ngIf="!showItem" class="nav-item">
                 <a class="nav-link" routerLink="/auth">Sign In</a>
               </li>
-              <li class="nav-item">
+              <li *ngIf="!showItem" class="nav-item">
                 <a class="nav-link" routerLink="/auth/register">Sign Up</a>
+              </li>
+              <li *ngIf="showItem" class="nav-item">
+                <a class="nav-link" routerLink="/landingPage" (click)="logOut()">Log Out</a>
               </li>
              
               
