@@ -28,6 +28,7 @@ export class LoginComponent {
 
       localStorage.setItem('role', res.data.user.role);
       localStorage.setItem('userName', res.data.user.userName);
+      localStorage.setItem('Id', res.data.user._id);
       // console.log(res.data.user.role);
       this._ToastrService.success(res.data.user.userName , 'Welcome')
 
