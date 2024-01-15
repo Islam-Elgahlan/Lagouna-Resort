@@ -31,8 +31,12 @@ export class LoginComponent {
       localStorage.setItem('Id', res.data.user._id);
       // console.log(res.data.user.role);
       this._ToastrService.success(res.data.user.userName , 'Welcome')
+      if(res.data.user.role == "admin"){
 
-      this._Router.navigate(['/admin'])
+        this._Router.navigate(['/admin'])
+      }else{
+        this._Router.navigate(['/landingPage'])
+      }
 
     },(error)=>{
       this._ToastrService.error(error.error.message , 'error')
