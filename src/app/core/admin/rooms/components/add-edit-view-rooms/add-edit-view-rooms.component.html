@@ -17,24 +17,14 @@
                     <input type="number" class="form-control"placeholder="Discount" formControlName="discount">
                 </div>
                 <div class="col-md-6">
-                    <mat-form-field appearance="outline" class="w-100" [hideRequiredMarker]="hideRequiredMarker">
-                    <mat-select  multiple  formControlName="facilities">
+                    <mat-form-field appearance="outline" class="w-100 " [hideRequiredMarker]="hideRequiredMarker">
+                    <mat-select  multiple formControlName="facilities" placeholder="facilities" >
                          
                           <mat-option [value]="facility._id" *ngFor="let facility of facilities">{{facility.name}}</mat-option>
                         
                       </mat-select>
                     </mat-form-field>
-                    <!-- <select class="form-select form-control" [multiple]="true"  formControlName="faclities" data-placeholder="Choose anything" multiple>
-                        <option value="" >Faclities</option>
-                        <option value="{{facility._id}}" *ngFor="let facility of facilities">{{facility.name}}</option>
-                  
-                    </select>
-                    <select [multiple]="true">
-                        <option>Select all</option>
-                        <option *ngFor="let option of facilities" [value]="option._id">{{
-                          option.name
-                        }}</option>
-                      </select> -->
+      
                      
                 </div>
                 <div class="col-md-12">
@@ -44,7 +34,7 @@
                             <i class="fa-solid fa-arrow-up-from-bracket d-block"></i> Upload
                           </ngx-dropzone-label>
                           <ngx-dropzone-label *ngIf="imgSrc">
-                            <img [src]="imgSrc" alt="">
+                            <img [src]="img" alt="" *ngFor="let img of roomData.images" >
                           </ngx-dropzone-label>
                          
                           <ngx-dropzone-image-preview  ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"
