@@ -1,0 +1,10 @@
+{
+    "landingPage":{
+        "navBar":{
+            "home":"home",
+            "gallery":"Gallery",
+            "signIn":"Sign In"
+            
+        }
+    }
+}

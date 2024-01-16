@@ -20,7 +20,7 @@ export class GlobalInterceptor implements HttpInterceptor {
       newHeaders ={"Authorization":token}
     }
     let cloned =request.clone({
-      setHeaders:newHeaders,url:baseUrl + request.url
+      setHeaders:newHeaders,url:request.url.includes('assets')? request.url :baseUrl + request.url
     })
     return next.handle(cloned);
   }

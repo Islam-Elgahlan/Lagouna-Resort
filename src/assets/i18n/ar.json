@@ -1,0 +1,10 @@
+{
+    "landingPage":{
+        "navBar":{
+            "home":"الرئيسية",
+            "gallery":"معرض",
+            "signIn":" تسجيل دخول"
+            
+        }
+    }
+}
