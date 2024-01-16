@@ -11,6 +11,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MaterialModule } from './material/material/material.module';
 import { DeleteItemComponent } from './delete-item/delete-item.component';
 import { LogoutComponent } from './logout/logout.component';
+import { TranslateModule } from '@ngx-translate/core';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +23,9 @@ import { LogoutComponent } from './logout/logout.component';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    TranslateModule,
+    
+
     NgxDropzoneModule,
     MatIconModule,
     MatButtonModule,
@@ -33,7 +38,7 @@ import { LogoutComponent } from './logout/logout.component';
 
   
   
-  exports: [MaterialModule,ReactiveFormsModule,FormsModule,NgxDropzoneModule,MatIconModule,MatButtonModule,MatSelectModule,MatPaginatorModule,MatFormFieldModule]
+  exports: [MaterialModule,ReactiveFormsModule,FormsModule,TranslateModule,NgxDropzoneModule,MatIconModule,MatButtonModule,MatSelectModule,MatPaginatorModule,MatFormFieldModule]
 
 
  

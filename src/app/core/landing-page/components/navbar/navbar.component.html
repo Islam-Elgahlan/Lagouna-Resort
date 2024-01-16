@@ -13,7 +13,7 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Gallery</a>
+                <a class="nav-link" href="#">{{'landingPage.navBar.gallery' | translate }}</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Testimonial</a>
@@ -33,7 +33,9 @@
              
               
             </ul>
-           
+           <button (click)="onChangeLang('ar')">AR</button>
+           <button (click)="onChangeLang('en')">En</button>
+
           </div>
         </div>
       </nav>
