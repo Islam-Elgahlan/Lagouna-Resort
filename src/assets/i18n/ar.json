@@ -3,6 +3,7 @@
         "navBar":{
             "home":"الرئيسية",
             "gallery":"معرض",
+            "rooms":"الغرف",
             "best" : "الأفضل",
             "testimonials" :"التوصيات",
             "signIn":" تسجيل دخول",

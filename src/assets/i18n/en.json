@@ -3,6 +3,7 @@
         "navBar":{
             "home":"home",
             "gallery":"Gallery",
+            "rooms":"Rooms",
             "best" : "Best",
             "testimonials" :"testimonials",
             "signIn":"Sign In",
