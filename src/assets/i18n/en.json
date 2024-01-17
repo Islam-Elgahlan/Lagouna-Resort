@@ -35,6 +35,13 @@
             
         }
     ,
+    "testimonials":{
+        "h2":"Happy Family",
+        "p":"What a great trip with my family and I should try again next time soon ...",
+        "button":"Read Their Story"
+       
+        
+    },
         "footer":{
             "staycation":"We kaboom your beauty holiday instantly and memorable",
             "forBeginners" : "For Beginners",
