@@ -3,8 +3,38 @@
         "navBar":{
             "home":"home",
             "gallery":"Gallery",
-            "signIn":"Sign In"
+            "best" : "Best",
+            "testimonials" :"testimonials",
+            "signIn":"Sign In",
+            "signUp" : "Sign Up",
+            "logOut" : "Logout"
             
+        },
+        "header":{
+            "1":"Forget Busy Work,",
+            "2":"Start Next Vacation",
+            "3":"We provide what you need to enjoy your",
+            "4":"holiday with family. Time to make",
+            "5":"another memorable moments.",
+            "icons": {
+                "room" : "Room",
+                "visitor" : "Visitor",
+                "city" : "City"
+            }
+        },
+        "footer":{
+            "staycation":"We kaboom your beauty holiday instantly and memorable",
+            "forBeginners" : "For Beginners",
+            "newAccount" : "New Account",
+            "startBooking" : "Start Booking a Room",
+            "payments" : "Use Payments",
+
+            "Explore" : "Explore Us",
+            "careers" : "Our Careers",
+            "privacy" : "Privacy",
+            "terms" : "Terms & Conditions",
+
+            "contact" : "Connect Us"  
         }
     }
 }
