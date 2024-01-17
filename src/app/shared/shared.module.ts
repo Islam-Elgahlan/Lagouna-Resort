@@ -12,6 +12,7 @@ import { MaterialModule } from './material/material/material.module';
 import { DeleteItemComponent } from './delete-item/delete-item.component';
 import { LogoutComponent } from './logout/logout.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     TranslateModule,
     
-
+CarouselModule,
     NgxDropzoneModule,
     MatIconModule,
     MatButtonModule,
@@ -38,7 +39,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
   
   
-  exports: [MaterialModule,ReactiveFormsModule,FormsModule,TranslateModule,NgxDropzoneModule,MatIconModule,MatButtonModule,MatSelectModule,MatPaginatorModule,MatFormFieldModule]
+  exports: [CarouselModule,MaterialModule,ReactiveFormsModule,FormsModule,TranslateModule,NgxDropzoneModule,MatIconModule,MatButtonModule,MatSelectModule,MatPaginatorModule,MatFormFieldModule]
 
 
  
