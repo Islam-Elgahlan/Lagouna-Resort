@@ -4,7 +4,8 @@ section{
         h2{
             font-size: 3.5rem;
             color: $color-primary;
-            font-weight: 500;
+            font-weight: 600;
+            font-family: 'Bebas Neue', sans-serif;
         }
         p{
             color: $color-tertiary;
@@ -47,4 +48,20 @@ section{
 
      }
     }
+}
+
+.blue{
+color: $color-blue;
+}
+.dark-blue{
+    color: $color-primary;
+}
+
+.bg-blue{
+    background-color: $color-primary;
+}
+
+.lead{
+    font-size: 17px;
+    font-weight: 400;
 }
