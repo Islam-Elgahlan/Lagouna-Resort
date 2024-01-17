@@ -19,6 +19,7 @@ const routes: Routes = [
         loadChildren: () =>
           import('./booking/booking.module').then((m) => m.BookingModule),
       },
+      
     ],
   },
 ];
