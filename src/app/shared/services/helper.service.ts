@@ -9,6 +9,9 @@ export class HelperService {
   textDirection: string = 'ltr'
   
   constructor(public translate: TranslateService) {
+//     if(localStorage.getItem('lang') == null){
+// localStorage.setItem('lang','en')
+//     }
     translate.onLangChange.subscribe((event: LangChangeEvent) => {
       // do something
       console.log(event.lang);

@@ -31,10 +31,27 @@
                 <a class="nav-link" routerLink="/landingPage" (click)="logOut()">{{'landingPage.navBar.logOut' | translate }}</a>
               </li>
              
-              
+              <li>  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                  
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      {{'landingPage.navBar.En'|translate}}
+                    </a>
+                    <ul class="dropdown-menu ">
+                      <li><a class="dropdown-item" (click)="onChangeLang('ar')" routerLinkActive="text-bg-danger">عربي</a></li>
+                      <li><a class="dropdown-item" (click)="onChangeLang('en')" routerLinkActive="text-bg-danger">En</a></li>
+                    </ul>
+                  </li>
+                 
+                  
+                </ul>
+               
+              </div></li>
             </ul>
-           <button (click)="onChangeLang('ar')">AR</button>
-           <button (click)="onChangeLang('en')">En</button>
+           <!-- <button (click)="onChangeLang('ar')">AR</button>
+           <button (click)="onChangeLang('en')">En</button> -->
+         
 
           </div>
         </div>
