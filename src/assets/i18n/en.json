@@ -7,7 +7,8 @@
             "testimonials" :"testimonials",
             "signIn":"Sign In",
             "signUp" : "Sign Up",
-            "logOut" : "Logout"
+            "logOut" : "Logout",
+            "En" : "ُEn"
             
         },
         "header":{
@@ -22,6 +23,18 @@
                 "city" : "City"
             }
         },
+        "gallery":{
+            "Most Picked":"Most Picked",
+            "Houses with beauty backyard":"Houses with beauty backyard",
+            "Hotels with large living room":"Hotels with large living room" ,
+            "Apartments with kitchen set":"Apartments with kitchen set",
+            "Popular Choice": "Popular Choice",
+            "Per Night":"Per Night",
+                "Popular":"Popular",
+                "Choice":"Choice"
+            
+        }
+    ,
         "footer":{
             "staycation":"We kaboom your beauty holiday instantly and memorable",
             "forBeginners" : "For Beginners",

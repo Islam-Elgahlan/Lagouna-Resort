@@ -6,6 +6,7 @@ section{
        a{
         font-size: 20px;
         color: $color-primary;
+        cursor: pointer;
         &.active{
             color: $color-blue;
         }

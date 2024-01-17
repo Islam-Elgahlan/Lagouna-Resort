@@ -7,7 +7,9 @@
             "testimonials" :"التوصيات",
             "signIn":" تسجيل دخول",
             "signUp" : "إنشاء حساب",
-            "logOut" : "تسجيل خروج"
+            "logOut" : "تسجيل خروج",
+            "En" : "عربي"
+         
         },
         "header":{
             "1":"انسى ضغوط العمل ّ",
@@ -21,6 +23,18 @@
                 "city" : "مدينة"
             }
         },
+            "gallery":{
+                "Most Picked":"الأكثر اختيارا",
+                "Houses with beauty backyard":"منازل بحديقه جميلة",
+                "Hotels with large living room":"فنادق بغرف نوم كبيرة",
+                "Apartments with kitchen set":"شقق بمطبخ كبير",
+                "Popular Choice": "الأكثر اختيارا",
+                "Per Night":"فالليلة",
+                "Popular":"شائع",
+                "Choice":"اختيار"
+                
+            }
+        ,
         "footer":{
             "staycation":"نهيألك عطلة جميلة لا تنسى",
             "forBeginners" : "للمبتدئين",

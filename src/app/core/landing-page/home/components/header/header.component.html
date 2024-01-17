@@ -7,8 +7,9 @@
                     <p>{{'landingPage.header.3' | translate }}<br> 
                         {{'landingPage.header.4' | translate }} <br> {{'landingPage.header.5' | translate }}</p>
                 </div>
-                <div class="icon-count me-5">
-                    <ul class="d-flex ps-0 justify-content-between">
+                <div class="icon-count"  [class]="_HelperService.textDirection==='ltr'?'me-5':'ms-5'">
+                    <ul class="d-flex ps-0 justify-content-between" 
+                    >
                         <li>
                             <div><i class="fa-solid fa-person-shelter"></i></div>
                             <div><p><span>1000</span>{{'landingPage.header.icons.room' | translate }}</p></div>
@@ -22,7 +23,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-6 pt-5 d-flex justify-content-end">
+            <div class="col-md-6 pt-5 d-flex justify-content-end"
+            [class]="_HelperService.textDirection==='ltr'?'row':'row-reverse'"
+            >
                 <div class="img-block">
                     <img src="../../../../../../assets/images/picture.svg" alt="">
                 </div>
