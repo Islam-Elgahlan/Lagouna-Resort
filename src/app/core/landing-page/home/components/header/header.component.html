@@ -1,13 +1,55 @@
 <section class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 pt-5 pe-5 d-flex justify-content-between flex-column">
-                <div class="header">
-                    <h2>{{'landingPage.header.1' | translate }}<br> {{'landingPage.header.2' | translate }}</h2>
-                    <p>{{'landingPage.header.3' | translate }}<br> 
-                        {{'landingPage.header.4' | translate }} <br> {{'landingPage.header.5' | translate }}</p>
-                </div>
-                <div class="icon-count"  [class]="_HelperService.textDirection==='ltr'?'me-5':'ms-5'">
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-md-6 pt-5 pe-5 d-flex justify-content-between flex-column"
+      >
+        <div class="header">
+          <h2>
+            {{ "landingPage.header.1" | translate }}<br />
+            {{ "landingPage.header.2" | translate }}
+          </h2>
+          <p class="mb-4">
+            {{ "landingPage.header.3" | translate }}<br />
+           
+          </p>
+        </div>
+        <div class="col-md-6">
+          <h3>Start Booking</h3>
+          <span class="py-2 lead">Pick a Date</span>
+          <div class="input-group mb-3">
+            <span class="input-group-text bg-blue px-4" id="basic-addon1"
+              ><i class="fa-regular fa-calendar-days text-white"></i
+            ></span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="20 Jan - 22 Jan"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+          <span class="py-2">How long you will stay?</span>
+          <div class="input-group mb-3 pointer">
+            <span class="input-group-text bg-danger px-4" id="basic-addon1"
+              ><i class="fa-solid fa-minus text-white "></i
+            ></span>
+            <input
+              type="text"
+              class="form-control "
+              placeholder="2 nights"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
+            <span class="input-group-text bg-info pointer px-4" id="basic-addon1"
+              ><i class="fa-solid fa-plus text-white"></i
+            ></span>
+          </div>
+          <p class="text-muted">You will pay <span class="blue">$480 USD</span> per <span class="blue">2 nights.</span></p>
+          <button class="btn main-btn  px-5">Continue to book</button>
+        </div> 
+
+        <!-- <div class="icon-count"  [class]="_HelperService.textDirection==='ltr'?'me-5':'ms-5'">
                     <ul class="d-flex ps-0 justify-content-between" 
                     >
                         <li>
@@ -21,15 +63,16 @@
                             <div><i class="fa-solid fa-city"></i></div>
                             <div><p><span>1000</span>{{'landingPage.header.icons.city' | translate }}</p></div></li>
                     </ul>
-                </div>
-            </div>
-            <div class="col-md-6 pt-5 d-flex justify-content-end"
-            [class]="_HelperService.textDirection==='ltr'?'row':'row-reverse'"
-            >
-                <div class="img-block">
-                    <img src="../../../../../../assets/images/picture.svg" alt="">
-                </div>
-            </div>
+                </div> -->
+      </div>
+      <div
+        class="col-md-6 pt-5 d-flex justify-content-end"
+        [class]="_HelperService.textDirection === 'ltr' ? 'row' : 'row-reverse'"
+      >
+        <div class="img-block">
+          <img src="../../../../../../assets/images/picture.svg" alt="" />
         </div>
+      </div>
     </div>
+  </div>
 </section>
