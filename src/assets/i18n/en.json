@@ -1,11 +1,11 @@
 {
     "landingPage":{
         "navBar":{
-            "home":"home",
+            "home":"Home",
             "gallery":"Gallery",
             "rooms":"Rooms",
-            "best" : "Best",
-            "testimonials" :"testimonials",
+            
+            "testimonials" :"Testimonials",
             "signIn":"Sign In",
             "signUp" : "Sign Up",
             "logOut" : "Logout",

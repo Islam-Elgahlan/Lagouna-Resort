@@ -13,17 +13,15 @@
                 <a class="nav-link active" aria-current="page" href="#">{{'landingPage.navBar.home' | translate }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">{{'landingPage.navBar.gallery' | translate }}</a>
+                <a class="nav-link">{{'landingPage.navBar.gallery' | translate }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/landingPage/rooms">{{'landingPage.navBar.rooms' | translate }}</a>
+                <a class="nav-link"routerLink="/landingPage/rooms">{{'landingPage.navBar.rooms' | translate }}</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">{{'landingPage.navBar.testimonials' | translate }}</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">{{'landingPage.navBar.best' | translate }}</a>
-              </li>
+             
               <li *ngIf="!showItem" class="nav-item">
                 <a class="nav-link" routerLink="/auth">{{'landingPage.navBar.signIn' | translate }}</a>
               </li>

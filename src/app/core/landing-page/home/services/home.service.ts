@@ -9,7 +9,7 @@ export class HomeService {
 
   constructor(private _HttpClient:HttpClient) { }
   getAllRooms():Observable<any>{
-    return this._HttpClient.get('admin/rooms?page=1&size=100')
+    return this._HttpClient.get('portal/rooms/available?page=1&size=10')
   }
 
 }
