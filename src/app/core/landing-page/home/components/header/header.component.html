@@ -9,63 +9,65 @@
             {{ "landingPage.header.1" | translate }}<br />
             {{ "landingPage.header.2" | translate }}
           </h2>
-          <p class="mb-4">
+          <!-- <p class="mb-4">
             {{ "landingPage.header.3" | translate }}<br />
            
-          </p>
+          </p> -->
         </div>
-        <div class="pe-5">
-          <h3>Start Booking</h3>
-          <p class="py-2 lead">Pick a Date</p>
-          <!-- <div class="input-group mb-3">
-            <span class="input-group-text bg-blue px-4" id="basic-addon1"
-              ><i class="fa-regular fa-calendar-days text-white"></i
-            ></span>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="20 Jan - 22 Jan"
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-            />
+        <form [formGroup]="rangeForm" (submit)="onSubmit(rangeForm)">
+          <div class="pe-5">
+            <h3>Start Booking</h3>
+            <p class=" lead">Pick a Date</p>
+            <!-- <div class="input-group mb-3">
+              <span class="input-group-text bg-blue px-4" id="basic-addon1"
+                ><i class="fa-regular fa-calendar-days text-white"></i
+              ></span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="20 Jan - 22 Jan"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+              
+            </div> -->
+            <mat-form-field appearance="outline" class="w-100 " [hideRequiredMarker]="hideRequiredMarker">
+              <mat-label class="dark-blue ">Enter a date range</mat-label>
+              <mat-date-range-input  [rangePicker]="picker">
+                <input matStartDate formControlName="start" placeholder="Start date">
+                <input matEndDate formControlName="end" placeholder="End date">
+              </mat-date-range-input>
+              <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+  
+                <mat-error  *ngIf="rangeForm.controls.start.touched&&rangeForm.controls.start.hasError('required')">Start date required</mat-error>
+              
             
-          </div> -->
-          <mat-form-field>
-            <mat-label>Enter a date range</mat-label>
-            <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
-              <input matStartDate formControlName="start" placeholder="Start date">
-              <input matEndDate formControlName="end" placeholder="End date">
-            </mat-date-range-input>
-            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-date-range-picker #picker></mat-date-range-picker>
-<!--           
-            @if (range.controls.start.hasError('matStartDateInvalid')) {
-              <mat-error>Invalid start date</mat-error>
-            }
-            @if (range.controls.end.hasError('matEndDateInvalid')) {
-              <mat-error>Invalid end date</mat-error>
-            } -->
-          </mat-form-field>
-          <p class="py-2">Number of individuals?</p>
-          <div class="input-group mb-3 pointer">
-            <span class="input-group-text bg-danger px-4" id="basic-addon1"
-              ><i class="fa-solid fa-minus text-white "></i
-            ></span>
-            <input
-              type="text"
-              class="form-control "
-              placeholder="2 persons"
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-            />
-            <span class="input-group-text bg-info pointer px-4" id="basic-addon1"
-              ><i class="fa-solid fa-plus text-white"></i
-            ></span>
-          </div>
-          <p class="text-muted">You will pay <span class="blue">$480 USD</span> per <span class="blue">2 nights.</span></p>
-          <button class="btn main-btn  px-5">Continue to book</button>
-        </div> 
+                <mat-error *ngIf="rangeForm.controls.end.touched&&rangeForm.controls.end.hasError('required')">End date required</mat-error>
+              
+            </mat-form-field>
+            <p class="">Capacity</p>
+            <div class="input-group mb-3 pointer">
+              <span class="input-group-text bg-danger  px-4" id="basic-addon1" (click)="onDecrement()"
+                ><i class="fa-solid fa-minus text-white "></i
+              ></span>
+              <input
+                type="number" min="1"
+                class="form-control "
+                
+                aria-label="Username"
+                aria-describedby="basic-addon1" [(ngModel)]="this.counter" formControlName="capacity"
+              />
+              <span class="input-group-text dark-blue-btn pointer px-4" id="basic-addon1"(click)="onIncrement()"
+                ><i class="fa-solid fa-plus text-white"></i
+              ></span>
+            </div>
+            <!-- <p class="text-muted">You will pay <span class="blue">$480 USD</span> per <span class="blue">2 nights.</span></p> -->
+            <button  class="btn dark-blue-btn  px-5" [disabled]="rangeForm.invalid">Explore</button>
+          </div> 
+        </form>
+       
 
         <!-- <div class="icon-count"  [class]="_HelperService.textDirection==='ltr'?'me-5':'ms-5'">
                     <ul class="d-flex ps-0 justify-content-between" 

@@ -32,6 +32,24 @@ section{
         
       }
     }
+    form{
+        .form-control{
+            padding: 14px 5px;
+            border: rgb(145, 141, 141) 1px solid;
+            background-color: transparent;
+            border-right: 0;
+            border-left: 0;
+           }
+           label{
+            font-size: 18px; 
+        }
+        
+        input{
+            margin-bottom: 0px ;
+            color: #4866ED;
+        }
+    }
+
     .img-block{
      border: 1px solid $color-tertiary;
      padding: 3px;
@@ -64,4 +82,18 @@ color: $color-blue;
 .lead{
     font-size: 17px;
     font-weight: 400;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.dark-blue{
+    color: #4866ED;
+}
+.dark-blue-btn{
+    background-color: #4866ED;
+    color: white;
 }
