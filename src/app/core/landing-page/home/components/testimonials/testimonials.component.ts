@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { HelperService } from 'src/app/shared/services/helper.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-testimonials',
@@ -16,4 +17,6 @@ export class TestimonialsComponent {
     // console.log(this.translate.currentLang);
     
   }
+ 
+ 
 }

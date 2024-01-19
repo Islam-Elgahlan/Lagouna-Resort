@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { HelperService } from 'src/app/shared/services/helper.service';
 
@@ -9,16 +10,41 @@ import { HelperService } from 'src/app/shared/services/helper.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor(public _HelperService:HelperService , public translate: TranslateService){
+  counter:number=1;
+  hideRequiredMarker:boolean=true;
+  constructor(public _HelperService:HelperService , public translate: TranslateService,
+    private _Router:Router){
     
   }
-  range = new FormGroup({
-    start: new FormControl<Date | null>(null),
-    end: new FormControl<Date | null>(null),
+  rangeForm = new FormGroup({
+    start: new FormControl<Date | null>(null,[Validators.required]),
+    end: new FormControl<Date | null>(null,[Validators.required]),
+    capacity:new FormControl(null),
+    
   });
   onChangeLang(lang:string){
     this._HelperService.onChangeLang(lang)
     // console.log(this.translate.currentLang);
     
   }
+  createBooking(){
+
+  }
+  onIncrement(){
+    
+  this.counter++
+
+
+  }
+  onDecrement(){
+    if (this.counter>=1) {
+      this.counter--
+    }
+    
+  }
+  onSubmit(form:FormGroup){
+console.log(form.value);
+this._Router.navigate(['/landingPage/rooms/allRooms'])
+  }
+  
 }
