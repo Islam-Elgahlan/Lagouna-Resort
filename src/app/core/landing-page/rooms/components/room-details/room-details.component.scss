@@ -1,0 +1,24 @@
+@import "../../../../../../assets/styles/abstracts/variables";
+
+p{
+    color: #B0B0B0;
+}
+
+.i-circle {
+    border: 4px solid $color-blue;
+    color: $color-blue;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    padding: 8px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+  }
+  
+//   .arrows {
+//     margin-top: 80px;
+//   }
+  
