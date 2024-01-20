@@ -1,0 +1,56 @@
+@import "../../../../../../assets/styles/abstracts/variables";
+section{
+    h2{
+        color: $color-tertiary;
+        font-size: 2rem;
+    }
+  
+        .row{
+           
+            .houses-img{
+                border-radius: 20px !important;
+                overflow: hidden;
+                position: relative;
+                cursor: pointer;
+                height: 200px;
+                overflow: hidden;
+
+                &:hover .houses-img-layer{
+                    display: flex;
+                 }
+                &:hover img{
+                    transform: scale(1.1);
+                    transition: all .5s;
+
+                 }
+                &-layer{
+                    position:absolute ;
+                    z-index: 5;
+                    top: 0;
+                    height: 100%;
+                    background-color: rgba(32, 63, 199, 0.21);
+                    width: 100%;
+                    justify-content: center;
+                    align-items: center;
+                    display: none;
+                    transition:all 3s ;
+                   
+                    i{
+                        margin: 4px;
+                        color: white;
+                        &.fa-eye:hover {
+                          color: blue;
+                        }
+                        &.fa-circle-xmark:hover {
+                          color: red;
+                        }
+                    }
+                    
+                 }
+               
+            }
+        }
+        
+    }
+
+

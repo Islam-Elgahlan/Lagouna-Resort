@@ -29,6 +29,9 @@ export class NavbarComponent {
     // console.log(this.translate.currentLang);
     
   }
+  goToSection(section:string){
+this._Router.navigateByUrl('/landingPage/home#'+section)
+  }
   logOut(){
     localStorage.clear();
     window.location.reload()

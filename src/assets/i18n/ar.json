@@ -3,8 +3,9 @@
         "navBar":{
             "home":"الرئيسية",
             "gallery":"معرض",
-            "rooms":"الغرف",
-            "testimonials" :"التوصيات",
+            "explore":"اكتشف",
+            "reviews" :"التوصيات",
+            "favorites" :"المفضلة",
             "signIn":" تسجيل دخول",
             "signUp" : "إنشاء حساب",
             "logOut" : "تسجيل خروج",
