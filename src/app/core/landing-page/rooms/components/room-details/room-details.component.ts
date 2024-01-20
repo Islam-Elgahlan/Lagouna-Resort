@@ -10,6 +10,7 @@ import { RoomService } from '../../services/room.service';
 export class RoomDetailsComponent {
   roomData: any;
   roomId: string = '';
+  imgs: [] = [];
   constructor(private _ActivatedRoute: ActivatedRoute, private _RoomService: RoomService) {
     this.roomId = _ActivatedRoute.snapshot.params['id']
     console.log(this.roomId);
@@ -28,6 +29,7 @@ export class RoomDetailsComponent {
 
       }, complete: () => {
         console.log(this.roomData.images);
+        this.roomData.images = this.imgs;
 
 
 

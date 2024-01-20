@@ -1,1 +1,14 @@
 <p>room-details works!</p>
+<section>
+    <div class="container">
+        <div class="imgs">
+            <div class="row">
+                <div *ngFor="let item of imgs" class="col-md-4">
+                    <div>
+                        <img  [src]="item">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
