@@ -12,14 +12,15 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">{{'landingPage.navBar.home' | translate }}</a>
               </li>
+             
               <li class="nav-item">
-                <a class="nav-link">{{'landingPage.navBar.gallery' | translate }}</a>
+                <a class="nav-link" routerLink="/landingPage/rooms">{{'landingPage.navBar.explore' | translate }}</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link"routerLink="/landingPage/rooms">{{'landingPage.navBar.rooms' | translate }}</a>
+              <li class="nav-item ">
+                <a class="nav-link" (click)="goToSection('reviews')">{{'landingPage.navBar.reviews' | translate }}</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">{{'landingPage.navBar.testimonials' | translate }}</a>
+              <li class="nav-item" *ngIf="showItem">
+                <a class="nav-link" routerLink="/landingPage/favorites" >{{'landingPage.navBar.favorites' | translate }}</a>
               </li>
              
               <li *ngIf="!showItem" class="nav-item">
@@ -29,7 +30,7 @@
                 <a class="nav-link" routerLink="/auth/register">{{'landingPage.navBar.signUp' | translate }}</a>
               </li>
               <li *ngIf="showItem" class="nav-item">
-                <a class="nav-link" routerLink="/landingPage" (click)="logOut()">{{'landingPage.navBar.logOut' | translate }}</a>
+                <a class="nav-link"  (click)="logOut()">{{'landingPage.navBar.logOut' | translate }}</a>
               </li>
              
               <li>  <div class="collapse navbar-collapse" id="navbarSupportedContent">

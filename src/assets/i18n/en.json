@@ -3,9 +3,10 @@
         "navBar":{
             "home":"Home",
             "gallery":"Gallery",
-            "rooms":"Rooms",
+            "explore":"Explore",
             
-            "testimonials" :"Testimonials",
+            "reviews" :"Reviews",
+            "favorites" :"Favorites",
             "signIn":"Sign In",
             "signUp" : "Sign Up",
             "logOut" : "Logout",

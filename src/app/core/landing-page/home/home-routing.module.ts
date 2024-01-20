@@ -7,9 +7,7 @@ import { RoomDetailsComponent } from '../rooms/components/room-details/room-deta
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},{
     path:'',component:HomeComponent
-  },{
-    path:'rooms-details/:id',component:RoomDetailsComponent
-  }
+  },
 
 ];
 

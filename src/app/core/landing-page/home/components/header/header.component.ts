@@ -19,7 +19,7 @@ export class HeaderComponent {
   rangeForm = new FormGroup({
     start: new FormControl<Date | null>(null,[Validators.required]),
     end: new FormControl<Date | null>(null,[Validators.required]),
-    capacity:new FormControl(null),
+     capacity:new FormControl(null),
     
   });
   onChangeLang(lang:string){

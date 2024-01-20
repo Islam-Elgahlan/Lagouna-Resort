@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { adminGuard } from './core/Guards/admin.guard';
 
 const routes: Routes = [
@@ -18,9 +18,12 @@ const routes: Routes = [
     loadChildren: () => import('./core/admin/admin.module').then(m => m.AdminModule)
   },
 ];
-
+const RouterOptions:ExtraOptions = {
+  scrollPositionRestoration:'enabled',
+  anchorScrolling:'enabled'
+}
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,RouterOptions)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
