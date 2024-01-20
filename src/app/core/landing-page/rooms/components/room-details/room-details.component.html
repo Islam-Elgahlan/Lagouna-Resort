@@ -1,3 +1,4 @@
+
 <section class="my-3">
     <div class="container">
         <div class="">
@@ -29,12 +30,16 @@
                 </div>
               </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 <section class="details">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-7">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+                    <div class="col-md-7">
                 <p>
                     Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.
                 </p>
@@ -46,7 +51,130 @@
                 </p>
 
             </div>
-            <div class="col-md-5"></div>
+      </div>
+      <div class="col-md-5 box">
+        <form [formGroup]="rangeForm" (submit)="onSubmit(rangeForm)">
+          <div class="pe-5 p-4 ">
+            <h3>Start Booking</h3>
+            <p class="tiffany fs-2">
+              $280 <span class="text-muted"> Per night</span>
+            </p>
+            <span class="text-danger my-3">Disccount 20% off</span>
+            <p class="">Capacity</p>
+            <div class="input-group mb-3 pointer">
+              <span
+                class="input-group-text bg-danger px-4"
+                id="basic-addon1"
+                (click)="onDecrement()"
+                ><i class="fa-solid fa-minus text-white"></i
+              ></span>
+              <input
+                type="number"
+                min="1"
+                class="form-control"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+                [(ngModel)]="this.counter"
+                formControlName="capacity"
+              />
+              <span
+                class="input-group-text dark-blue-btn pointer bg-tiffany px-4"
+                id="basic-addon1"
+                (click)="onIncrement()"
+                ><i class="fa-solid fa-plus text-white"></i
+              ></span>
+            </div>
+            <p class="">Pick a date</p>
+            <mat-form-field
+              appearance="outline"
+              class="w-100"
+              [hideRequiredMarker]="hideRequiredMarker"
+            >
+              <mat-label class="dark-blue"> Enter a date range</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input
+                  matStartDate
+                  formControlName="start"
+                  placeholder="Start date"
+                />
+                <input
+                  matEndDate
+                  formControlName="end"
+                  placeholder="End date"
+                />
+              </mat-date-range-input>
+              <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+
+              <mat-error
+                *ngIf="
+                  rangeForm.controls.start.touched &&
+                  rangeForm.controls.start.hasError('required')
+                "
+                >Start date required</mat-error
+              >
+
+              <mat-error
+                *ngIf="
+                  rangeForm.controls.end.touched &&
+                  rangeForm.controls.end.hasError('required')
+                "
+                >End date required</mat-error
+              >
+            </mat-form-field>
+            <p class="text-muted fs-5">
+              You will pay <span class="blue"> $480 USD</span> per
+              <span class="blue">2 nights.</span>
+            </p>
+            <button class="btn main-btn m-auto pointer px-4 py-2">
+              Continue Booking
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="row py-5 footer-box">
+        <div class="col-md-6">
+          <h3>Rate</h3>
+          <span class="py-4">
+            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+          </span>
+          <div>
+            <span class="py-2 fs-4">Message</span>
+            <div class="form-floating mt-3">
+              <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="floatingTextarea2"
+                style="height: 100px"
+              ></textarea>
+              <label for="floatingTextarea2"></label>
+            </div>
+          </div>
+          <button class="btn main-btn px-5 py-2">Rate</button>
+
         </div>
+        <div class="col-md-6">
+          <h2 class="mb-3">Add your Comment</h2>
+          <div class="form-floating mt-5">
+            <textarea
+              class="form-control rounded "
+              placeholder="Leave a comment here"
+              id="floatingTextarea2"
+              style="height: 100px"
+            ></textarea>
+            <label for="floatingTextarea2">Set your Comment</label>
+          </div>
+          <button class="btn main-btn px-5 py-2">Rate</button>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
