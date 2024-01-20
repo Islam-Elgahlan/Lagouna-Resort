@@ -29,7 +29,7 @@ export class RoomDetailsComponent {
 
       }, complete: () => {
         console.log(this.roomData.images);
-        this.roomData.images = this.imgs;
+        this.imgs = this.roomData.images;
 
 
 
