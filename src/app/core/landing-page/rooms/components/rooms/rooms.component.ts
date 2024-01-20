@@ -9,7 +9,7 @@ import { RoomService } from '../../services/room.service';
 })
 export class RoomsComponent {
   
-  pageSize: number = 10;
+  pageSize: number = 100;
   pageNumber: number | undefined = 1;
   tableResponse: any;
   tableData: any[] = [];
