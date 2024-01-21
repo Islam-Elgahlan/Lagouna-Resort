@@ -11,21 +11,25 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
         path: 'home',
+        title:'Staycation-Home',
         loadChildren: () =>
           import('./home/home.module').then((m) => m.HomeModule),
       },
       {
         path: 'booking',
+        title:'Staycation-Booking',
         loadChildren: () =>
           import('./booking/booking.module').then((m) => m.BookingModule),
       },
       {
         path: 'rooms',
+        title:'Staycation-Explore',
         loadChildren: () =>
           import('./rooms/rooms.module').then((m) => m.RoomsModule),
       },
       {
         path: 'favorites',
+        title:'Staycation-Favorites',
         loadChildren: () =>
           import('./favorites/favorites.module').then((m) => m.FavoritesModule),
       }

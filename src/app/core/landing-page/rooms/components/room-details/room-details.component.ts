@@ -4,6 +4,7 @@ import { RoomService } from '../../services/room.service';
 import { HelperService } from 'src/app/shared/services/helper.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-room-details',
@@ -22,13 +23,15 @@ export class RoomDetailsComponent {
   rating:string='';
   currentRate = 0;
   maxRating = 5;
- 
+  routingTitle1:string='';
+  routingTitle2:string='';
   constructor(
     private _ActivatedRoute: ActivatedRoute,
     private _RoomService: RoomService,
     private _HelperService:HelperService,
     private _Router:Router,
-    private _ToastrService:ToastrService
+    private _ToastrService:ToastrService,
+    private _TitleService:Title
   ) {
     this.roomId = _ActivatedRoute.snapshot.params['id'];
     console.log(this.roomId);
@@ -41,8 +44,15 @@ export class RoomDetailsComponent {
   }
   ngOnInit() {
     this.getRoomById(this.roomId);
+    this.getTitle()
   }
-
+  getTitle() {
+    
+    this.routingTitle1=this._TitleService.getTitle();
+    this.routingTitle2=this.routingTitle1.substring(11,);
+    console.log(this.routingTitle2);
+    
+}
   getRoomById(id: string) {
     this._RoomService.getRoombyId(id).subscribe({
       next: (res) => {
@@ -98,7 +108,8 @@ export class RoomDetailsComponent {
           this._RoomService.createComment(data).subscribe({
             next:(res)=>{
               console.log(res);
-              this._ToastrService.success(res.message)
+              this._ToastrService.success(res.message);
+              this.comment='';
             },error:(err)=>{
               this._ToastrService.error('Please Enter a commet before send')
             }
@@ -119,14 +130,19 @@ export class RoomDetailsComponent {
           this._RoomService.createReview(data).subscribe({
             next:(res)=>{
               console.log(res);
-              this._ToastrService.success(res.message)
+              this._ToastrService.success(res.message);
+              this.review='';
+              this.currentRate=0
             },error:(err)=>{
               this._ToastrService.error(err.error.message)
+              this.review='';
+              this.currentRate=0
             }
           })
         } else {
           this._ToastrService.warning('You must be sign in to add a review');
           this.review='';
+          this.currentRate=0
         }
       }
 }

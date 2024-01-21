@@ -38,7 +38,7 @@ export class GalleryComponent implements OnInit{
     this._HomeService.getAllRooms().subscribe({
       next:(res)=>{
         console.log(res.data.rooms);
-        this.rooms=res.data.rooms.splice(4,4)
+        this.rooms=res.data.rooms.slice(0,4)
       }
     })
   }

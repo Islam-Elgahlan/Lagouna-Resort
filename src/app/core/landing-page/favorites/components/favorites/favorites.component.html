@@ -1,7 +1,7 @@
 <section>
     <div class="container">
         <h2 class="text-center py-5">My Favorites</h2>
-        
+        <p><a routerLink="">Home</a> / <span>{{routingTitle2}}</span></p>
         <div class="row gy-5">
             <div *ngFor="let item of myFavorites" class="col-md-3">
                 <div class="houses-img">
@@ -12,12 +12,18 @@
                     <a (click)="removeFromFavorites(item._id)"><i class="fa-solid fa-2x fa-circle-xmark"></i></a>
                     
                   </div>
-                  
+                  <div class="img-widge">
+                    <h3>
+                      <span>{{ item.price | currency : "USD" }}</span> {{'landingPage.gallery.Per Night' | translate}}
+                    </h3>
+                  </div>
                   <img [src]=" item.images[0]" />
                  
                 </div>
-                <h3>Tobby Town</h3>
-                  <p>Gunung Batu, Indonesia</p>
+                <div class="houses-text">
+                  <h3>Room No:<span class="text-info">{{item.roomNumber}}</span></h3>
+                  
+                </div>
               </div>
               
         </div>

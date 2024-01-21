@@ -1,48 +1,70 @@
 @import "../../../../../../assets/styles/abstracts/variables";
-
-.most-picked-img{
-    border-radius: 20px;
-     overflow: hidden;
-   
-     position: relative;
-     cursor: pointer;
+.container{
+   padding-top: 30px;
+   h2{
+      color: $color-primary;
+   }
+   p{
+     a{
+      color: $color-tertiary;
+      font-size: 18px;
+     } 
+     span{
+      color: $color-primary;
+      font-size: 20px;
+     }
+   }
+   .col-md-4{
      
-    
-     &:hover .most-picked-img-layer{
-        display: flex;
-     }
-     &-layer{
-        position:absolute ;
-        top: 0;
-        height: 100%;
-        background-color: rgba(32, 63, 199, 0.21);
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        display: none;
-        transition:all 3s ;
-       
-        i{
-            margin: 4px;
-            color: white
-        }
-        
-     }
-    
-     &-widge{
-        position: absolute;
-        width: fit-content;
-        padding: 2px 5px;
-        right: 0;
-       
-        top: 0;
-        background-color:#ff498b ;
-        border-bottom-left-radius:20px ;
-        h3{
-            color: #fff;
-        }
-     }
-    
-
-    
-} 
+      .most-picked-img{
+         border-radius: 20px;
+          overflow: hidden;
+          position: relative;
+          cursor: pointer;
+          height: 200px;
+         border: 1px solid $color-tertiary;
+          &:hover .most-picked-img-layer{
+             display: flex;
+          }
+          &-layer{
+             position:absolute ;
+             top: 0;
+             height: 100%;
+             background-color: rgba(32, 63, 199, 0.21);
+             width: 100%;
+             justify-content: center;
+             align-items: center;
+             display: none;
+             transition:all 3s ;
+            
+             i{
+                 margin: 4px;
+                 color: white
+             }
+             
+          }
+         
+          &-widge{
+             position: absolute;
+             width: fit-content;
+             padding: 2px 5px;
+             right: 0;
+            
+             top: 0;
+             background-color:#ff498b ;
+             border-bottom-left-radius:20px ;
+             h3{
+                 color: #fff;
+             }
+          }
+         
+     
+         
+     } 
+     .houses-text{
+      margin-top: 20px;
+  }
+   }
+  
+  
+}

@@ -3,14 +3,15 @@
 section{
     h2{
         color: $color-primary;
-        margin: 15px 0;
+        margin: 25px 0;
+        font-size: 1.8rem;
     }
     h3{
         color: $color-primary;
         margin: 8px 0;
     }
     p{
-        font-size: 12px;
+        font-size: 15px;
         color: $color-tertiary;
     }
     .most-picked{
@@ -90,7 +91,7 @@ section{
     .Houses{
         margin: 50px 0;
         .row{
-           
+          
             .houses-img{
                 border-radius: 20px !important;
                 overflow: hidden;
@@ -98,7 +99,7 @@ section{
                 cursor: pointer;
                 height: 200px;
                 overflow: hidden;
-
+               border: 1px solid $color-tertiary;
                 &:hover .houses-img-layer{
                     display: flex;
                  }
@@ -149,6 +150,10 @@ section{
                         }
                     }
                 }
+            }
+
+            .houses-text{
+                margin-top: 20px;
             }
         }
         
