@@ -11,6 +11,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { SpinnerInterceptor } from './core/interceptors/spinner.interceptor';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -36,6 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   }),
     BrowserAnimationsModule,
     NgxSpinnerModule,
+    NgbModule,
   
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

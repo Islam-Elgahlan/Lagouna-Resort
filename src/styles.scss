@@ -57,3 +57,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 // .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-floating-label, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-floating-label--float-above {
 //   color: blue;
 // }
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
