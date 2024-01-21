@@ -1,11 +1,5 @@
 
-<!-- <section class="my-3">
-    <div class="container">
-    
-      </div>
-    </div>
-  </div>
-</section> -->
+
 <section class="details">
 
   <div class="container">
@@ -137,15 +131,13 @@
           </div>
         </form>
       </div>
-      <div class="row py-5 footer-box">
+      <div class="row py-5 comment-box">
         <div class="col-md-6">
           <h3>Rate</h3>
           <span class="py-4">
-            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
-            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
-            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
-            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
-            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+            <div class="star-rating">
+              <ngb-rating [(ngModel)]="currentRate" [max]="maxRating"></ngb-rating>
+            </div>
           </span>
           <div>
             <span class="py-2 fs-4">Message</span>
@@ -154,12 +146,13 @@
                 class="form-control"
                 placeholder="Leave a comment here"
                 id="floatingTextarea2"
-                style="height: 100px"
+                style="height: 100px;"
+                [(ngModel)]="review"
               ></textarea>
               <label for="floatingTextarea2"></label>
             </div>
           </div>
-          <button class="btn main-btn px-5 py-2">Rate</button>
+          <button class="btn main-btn px-5 py-2" (click)="addRate()">Rate</button>
 
         </div>
         <div class="col-md-6">
@@ -170,10 +163,11 @@
               placeholder="Leave a comment here"
               id="floatingTextarea2"
               style="height: 100px"
+              [(ngModel)]="comment"
             ></textarea>
             <label for="floatingTextarea2">Set your Comment</label>
           </div>
-          <button class="btn main-btn px-5 py-2">Rate</button>
+          <button class="btn main-btn px-5 py-2" (click)="addComment()">Comment</button>
         </div>
       </div>
     </div>
