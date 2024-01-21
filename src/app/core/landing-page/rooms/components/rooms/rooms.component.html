@@ -1,9 +1,10 @@
 <section>
     <div class="container">
-        <h2 class="my-4">You Can Find The Best Rooms here !</h2>
-        <div class="row">
-            <div *ngFor="let item of tableData" class="col-md-3 my-3">
-                <div class="most-picked-img h-100">
+        <h2 class="my-4 text-center">Explore All Rooms Here</h2>
+        <p><a>Home</a> / <span>{{routingTitle2}}</span></p>
+        <div class="row gy-5">
+            <div *ngFor="let item of tableData" class="col-md-4 ">
+                <div class="most-picked-img ">
                   <div class="most-picked-img-layer">
                     <a [routerLink]="'/landingPage/rooms/room-details/'+item._id">
                         <i class="fa-solid fa-2x fa-eye"></i>
@@ -12,10 +13,14 @@
                   </div>
                   <div class="most-picked-img-widge">
                     <h3>
-                      <span>{{ 50 | currency : "USD" }}</span> {{'landingPage.gallery.Per Night' | translate}}
+                      <span>{{ item.price | currency : "USD" }}</span> {{'landingPage.gallery.Per Night' | translate}}
                     </h3>
                   </div>
                   <img class="h-100" [src]=" item.images[0]" />
+                </div>
+                <div class="houses-text">
+                  <h3>Room No:<span class="text-info">{{item.roomNumber}}</span></h3>
+                  <!-- <p>{{item.price}}</p> -->
                 </div>
               </div>
         </div>

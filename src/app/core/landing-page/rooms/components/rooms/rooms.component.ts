@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { RoomService } from '../../services/room.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-rooms',
@@ -13,14 +14,29 @@ export class RoomsComponent {
   pageNumber: number | undefined = 1;
   tableResponse: any;
   tableData: any[] = [];
-
+  routingTitle1:string='';
+  routingTitle2:string='';
   constructor(
     private _toastr: ToastrService,
     private _RoomService: RoomService,
+    private _TitleService: Title
   ) { }
+  
+  
+
+  
   ngOnInit() {
     this.onGetAllRooms();
+    this.getTitle()
   }
+  getTitle() {
+    
+   
+    this.routingTitle1=this._TitleService.getTitle();
+    this.routingTitle2=this.routingTitle1.substring(11,);
+    console.log(this.routingTitle2);
+    
+}
   onGetAllRooms() {
     let x = {
       size: this.pageSize,

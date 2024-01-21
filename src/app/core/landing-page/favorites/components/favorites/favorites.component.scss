@@ -1,12 +1,23 @@
 @import "../../../../../../assets/styles/abstracts/variables";
 section{
-    h2{
-        color: $color-tertiary;
-        font-size: 2rem;
-    }
-  
-        .row{
+    .container{
+        h2{
+            color: $color-tertiary;
+            font-size: 2rem;
+        }
+        p{
+            a{
+             color: $color-tertiary;
+             font-size: 18px;
+            } 
+            span{
+             color: $color-primary;
+             font-size: 20px;
+            }
+          }
+          .row{
            
+            margin-top: 10px; 
             .houses-img{
                 border-radius: 20px !important;
                 overflow: hidden;
@@ -14,7 +25,7 @@ section{
                 cursor: pointer;
                 height: 200px;
                 overflow: hidden;
-
+                  border: 1px solid $color-tertiary;
                 &:hover .houses-img-layer{
                     display: flex;
                  }
@@ -47,9 +58,34 @@ section{
                     }
                     
                  }
-               
+                 .img-widge{
+                    position: absolute;
+                    width: fit-content;
+                    padding: 2px 5px;
+                    z-index: 6;
+                    right: 0;
+                    top: 0;
+                    background-color:#ff498b ;
+                    border-bottom-left-radius:20px ;
+                    h3{
+                        color: #fff;
+                        font-size: 15px;
+                        font-weight: 200;
+                        span{
+                            font-weight: 400;
+                            padding: 0 2px;
+                        }
+                    }
+                }
+            }
+            .houses-text{
+                margin-top: 20px;
             }
         }
+    }
+   
+  
+      
         
     }
 

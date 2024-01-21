@@ -1,5 +1,17 @@
 @import "../../../../../../assets/styles/abstracts/variables";
-
+.container{
+  
+  p{
+    a{
+     color: $color-tertiary;
+     font-size: 18px;
+    } 
+    span{
+     color: $color-primary;
+     font-size: 20px;
+    }
+  }
+}
 
 form {
   .form-control {
