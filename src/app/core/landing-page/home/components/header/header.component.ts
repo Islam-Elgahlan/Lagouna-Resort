@@ -49,7 +49,7 @@ export class HeaderComponent {
 
 this.startDate=this.datePipe.transform(form.value.start,"yyyy-MM-dd")
 console.log(this.startDate);
-this.startDate=this.datePipe.transform(form.value.end,"yyyy-MM-dd")
+this.endDate=this.datePipe.transform(form.value.end,"yyyy-MM-dd")
 this._Router.navigate(['/landingPage/rooms/allRooms'],{queryParams:{startDate:this.startDate,endDate:this.endDate}})
   }
   

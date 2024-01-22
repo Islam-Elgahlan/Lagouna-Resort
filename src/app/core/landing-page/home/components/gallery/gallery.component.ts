@@ -51,6 +51,7 @@ export class GalleryComponent implements OnInit{
       }
     })
   }
+  
   addToFavorites(id:string){
     if (this.showItem) {
       this._FavoritesService.addFavorites(id).subscribe({

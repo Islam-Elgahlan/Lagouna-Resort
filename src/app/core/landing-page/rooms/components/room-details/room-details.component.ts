@@ -76,7 +76,7 @@ export class RoomDetailsComponent {
   rangeForm = new FormGroup({
     start: new FormControl<Date | null>(null, [Validators.required]),
     end: new FormControl<Date | null>(null, [Validators.required]),
-    capacity: new FormControl(null),
+    
   });
  
   
@@ -120,11 +120,7 @@ export class RoomDetailsComponent {
 
    
   }
-  onDecrement() {
-    if (this.counter >= 1) {
-      this.counter--;
-    }
-  }
+ 
   
   onSubmit(form:FormGroup){
     // this.calculateDays()

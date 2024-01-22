@@ -39,6 +39,7 @@
             </div>
           </div>
         </div>
+        </div>
         <div class="row">
           <div class="col-md-7 mt-4">
             <p>
@@ -59,7 +60,7 @@
                   {{ "landingPage.roomDetails.startBooking" | translate }}
                 </h3>
                 <p class="tiffany fs-2">
-                  $280
+                  ${{roomData?.price}}
                   <span class="text-muted">
                     {{ "landingPage.roomDetails.perNight" | translate }}</span
                   >
@@ -185,5 +186,5 @@
         </div>
       </div>
     </div>
-  </div>
+  
 </section>
