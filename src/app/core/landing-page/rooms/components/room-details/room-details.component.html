@@ -15,7 +15,7 @@
     <div class="imgs">
         <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner ">
-              <div class="carousel-item active " *ngFor="let item of imgs">
+              <div class="carousel-item active " *ngFor="let item of roomData?.images">
                 <div class="row justify-content-center align-items-center">
                   <div class="col-md-8">
                     <div class="img-box ">
@@ -52,11 +52,11 @@
           <div class="pe-5 p-4 ">
             <h3>Start Booking</h3>
             <p class="tiffany fs-2">
-              $280 <span class="text-muted"> Per night</span>
+              ${{roomData?.price}} <span class="text-muted"> Per night</span>
             </p>
-            <span class="text-danger my-3">Disccount 20% off</span>
-            <p class="">Capacity</p>
-            <div class="input-group mb-3 pointer">
+            <span class="text-danger my-3">Disccount {{roomData?.discount }}% off</span>
+            <!-- <p class="">Capacity</p> -->
+            <!-- <div class="input-group mb-3 pointer">
               <span
                 class="input-group-text bg-danger px-4"
                 id="basic-addon1"
@@ -78,7 +78,7 @@
                 (click)="onIncrement()"
                 ><i class="fa-solid fa-plus text-white"></i
               ></span>
-            </div>
+            </div> -->
             <p class="">Pick a date</p>
             <mat-form-field
               appearance="outline"
@@ -86,8 +86,8 @@
               [hideRequiredMarker]="hideRequiredMarker"
             >
               <mat-label class="dark-blue"> Enter a date range</mat-label>
-              <mat-date-range-input [rangePicker]="picker">
-                <input
+              <mat-date-range-input [rangePicker]="picker" >
+                <input 
                   matStartDate
                   formControlName="start"
                   placeholder="Start date"
@@ -95,15 +95,20 @@
                 <input
                   matEndDate
                   formControlName="end"
-                  placeholder="End date"
+                  placeholder="End date" 
+                  
                 />
               </mat-date-range-input>
               <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
               <mat-datepicker-toggle
                 matIconSuffix
                 [for]="picker"
+                
+                
               ></mat-datepicker-toggle>
-              <mat-date-range-picker #picker></mat-date-range-picker>
+              <mat-date-range-picker #picker  
+              #ref
+              (closed)="createBooking()" ></mat-date-range-picker>
 
               <mat-error
                 *ngIf="
@@ -122,10 +127,10 @@
               >
             </mat-form-field>
             <p class="text-muted fs-5">
-              You will pay <span class="blue"> $480 USD</span> per
-              <span class="blue">2 nights.</span>
+              You will pay <span class="blue"> ${{totalPrice}} USD</span> per
+              <span class="blue">{{nigntsNum}} nights.</span>
             </p>
-            <button class="btn main-btn m-auto pointer px-4 py-2">
+            <button (click)="createBooking()" class="btn main-btn m-auto pointer px-4 py-2">
               Continue Booking
             </button>
           </div>
