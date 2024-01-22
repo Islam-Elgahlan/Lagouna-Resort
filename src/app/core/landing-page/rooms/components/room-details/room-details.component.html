@@ -1,59 +1,128 @@
-
-
 <section class="details">
-
   <div class="container">
     <div class="row">
-      <div class="">
-       
-
+      <!-- <div class="">
         <div class="text-center">
-            <h1>Village Angga</h1>
-            <h3>Bogor, Indonesia</h3>
+          <h1>Village Angga</h1>
+          <h3>Bogor, Indonesia</h3>
         </div>
-        <p><a routerLink="">Home</a> / <span>{{routingTitle2}}</span></p>
-    </div>
-    <div class="imgs">
+        <p>
+          <a routerLink="">Home</a> / <span>{{ routingTitle2 }}</span>
+        </p>
+      </div> -->
+      <!-- <div class="imgs">
         <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner ">
-              <div class="carousel-item active " *ngFor="let item of imgs">
-                <div class="row justify-content-center align-items-center">
-                  <div class="col-md-8">
-                    <div class="img-box ">
-                      
-                      <img [src]="item" alt="" />
-                    </div>
-                    <div class="d-flex justify-content-center  arrows my-2">
-                      <span class="i-circle mx-4" data-bs-target="#carouselExample"data-bs-slide="next" ><i class="fa-solid fs-4 fa-arrow-left"></i></span>
-                      <span class="i-circle" data-bs-target="#carouselExample" data-bs-slide="next"> <i class="fa-solid  fs-4 fa-arrow-right"></i></span>
-                    </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active" *ngFor="let item of imgs">
+              <div class="row justify-content-center align-items-center">
+                <div class="col-md-8">
+                  <div class="img-box">
+                    <img [src]="item" alt="" />
+                  </div>
+                  <div class="d-flex justify-content-center arrows my-2">
+                    <span
+                      class="i-circle mx-4"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide="next"
+                      ><i class="fa-solid fs-4 fa-arrow-left"></i
+                    ></span>
+                    <span
+                      class="i-circle"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide="next"
+                    >
+                      <i class="fa-solid fs-4 fa-arrow-right"></i
+                    ></span>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
-    </div>
+        </div>
+      </div> -->
       <div class="col-md-7">
-                    <div class="col-md-7">
-                <p>
-                    Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.
-                </p>
-                <p>
-                    Such trends saw the demise of the soul-infused techno that typified the original Detroit sound. Robert Hood has noted that he and Daniel Bell both realized something was missing from techno in the post-rave era.
-                </p>
-                <p>
-                    Design is a plan or specification for the construction of an object or system or for the implementation of an activity or process, or the result of that plan or specification in the form of a prototype, product or process. The national agency for design: enabling Singapore to use design for economic growth and to make lives better.
-                </p>
+        <!-- <div class="col-md-7">
+          <p>
+            Minimal techno is a minimalist subgenre of techno music. It is
+            characterized by a stripped-down aesthetic that exploits the use of
+            repetition and understated development. Minimal techno is thought to
+            have been originally developed in the early 1990s by Detroit-based
+            producers Robert Hood and Daniel Bell.
+          </p>
+          <p>
+            Such trends saw the demise of the soul-infused techno that typified
+            the original Detroit sound. Robert Hood has noted that he and Daniel
+            Bell both realized something was missing from techno in the
+            post-rave era.
+          </p>
+          <p>
+            Design is a plan or specification for the construction of an object
+            or system or for the implementation of an activity or process, or
+            the result of that plan or specification in the form of a prototype,
+            product or process. The national agency for design: enabling
+            Singapore to use design for economic growth and to make lives
+            better.
+          </p> -->
 
+          <div class="text-center m-auto ">
+            <h1>{{ "landingPage.roomDetails.village" | translate }}</h1>
+            <h3>{{ "landingPage.roomDetails.bogor" | translate }}</h3>
+          </div>
+        </div>
+        <div class="imgs">
+          <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active" *ngFor="let item of imgs">
+                <div class="row justify-content-center align-items-center">
+                  <div class="col-md-8">
+                    <div class="img-box">
+                      <img [src]="item" alt="" />
+                    </div>
+                    <div class="d-flex justify-content-center arrows my-2">
+                      <span
+                        class="i-circle mx-4"
+                        data-bs-target="#carouselExample"
+                        data-bs-slide="next"
+                        ><i class="fa-solid fs-4 fa-arrow-left"></i
+                      ></span>
+                      <span
+                        class="i-circle"
+                        data-bs-target="#carouselExample"
+                        data-bs-slide="next"
+                      >
+                        <i class="fa-solid fs-4 fa-arrow-right"></i
+                      ></span>
+                    </div>
+                  </div>
+                
+              </div>
             </div>
+          </div>
+        </div>
+
+     <div class="row">
+      <div class="col-md-7 mt-4">
+        <div class="col-md-7">
+          <p>
+            {{ "landingPage.roomDetails.1" | translate }}
+          </p>
+          <p>
+            {{ "landingPage.roomDetails.2" | translate }}
+          </p>
+          <p>
+            {{ "landingPage.roomDetails.3" | translate }}
+          </p>
+        </div>
       </div>
       <div class="col-md-5 box">
         <form [formGroup]="rangeForm" (submit)="onSubmit(rangeForm)">
-          <div class="pe-5 p-4 ">
-            <h3>Start Booking</h3>
+          <div class="pe-5 p-4">
+            <h3>{{ "landingPage.roomDetails.startBooking" | translate }}</h3>
             <p class="tiffany fs-2">
-              $280 <span class="text-muted"> Per night</span>
+              $280
+              <span class="text-muted">
+                {{ "landingPage.roomDetails.perNight" | translate }}</span
+              >
             </p>
             <span class="text-danger my-3">Disccount 20% off</span>
             <p class="">Capacity</p>
@@ -80,13 +149,17 @@
                 ><i class="fa-solid fa-plus text-white"></i
               ></span>
             </div>
-            <p class="">Pick a date</p>
+            <p class="">{{ "landingPage.roomDetails.date" | translate }}</p>
             <mat-form-field
               appearance="outline"
               class="w-100"
               [hideRequiredMarker]="hideRequiredMarker"
             >
-              <mat-label class="dark-blue"> Enter a date range</mat-label>
+              <mat-label class="dark-blue">
+                {{
+                  "landingPage.roomDetails.enterDate" | translate
+                }}</mat-label
+              >
               <mat-date-range-input [rangePicker]="picker">
                 <input
                   matStartDate
@@ -132,43 +205,62 @@
           </div>
         </form>
       </div>
-      <div class="row py-5 comment-box">
-        <div class="col-md-6">
-          <h3>Rate</h3>
-          <span class="py-4">
-            <div class="star-rating">
-              <ngb-rating [(ngModel)]="currentRate" [max]="maxRating"></ngb-rating>
+     </div>
+        <div class="row py-5 comment-box">
+          <div class="col-md-6">
+            <h3>{{ "landingPage.roomDetails.rate" | translate }}</h3>
+            <span class="py-4">
+              <div class="star-rating">
+                <ngb-rating
+                  [(ngModel)]="currentRate"
+                  [max]="maxRating"
+                ></ngb-rating>
+              </div>
+            </span>
+            <div>
+              <span class="py-2 fs-4">{{
+                "landingPage.roomDetails.message" | translate
+              }}</span>
+              <div class="form-floating mt-3">
+                <textarea
+                  class="form-control"
+                  placeholder="Leave a comment here"
+                  id="floatingTextarea2"
+                  style="height: 100px"
+                  [(ngModel)]="review"
+                ></textarea>
+                <label for="floatingTextarea2"></label>
+              </div>
             </div>
-          </span>
-          <div>
-            <span class="py-2 fs-4">Message</span>
-            <div class="form-floating mt-3">
+            <button class="btn main-btn px-5 py-2" (click)="addRate()">
+              {{ "landingPage.roomDetails.rate" | translate }}
+            </button>
+          </div>
+
+          <!-- <div class="ver-line">
+
+        </div> -->
+
+          <div class="col-md-6">
+            <h2 class="mb-3">
+              {{ "landingPage.roomDetails.comment" | translate }}
+            </h2>
+            <div class="form-floating mt-5">
               <textarea
-                class="form-control"
+                class="form-control rounded"
                 placeholder="Leave a comment here"
                 id="floatingTextarea2"
-                style="height: 100px;"
-                [(ngModel)]="review"
+                style="height: 100px"
+                [(ngModel)]="comment"
               ></textarea>
-              <label for="floatingTextarea2"></label>
+              <label for="floatingTextarea2">{{
+                "landingPage.roomDetails.setComment" | translate
+              }}</label>
             </div>
+            <button class="btn main-btn px-5 py-2" (click)="addComment()">
+              {{ "landingPage.roomDetails.rate" | translate }}
+            </button>
           </div>
-          <button class="btn main-btn px-5 py-2" (click)="addRate()">Rate</button>
-
-        </div>
-        <div class="col-md-6">
-          <h2 class="mb-3">Add your Comment</h2>
-          <div class="form-floating mt-5">
-            <textarea
-              class="form-control rounded "
-              placeholder="Leave a comment here"
-              id="floatingTextarea2"
-              style="height: 100px"
-              [(ngModel)]="comment"
-            ></textarea>
-            <label for="floatingTextarea2">Set your Comment</label>
-          </div>
-          <button class="btn main-btn px-5 py-2" (click)="addComment()">Comment</button>
         </div>
       </div>
     </div>
