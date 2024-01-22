@@ -21,5 +21,8 @@ export class RoomService {
   createReview(data:any):Observable<any>{
     return this._HttpClient.post('portal/room-reviews',data)
   }
+  createBooking(data:any):Observable<any>{
+    return this._HttpClient.post('portal/booking',data)
+  }
 
 }
