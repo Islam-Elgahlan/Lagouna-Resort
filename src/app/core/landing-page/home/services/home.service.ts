@@ -12,6 +12,9 @@ export class HomeService {
   getAllRooms():Observable<any>{
     return this._HttpClient.get('portal/rooms/available?page=1&size=10')
   }
+  getAllAds():Observable<any>{
+    return this._HttpClient.get('portal/ads')
+  }
   
   createNewBooking(data:IBooking):Observable<any>{
     return this._HttpClient.post('portal/booking',data)

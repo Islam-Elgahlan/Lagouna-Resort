@@ -95,41 +95,23 @@
             <div class="houses-img"  >
               <div class="houses-img-layer">
                 <i class="fa-solid fa-2x fa-eye" [routerLink]="'/landingPage/rooms/room-details/'+room._id"></i>
-                <i class="fa-solid fa-2x fa-heart" (click)="addToFavorites(room._id)" *ngIf="showItem"></i>
+                <i class="fa-solid fa-2x fa-heart" (click)="addToFavorites(room._id)"></i>
               </div>
-                <img [src]="room.images[0]" alt="">
-                
+              <div class="img-widge">
+                <h3>
+                  <span>{{ room.price | currency : "USD" }}</span> {{'landingPage.gallery.Per Night' | translate}}
+                </h3>
+              </div>
+                <img [src]="room.images[0]" alt="" *ngIf="room.images[0]">
+                <img src="../../../../../../assets/images/img3.png" alt="" *ngIf="!room.images[0]"> 
             </div>
-            <h3>Tobby Town</h3>
-            <p>Gunung Batu, Indonesia</p>
+           <div class="houses-text">
+              <h3>Room No:<span class="text-info">{{room.roomNumber}}</span></h3>
+              <!-- <p>{{room.price}}</p> -->
+            </div>
         </div>
         
-        <!-- <div class="col-md-3">
-            <div class="houses-img">
-                <div class="img-widge">
-                    <h3>
-                        <span>{{'landingPage.gallery.Choice' | translate}}</span>{{'landingPage.gallery.Popular' | translate}}
-                      </h3>
-                  </div>
-                <img src="../../../../../../assets/images/img4.png" alt="">
-            </div>
-            <h3>Tobby Town</h3>
-            <p>Gunung Batu, Indonesia</p>
-        </div>
-        <div class="col-md-3">
-            <div class="houses-img">
-                <img src="../../../../../../assets/images/img5.png" alt="">
-            </div>
-            <h3>Tobby Town</h3>
-            <p>Gunung Batu, Indonesia</p>
-        </div>
-        <div class="col-md-3">
-            <div class="houses-img">
-                <img src="../../../../../../assets/images/img6.png" alt="">
-            </div>
-            <h3>Tobby Town</h3>
-            <p>Gunung Batu, Indonesia</p>
-        </div> -->
+       
     </div>
 </div>
   <div class="Houses">
@@ -137,25 +119,43 @@
     <div class="row">
         <div class="col-md-3">
             <div class="houses-img">
+              <div class="houses-img-layer">
+                <i class="fa-solid fa-2x fa-eye" ></i>
+                <i class="fa-solid fa-2x fa-heart"></i>
+              </div>
                 <img src="../../../../../../assets/images/a1.png" alt="">
                 
             </div>
-            <h3>Tobby Town</h3>
-            <p>Gunung Batu, Indonesia</p>
+           <div class="houses-text">
+              <h3>Tobby Town</h3>
+              <p>Gunung Batu, Indonesia</p>
+            </div>
         </div>
         <div class="col-md-3">
             <div class="houses-img">
+              <div class="houses-img-layer">
+                <i class="fa-solid fa-2x fa-eye" ></i>
+                <i class="fa-solid fa-2x fa-heart"></i>
+              </div>
                 <img src="../../../../../../assets/images/img4.png" alt="">
             </div>
-            <h3>Tobby Town</h3>
-            <p>Gunung Batu, Indonesia</p>
+           <div class="houses-text">
+              <h3>Tobby Town</h3>
+              <p>Gunung Batu, Indonesia</p>
+            </div>
         </div>
         <div class="col-md-3">
             <div class="houses-img">
+              <div class="houses-img-layer">
+                <i class="fa-solid fa-2x fa-eye" ></i>
+                <i class="fa-solid fa-2x fa-heart"></i>
+              </div>
                 <img src="../../../../../../assets/images/a1.png" alt="">
             </div>
-            <h3>Tobby Town</h3>
-            <p>Gunung Batu, Indonesia</p>
+           <div class="houses-text">
+              <h3>Tobby Town</h3>
+              <p>Gunung Batu, Indonesia</p>
+            </div>
         </div>
         <div class="col-md-3">
             <div class="houses-img">
@@ -164,50 +164,40 @@
                       <span>{{'landingPage.gallery.Choice' | translate}}</span>{{'landingPage.gallery.Popular' | translate}}
                     </h3>
                   </div>
+                  <div class="houses-img-layer">
+                    <i class="fa-solid fa-2x fa-eye" ></i>
+                    <i class="fa-solid fa-2x fa-heart"></i>
+                  </div>
                 <img src="../../../../../../assets/images/img6.png" alt="">
             </div>
-            <h3>Tobby Town</h3>
-            <p>Gunung Batu, Indonesia</p>
+            <div class="houses-text">
+              <h3>Tobby Town</h3>
+              <p>Gunung Batu, Indonesia</p>
+            </div>
+           
         </div>
     </div>
 </div>
-  <div class="Houses">
-    <h2>{{'landingPage.gallery.Apartments with kitchen set' | translate}}</h2>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="houses-img">
-                <img src="../../../../../../assets/images/k1.png" alt="">
+<!-- Ads -->
+  <div class="Houses mb-5">
+    <h2>{{'landingPage.gallery.Ads' | translate}}</h2>
+    <div class="row g-5">
+        <div class="col-md-3" *ngFor="let item of ads">
+            <div class="houses-img border border-1">
+              <div class="img-widge bg-danger">
+                <h3 class="">
+                  <span>{{item.room.discount}} %</span>Discount
+                </h3>
+              </div>
+                <img [src]="item.room.images" alt="" *ngIf="item.room.images">
+                <img src="../../../../../../assets/images/img3.png" alt="" *ngIf="!item.room.images"> 
                 
             </div>
-            <h3>Tobby Town</h3>
-            <p>Gunung Batu, Indonesia</p>
+            <div class="houses-text">
+            <h3>Room No:<span class="text-info">{{item.room.roomNumber}}</span></h3>
+          </div>
         </div>
-        <div class="col-md-3">
-            <div class="houses-img">
-                <img src="../../../../../../assets/images/k2.png" alt="">
-            </div>
-            <h3>Tobby Town</h3>
-            <p>Gunung Batu, Indonesia</p>
-        </div>
-        <div class="col-md-3">
-            <div class="houses-img">
-                <img src="../../../../../../assets/images/img5.png" alt="">
-            </div>
-            <h3>Tobby Town</h3>
-            <p>Gunung Batu, Indonesia</p>
-        </div>
-        <div class="col-md-3">
-            <div class="houses-img">
-                <div class="img-widge">
-                    <h3>
-                        <span>{{'landingPage.gallery.Choice' | translate}}</span>{{'landingPage.gallery.Popular' | translate}}
-                      </h3>
-                  </div>
-                <img src="../../../../../../assets/images/k1.png" alt="">
-            </div>
-            <h3>Tobby Town</h3>
-            <p>Gunung Batu, Indonesia</p>
-        </div>
+       
     </div>
 </div>
 </div>

@@ -15,5 +15,11 @@ export class RoomService {
   getRoombyId(id:string):Observable<any>{
     return this._HttpClient.get(`portal/rooms/${id}`)
   }
+  createComment(data:any):Observable<any>{
+    return this._HttpClient.post('portal/room-comments',data)
+  }
+  createReview(data:any):Observable<any>{
+    return this._HttpClient.post('portal/room-reviews',data)
+  }
 
 }

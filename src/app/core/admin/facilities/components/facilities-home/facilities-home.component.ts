@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeleteItemComponent } from 'src/app/shared/delete-item/delete-item.component';
 import { ToastrService } from 'ngx-toastr';
 import { AddeditviewFacilityComponent } from '../addeditview-facility/addeditview-facility.component';
+import { EditViewComponent } from '../edit-view/edit-view.component';
 
 @Component({
   selector: 'app-facilities-home',
@@ -63,7 +64,7 @@ export class FacilitiesHomeComponent implements OnInit {
   }
 
   onEditDialog(data: any): void {
-    const dialogRef = this._MatDialog.open(AddeditviewFacilityComponent, {
+    const dialogRef = this._MatDialog.open(EditViewComponent, {
       data: { data },
       width: '40%',
 

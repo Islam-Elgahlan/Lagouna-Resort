@@ -58,5 +58,17 @@ export class SidebarComponent {
       link: '/admin/dashboard/facilities',
       isActive: true,
     },
+    {
+      icon: 'fa-regular fa-comment fs-4',
+      title: 'Comments',
+      link: '/admin/dashboard/comments',
+      isActive: true,
+    },
+    {
+      icon: 'fa-regular fa-star fs-4',
+      title: 'Reviews',
+      link: '/admin/dashboard/reviews',
+      isActive: true,
+    },
   ];
 }

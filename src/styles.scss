@@ -53,6 +53,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-mdc-icon-button .mat-mdc-button-touch-target{
   color: blue;
 }
+
 // .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-floating-label, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-floating-label--float-above {
 //   color: blue;
 // }
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

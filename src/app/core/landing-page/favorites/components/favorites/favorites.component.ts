@@ -1,16 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FavoritesService } from '../../services/favorites.service';
 import { ToastrService } from 'ngx-toastr';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
   styleUrls: ['./favorites.component.scss']
 })
-export class FavoritesComponent {
+export class FavoritesComponent implements OnInit{
 myFavorites:any;
-constructor(private _FavoritesService:FavoritesService,private _ToasreService:ToastrService){
-this.getFavorites()
+routingTitle1:string='';
+  routingTitle2:string='';
+constructor(private _FavoritesService:FavoritesService,private _ToasreService:ToastrService
+  ,private _TitleService:Title){
+
+}
+ngOnInit(): void {
+  this.getTitle();
+  this.getFavorites()
 }
 getFavorites(){
   this._FavoritesService.getMyFavorites().subscribe({
@@ -20,7 +28,13 @@ getFavorites(){
     }
   })
 }
-
+getTitle() {
+    
+  this.routingTitle1=this._TitleService.getTitle();
+  this.routingTitle2=this.routingTitle1.substring(11,);
+  console.log(this.routingTitle2);
+  
+}
 removeFromFavorites(id:string){
 this._FavoritesService.deleteFromFavorites(id).subscribe({
 next:(res)=>{

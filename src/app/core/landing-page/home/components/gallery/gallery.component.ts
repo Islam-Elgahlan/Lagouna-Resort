@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class GalleryComponent implements OnInit{
   rooms:any;
+  ads:any;
   showItem:boolean=false;
   
   constructor(public _HelperService:HelperService , public translate: TranslateService,private _HomeService:HomeService,
@@ -24,7 +25,8 @@ export class GalleryComponent implements OnInit{
       }
   }
   ngOnInit(): void {
-    this.onGetallRooms()
+    this.onGetallRooms();
+    this.onGetallAds()
   }
   onChangeLang(lang:string){
     this._HelperService.onChangeLang(lang)
@@ -36,12 +38,20 @@ export class GalleryComponent implements OnInit{
     this._HomeService.getAllRooms().subscribe({
       next:(res)=>{
         console.log(res.data.rooms);
-        this.rooms=res.data.rooms.splice(4,4)
+        this.rooms=res.data.rooms.slice(0,4)
+      }
+    })
+  }
+  onGetallAds(){
+    this._HomeService.getAllAds().subscribe({
+      next:(res)=>{
+        console.log(res.data.ads);
+        this.ads=res.data.ads
       }
     })
   }
   addToFavorites(id:string){
-    
+    if (this.showItem) {
       this._FavoritesService.addFavorites(id).subscribe({
         next:(res)=>{
           console.log(res);
@@ -50,6 +60,10 @@ export class GalleryComponent implements OnInit{
           this._ToastrService.warning(err.error.message)
         },
       })
+    } else {
+      this._ToastrService.warning('Please Log In First')
+    }
+     
    
   }
 }

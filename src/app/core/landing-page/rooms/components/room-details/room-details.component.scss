@@ -1,4 +1,17 @@
 @import "../../../../../../assets/styles/abstracts/variables";
+.container{
+  
+  p{
+    a{
+     color: $color-tertiary;
+     font-size: 18px;
+    } 
+    span{
+     color: $color-primary;
+     font-size: 20px;
+    }
+  }
+}
 
 form {
   .form-control {
@@ -17,7 +30,11 @@ form {
     color: #4866ed;
   }
 }
-
+.star-rating {
+  max-width: 400px;
+  font-size: 25px;
+  color: rgb(247, 215, 5);
+}
 .tiffany {
   color: $color-tiffany;
 }
@@ -26,10 +43,20 @@ form {
   background-color: $color-tiffany;
 }
 
-.footer-box {
+.comment-box {
   border: 0.5px solid rgba(128, 128, 128, 0.279);
   border-radius: 20px;
   margin: 25px 0px;
+&>div:first-child{
+  border-right: 1px solid blue;
+}
+textarea{
+  border:1px solid blue;
+ 
+}
+.col-md-6{
+  padding: 2px 40px;
+}
 }
 
 .box{

@@ -32,7 +32,7 @@ section{
         
       }
     }
-    form{
+    
         .form-control{
             padding: 14px 5px;
             border: rgb(145, 141, 141) 1px solid;
@@ -40,15 +40,7 @@ section{
             border-right: 0;
             border-left: 0;
            }
-           label{
-            font-size: 18px; 
-        }
-        
-        input{
-            margin-bottom: 0px ;
-            color: #4866ED;
-        }
-    }
+         
 
     .img-block{
      border: 1px solid $color-tertiary;
