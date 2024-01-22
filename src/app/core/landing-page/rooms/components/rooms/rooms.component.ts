@@ -5,6 +5,7 @@ import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { HelperService } from 'src/app/shared/services/helper.service';
 import { FavoritesService } from '../../../favorites/services/favorites.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-rooms',
@@ -16,9 +17,12 @@ export class RoomsComponent {
   pageNumber: number | undefined = 1;
   tableResponse: any;
   tableData: any[] = [];
+  pageIndex : number = 0
   routingTitle1: string = '';
   routingTitle2: string = '';
   showItem:boolean=false;
+  startDate:any;
+  endDate:string=''
   constructor(
     private _toastr: ToastrService,
     private _RoomService: RoomService,
@@ -26,7 +30,8 @@ export class RoomsComponent {
     private _TranslateService: TranslateService,
     private _HelperService: HelperService,
     private _FavoritesService:FavoritesService,
-    private _ToastrService:ToastrService
+    private _ToastrService:ToastrService,
+    private _ActivatedRoute:ActivatedRoute
   ) {
     let token = localStorage.getItem('userToken') ;
     if (!token) {
@@ -35,6 +40,14 @@ export class RoomsComponent {
       this.showItem = true
       
     }
+    _ActivatedRoute.queryParams.subscribe(params => {
+      this.startDate = params['startDate'];
+      this.endDate = params['endDate'];
+      console.log(this.startDate);
+
+    });
+   
+    
   }
 
   ngOnInit() {
@@ -50,6 +63,8 @@ export class RoomsComponent {
     let x = {
       size: this.pageSize,
       page: this.pageNumber,
+      // startDate:this.startDate,
+      // endDate:this.endDate
     };
 
     this._RoomService.getAllRooms(x).subscribe({
@@ -58,6 +73,7 @@ export class RoomsComponent {
         this.tableResponse = res.data;
         this.tableData = res.data.rooms;
         console.log(this.tableData);
+        console.log(this.tableResponse);
       },
       error: (err) => {
         console.log(err);
@@ -85,5 +101,12 @@ export class RoomsComponent {
     }
      
    
+  }
+  handlePageEvent(e:any){
+    
+    // console.log(e);
+    this.pageSize = e.pageSize
+    this.pageNumber = e.pageIndex + 1
+    this.onGetAllRooms()
   }
 }
