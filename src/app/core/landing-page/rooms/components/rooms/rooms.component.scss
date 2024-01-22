@@ -26,6 +26,10 @@
           &:hover .most-picked-img-layer{
              display: flex;
           }
+          &:hover img{
+            transform: scale(1.1);
+            transition: all .5s ease-in-out;
+         }
           &-layer{
              position:absolute ;
              top: 0;
@@ -36,11 +40,18 @@
              align-items: center;
              display: none;
              transition:all 3s ;
+             z-index: 5;
             
              i{
-                 margin: 4px;
-                 color: white
-             }
+               margin: 4px;
+               color: white;
+               &.fa-eye:hover {
+                   color: blue;
+                 }
+                 &.fa-heart:hover {
+                   color: red;
+                 }
+           }
              
           }
          
@@ -49,7 +60,7 @@
              width: fit-content;
              padding: 2px 5px;
              right: 0;
-            
+            z-index: 6;
              top: 0;
              background-color:#ff498b ;
              border-bottom-left-radius:20px ;

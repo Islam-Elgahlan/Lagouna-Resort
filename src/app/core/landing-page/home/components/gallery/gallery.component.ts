@@ -22,11 +22,12 @@ export class GalleryComponent implements OnInit{
         this.showItem = false
       }else{
         this.showItem = true
+        this.onGetallAds()
       }
   }
   ngOnInit(): void {
     this.onGetallRooms();
-    this.onGetallAds()
+    
   }
   onChangeLang(lang:string){
     this._HelperService.onChangeLang(lang)
@@ -57,11 +58,13 @@ export class GalleryComponent implements OnInit{
           console.log(res);
           this._ToastrService.success(res.message)
         },error:(err)=> {
-          this._ToastrService.warning(err.error.message)
+          this._ToastrService.warning('The Room alreedy in favorites')
         },
       })
     } else {
-      this._ToastrService.warning('Please Log In First')
+      this._ToastrService.warning('Please Sign In First')
+      console.log("warning");
+      
     }
      
    

@@ -12,6 +12,7 @@ import { SpinnerInterceptor } from './core/interceptors/spinner.interceptor';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DatePipe } from '@angular/common';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -52,6 +53,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       useClass: SpinnerInterceptor,
       multi: true,
     },
+    DatePipe
   ],
  
   bootstrap: [AppComponent],

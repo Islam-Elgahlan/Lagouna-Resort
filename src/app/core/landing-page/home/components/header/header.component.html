@@ -55,7 +55,6 @@
               <input
                 type="number" min="1"
                 class="form-control "
-                
                 aria-label="Username"
                 aria-describedby="basic-addon1" [(ngModel)]="this.counter" 
               />
@@ -63,7 +62,7 @@
                 ><i class="fa-solid fa-plus text-white"></i
               ></span>
             </div>
-            <button  class="btn dark-blue-btn  px-5" [disabled]="rangeForm.invalid">Explore</button>
+            <button  class="btn dark-blue-btn  px-5" [disabled]="rangeForm.invalid" (click)="onSubmit(rangeForm)">Explore</button>
           </div> 
         
        

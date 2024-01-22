@@ -180,7 +180,7 @@
 </div>
 <!-- Ads -->
   <div class="Houses mb-5">
-    <h2>{{'landingPage.gallery.Ads' | translate}}</h2>
+    <h2 *ngIf="showItem">{{'landingPage.gallery.Ads' | translate}}</h2>
     <div class="row g-5">
         <div class="col-md-3" *ngFor="let item of ads">
             <div class="houses-img border border-1">

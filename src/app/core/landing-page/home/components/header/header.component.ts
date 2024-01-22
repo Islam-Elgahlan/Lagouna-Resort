@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,8 +13,10 @@ import { HelperService } from 'src/app/shared/services/helper.service';
 export class HeaderComponent {
   counter:number=1;
   hideRequiredMarker:boolean=true;
+  startDate:any
+  endDate:any
   constructor(public _HelperService:HelperService , public translate: TranslateService,
-    private _Router:Router){
+    private _Router:Router,private datePipe: DatePipe){
     
   }
   rangeForm = new FormGroup({
@@ -43,8 +46,11 @@ export class HeaderComponent {
     
   }
   onSubmit(form:FormGroup){
-console.log(form.value);
-this._Router.navigate(['/landingPage/rooms/allRooms'])
+
+this.startDate=this.datePipe.transform(form.value.start,"yyyy-MM-dd")
+console.log(this.startDate);
+this.startDate=this.datePipe.transform(form.value.end,"yyyy-MM-dd")
+this._Router.navigate(['/landingPage/rooms/allRooms'],{queryParams:{startDate:this.startDate,endDate:this.endDate}})
   }
   
 }
