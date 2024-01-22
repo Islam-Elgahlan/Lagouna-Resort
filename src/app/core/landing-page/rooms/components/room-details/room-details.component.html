@@ -48,7 +48,7 @@
             </div>
       </div>
       <div class="col-md-5 box">
-        <form [formGroup]="rangeForm" (submit)="onSubmit(rangeForm)">
+        <form [formGroup]="rangeForm" >
           <div class="pe-5 p-4 ">
             <h3>Start Booking</h3>
             <p class="tiffany fs-2">
@@ -108,7 +108,7 @@
               ></mat-datepicker-toggle>
               <mat-date-range-picker #picker  
               #ref
-              (closed)="createBooking()" ></mat-date-range-picker>
+              (closed)="calculateDays()" ></mat-date-range-picker>
 
               <mat-error
                 *ngIf="

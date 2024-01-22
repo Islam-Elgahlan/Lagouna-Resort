@@ -64,12 +64,10 @@ export class RoomDetailsComponent {
   rangeForm = new FormGroup({
     start: new FormControl<Date | null>(null,[Validators.required]),
     end: new FormControl<Date | null>(null,[Validators.required]),
-     capacity:new FormControl(null),
-    
   });
+ 
   onChangeLang(lang:string){
     this._HelperService.onChangeLang(lang)
-    // console.log(this.translate.currentLang);
     
   }
   calculateDays(){
@@ -86,6 +84,21 @@ export class RoomDetailsComponent {
   }
   createBooking(){
    this.calculateDays()
+   let data = {
+    startDate: this.rangeForm.controls.start.value ,
+    endDate : this.rangeForm.controls.end.value ,
+    room : this.roomId,
+    totalPrice :this.totalPrice
+   }
+   this._RoomService.createBooking(data).subscribe((res)=>{
+    console.log(res);
+    this._ToastrService.success(res.message)
+    
+   },(error)=>{
+    this._ToastrService.error(error.message)
+  })
+
+   
   }
   onIncrement(){
     
@@ -100,7 +113,9 @@ export class RoomDetailsComponent {
     
   }
   onSubmit(form:FormGroup){
-    console.log(form.value);
+    // this.calculateDays()
+    // console.log(form.value);
+    this.createBooking()
     // this._Router.navigate(['/landingPage/rooms/allRooms'])
       }
     
