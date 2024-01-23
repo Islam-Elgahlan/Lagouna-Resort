@@ -21,7 +21,7 @@ export class RoomsComponent {
   routingTitle1: string = '';
   routingTitle2: string = '';
   showItem:boolean=false;
-  startDate:any;
+  startDate:string='';
   endDate:string=''
   constructor(
     private _toastr: ToastrService,
@@ -51,7 +51,26 @@ export class RoomsComponent {
   }
 
   ngOnInit() {
-    this.onGetAllRooms();
+    if (this.startDate&& this.endDate) {
+      let x = {
+        size: 100,
+        page: 1,
+        startDate:this.startDate,
+        endDate:this.startDate,
+       
+      };
+      this.onGetAllRooms(x);
+    } else {
+      let x = {
+        size: 100,
+        page: 1,
+      
+    }
+    this.onGetAllRooms(x);}
+    
+
+    
+
     this.getTitle();
   }
   getTitle() {
@@ -59,14 +78,8 @@ export class RoomsComponent {
     this.routingTitle2 = this.routingTitle1.substring(11);
     console.log(this.routingTitle2);
   }
-  onGetAllRooms() {
-    let x = {
-      size: this.pageSize,
-      page: this.pageNumber,
-      // startDate:this.startDate,
-      // endDate:this.endDate
-    };
-
+  onGetAllRooms(x:any) {
+    
     this._RoomService.getAllRooms(x).subscribe({
       next: (res) => {
         console.log(res);
@@ -102,11 +115,11 @@ export class RoomsComponent {
      
    
   }
-  handlePageEvent(e:any){
+  // handlePageEvent(e:any){
     
-    // console.log(e);
-    this.pageSize = e.pageSize
-    this.pageNumber = e.pageIndex + 1
-    this.onGetAllRooms()
-  }
+  //   // console.log(e);
+  //   this.pageSize = e.pageSize
+  //   this.pageNumber = e.pageIndex + 1
+  //   this.onGetAllRooms()
+  // }
 }
