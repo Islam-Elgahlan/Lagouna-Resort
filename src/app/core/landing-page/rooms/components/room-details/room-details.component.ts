@@ -97,7 +97,7 @@ export class RoomDetailsComponent {
     const diffDays = Math.round(Math.abs((startDate - endDate) / oneDay));
     let price:any = this.roomData?.price ;
     let discount:any = this.roomData?.discount ;
-    this.totalPrice = price -  price*discount/100  *diffDays;
+    this.totalPrice = (price -  price*discount/100 ) *diffDays;
     this.nigntsNum = diffDays
       
     console.log(this.nigntsNum);
@@ -113,6 +113,7 @@ export class RoomDetailsComponent {
    this._RoomService.createBooking(data).subscribe((res)=>{
     console.log(res);
     this._ToastrService.success(res.message)
+    this._Router.navigate(['/payment'])
     
    },(error)=>{
     this._ToastrService.error(error.message)

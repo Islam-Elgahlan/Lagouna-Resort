@@ -17,6 +17,12 @@ const routes: Routes = [
     canActivate:[adminGuard],
     loadChildren: () => import('./core/admin/admin.module').then(m => m.AdminModule)
   },
+  {
+
+    path: 'payment',
+  
+    loadChildren: () => import('./core/payment/payment.module').then(m => m.PaymentModule)
+  },
 ];
 const RouterOptions:ExtraOptions = {
   scrollPositionRestoration:'enabled',
