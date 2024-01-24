@@ -15,6 +15,7 @@ export class HeaderComponent {
   hideRequiredMarker:boolean=true;
   startDate:any
   endDate:any
+  
   constructor(public _HelperService:HelperService , public translate: TranslateService,
     private _Router:Router,private datePipe: DatePipe){
     
@@ -50,7 +51,8 @@ export class HeaderComponent {
 this.startDate=this.datePipe.transform(form.value.start,"yyyy-MM-dd")
 console.log(this.startDate);
 this.endDate=this.datePipe.transform(form.value.end,"yyyy-MM-dd")
-this._Router.navigate(['/landingPage/rooms/allRooms'],{queryParams:{startDate:this.startDate,endDate:this.endDate}})
+
+this._Router.navigate(['/landingPage/rooms/allRooms'],{queryParams:{startDate:this.startDate,endDate:this.endDate,capacity:this.counter}})
   }
   
 }

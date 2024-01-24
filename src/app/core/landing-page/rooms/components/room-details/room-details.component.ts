@@ -16,7 +16,7 @@ import { IRoom } from '../../../interfaces/rooms';
 export class RoomDetailsComponent {
   roomData: IRoom | undefined;
   roomId: string = '';
-  imgs: [] = [];
+  imgs: any;
   counter: number = 1;
   hideRequiredMarker: boolean = true;
 
@@ -66,8 +66,8 @@ export class RoomDetailsComponent {
       },
       error: (err) => {},
       complete: () => {
-        // console.log(this.roomData.images);
-        // this.imgs = this.roomData?.images;
+         console.log(this.roomData?.images);
+         this.imgs = this.roomData?.images;
         // this.price = this.roomData?.price;
       },
     });
