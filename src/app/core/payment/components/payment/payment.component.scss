@@ -1,2 +1,58 @@
+@import "../../../../../assets/styles/abstracts/variables";
 
- 
+::ng-deep
+  .mdc-text-field--outlined
+  .mdc-notched-outline
+  .mdc-notched-outline__leading,
+::ng-deep
+  .mdc-text-field--outlined
+  .mdc-notched-outline
+  .mdc-notched-outline__notch,
+::ng-deep
+  .mdc-text-field--outlined
+  .mdc-notched-outline
+  .mdc-notched-outline__trailing {
+  border-color: blue;
+}
+
+section {
+  .container {
+    .row {
+        
+      h2 {
+        color: $color-primary;
+      }
+      p {
+        color: $color-tertiary;
+      }
+      .row {
+        margin: 2px 5rem;
+       
+        .payment-data {
+          ul {
+            li {
+              color: $color-primary;
+              font-size: 1.2rem;
+              margin: 7px 0;
+              img {
+                height: 50px;
+                width: 50px;
+              }
+              p{
+                margin: 0;
+                color: $color-primary;
+                font-size: 1.1rem;
+              }
+            }
+          }
+        }
+      }
+      mat-form-field {
+        margin-top: 10px;
+      }
+      mat-label {
+        color: $color-primary;
+      }
+    }
+  }
+}
