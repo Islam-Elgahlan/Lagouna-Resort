@@ -54,6 +54,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: blue;
 }
 
+::ng-deep .mat-horizontal-stepper-header-container {
+  width: 50% !important;
+  margin: auto !important;
+  background-color: red !important;
+}
+
 // .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-floating-label, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-floating-label--float-above {
 //   color: blue;
 // }
