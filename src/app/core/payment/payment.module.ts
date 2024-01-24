@@ -5,9 +5,7 @@ import { PaymentRoutingModule } from './payment-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { HomeComponent } from './components/home/home.component';
-import { SharedModule } from 'src/app/shared/shared.module';
-
-
+import { SharedModule } from 'src/app/shared/shared.module'
 @NgModule({
   declarations: [
     NavbarComponent,

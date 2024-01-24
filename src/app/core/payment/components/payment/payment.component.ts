@@ -11,10 +11,10 @@ export class PaymentComponent {
 
   }
   firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
+    firstCtrl: [''],
   });
   secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
+    secondCtrl: [''],
   });
   isEditable = false;
 

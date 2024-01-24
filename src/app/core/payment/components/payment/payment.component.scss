@@ -1,2 +1,31 @@
+@import url(../../../../../assets/styles/abstracts/_buttons.scss);
+@import url(../../../../../assets/styles/abstracts/_variables.scss);
 
- 
+::ng-deep .mat-horizontal-stepper-wrapper {
+  color: #000;
+  .mat-horizontal-stepper-header-container {
+    width: 40% !important;
+    margin: auto !important;
+    justify-content: center !important;
+    text-align: center;
+  }
+  .mat-step-icon {
+    width: 45px;
+    height: 45px;
+    border: solid rgb(212, 207, 207) 3px !important;
+    background-color: rgb(232, 227, 227);
+    color: grey;
+  }
+  .mat-step-icon-selected {
+    background-color: turquoise !important;
+    color: white !important;
+  }
+  .mat-step-icon-state-done {
+    background-color: turquoise !important;
+    color: white !important;
+  }
+}
+
+.title {
+  color:#152C5B;
+}
