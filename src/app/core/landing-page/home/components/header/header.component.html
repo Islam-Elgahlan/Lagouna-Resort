@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div
-        class="col-md-6 pt-5  d-flex justify-content-between flex-column"
+        class="col-md-10 col-lg-6 pt-5  d-flex justify-content-between flex-column"
       >
         <div class="header">
           <h2>
@@ -18,19 +18,7 @@
           <div class="pe-5">
             <h3>Start Booking</h3>
             <p class=" lead">Pick a Date</p>
-            <!-- <div class="input-group mb-3">
-              <span class="input-group-text bg-blue px-4" id="basic-addon1"
-                ><i class="fa-regular fa-calendar-days text-white"></i
-              ></span>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="20 Jan - 22 Jan"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-              />
-              
-            </div> -->
+     
             <mat-form-field appearance="outline" class="w-100 " [formGroup]="rangeForm" [hideRequiredMarker]="hideRequiredMarker">
               <mat-label class="dark-blue ">Enter a date range</mat-label>
               <mat-date-range-input  [rangePicker]="picker">
@@ -70,7 +58,7 @@
        
       </div>
       <div
-        class="col-md-6 pt-5 d-flex justify-content-end"
+        class="col-md-6 pt-5 py-3 disappear justify-content-end"
         [class]="_HelperService.textDirection === 'ltr' ? 'row' : 'row-reverse'"
       >
         <div class="img-block">

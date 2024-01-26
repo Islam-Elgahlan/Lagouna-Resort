@@ -23,15 +23,17 @@ section{
             }
         }
     }
-  
-    .image{
-     background-image: url(../../../../../assets/images/login-bg.png);
-    background-position: center center;
-    background-size: cover;
-  
-    border-radius: 15px;
-    &-content{
-        color: white;
+  .col-md-6{
+    &.image{
+        background-image: url(../../../../../assets/images/login-bg.png);
+       background-position: center center;
+       background-size: cover;
+     
+       border-radius: 15px;
+       
+       }
+       .image-content{
+        color: white !important;
         text-align: center;
         margin-bottom: 50px;
         h3{
@@ -41,5 +43,20 @@ section{
             font-size: 15px;
         }
     }
+  }
+    
+}
+@media (max-width:768px){
+    
+    .col-md-6{
+        &.image{
+          background-image: none !important;
+          .image-content{
+            display: none;
+          }
+      }}
+
+    .col-md-3{
+     width: 50%;
     }
 }

@@ -8,13 +8,15 @@ import { LogoutComponent } from './logout/logout.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { MaterialModule } from './material/material/material.module';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 
 @NgModule({
   declarations: [
     DeleteItemComponent,
-    LogoutComponent
+    LogoutComponent,
+    NotfoundComponent
   ],
   imports: [
     CommonModule,

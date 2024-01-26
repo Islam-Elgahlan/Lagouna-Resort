@@ -1,14 +1,14 @@
 <section class="details">
   <div class="container">
     <div class="row">
-      <div class="text-center">
+      <div class="text-center mt-3">
         <h1>{{ "landingPage.roomDetails.village" | translate }}</h1>
         <h3>{{ "landingPage.roomDetails.bogor" | translate }}</h3>
       </div>
       <p>
         <a routerLink="">Home</a> / <span>{{ routingTitle2 }}</span>
       </p>
-      <div class="col-md-7 mx-auto mt-3">
+      <div class="col-md-9 mx-auto my-3">
         <div class="imgs">
           <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
@@ -18,7 +18,8 @@
                     <div class="img-box">
                       <img [src]="item" alt="" />
                     </div>
-                    <div class="d-flex justify-content-center arrows my-2">
+                   
+                    <!-- <div class="d-flex justify-content-center arrows my-2">
                       <span
                         class="i-circle mx-4"
                         data-bs-target="#carouselExample"
@@ -32,159 +33,240 @@
                       >
                         <i class="fa-solid fs-4 fa-arrow-right"></i
                       ></span>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        </div>
-        <div class="row">
-          <div class="col-md-7 mt-4">
-            <p>
-              {{ "landingPage.roomDetails.1" | translate }}
-            </p>
-            <p>
-              {{ "landingPage.roomDetails.2" | translate }}
-            </p>
-            <p>
-              {{ "landingPage.roomDetails.3" | translate }}
-            </p>
-          </div>
-
-          <div class="col-md-5 box">
-            <form [formGroup]="rangeForm" (submit)="onSubmit(rangeForm)">
-              <div class="pe-5 p-4">
-                <h3>
-                  {{ "landingPage.roomDetails.startBooking" | translate }}
-                </h3>
-                <p class="tiffany fs-2">
-                  ${{roomData?.price}}
-                  <span class="text-muted">
-                    {{ "landingPage.roomDetails.perNight" | translate }}</span
-                  >
-                </p>
-                <span class="text-danger my-3"
-                  >Disccount {{ roomData?.discount }}% off</span
-                >
-
-                <p class="">Pick a date</p>
-                <mat-form-field
-                  appearance="outline"
-                  class="w-100"
-                  [hideRequiredMarker]="hideRequiredMarker"
-                >
-                  <mat-label class="dark-blue"> Enter a date range</mat-label>
-
-                  <mat-date-range-input [rangePicker]="picker">
-                    <input
-                      matStartDate
-                      formControlName="start"
-                      placeholder="Start date"
-                    />
-                    <input
-                      matEndDate
-                      formControlName="end"
-                      placeholder="End date"
-                    />
-                  </mat-date-range-input>
-                  <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
-                  <mat-datepicker-toggle
-                    matIconSuffix
-                    [for]="picker"
-                  ></mat-datepicker-toggle>
-                  <mat-date-range-picker
-                    #picker
-                    #ref
-                    (closed)="calculateDays()"
-                  ></mat-date-range-picker>
-
-                  <mat-error
-                    *ngIf="
-                      rangeForm.controls.start.touched &&
-                      rangeForm.controls.start.hasError('required')
-                    "
-                    >Start date required</mat-error
-                  >
-
-                  <mat-error
-                    *ngIf="
-                      rangeForm.controls.end.touched &&
-                      rangeForm.controls.end.hasError('required')
-                    "
-                    >End date required</mat-error
-                  >
-                </mat-form-field>
-                <p class="text-muted fs-5">
-                  You will pay
-                  <span class="blue"> ${{ totalPrice }} USD</span> per
-                  <span class="blue">{{ nigntsNum }} nights.</span>
-                </p>
-                <button
-                  (click)="createBooking()"
-                  class="btn main-btn m-auto pointer px-4 py-2"
-                >
-                  Continue Booking
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="row py-5 comment-box">
-          <div class="col-md-6">
-            <h3>{{ "landingPage.roomDetails.rate" | translate }}</h3>
-            <span class="py-4">
-              <div class="star-rating">
-                <ngb-rating
-                  [(ngModel)]="currentRate"
-                  [max]="maxRating"
-                ></ngb-rating>
-              </div>
-            </span>
-            <div>
-              <span class="py-2 fs-4">{{
-                "landingPage.roomDetails.message" | translate
-              }}</span>
-              <div class="form-floating mt-3">
-                <textarea
-                  class="form-control"
-                  placeholder="Leave a comment here"
-                  id="floatingTextarea2"
-                  style="height: 100px"
-                  [(ngModel)]="review"
-                ></textarea>
-                <label for="floatingTextarea2"></label>
-              </div>
-            </div>
-
-            <button class="btn main-btn px-5 py-2" (click)="addRate()">
-              {{ "landingPage.roomDetails.rate" | translate }}
-            </button>
-          </div>
-
-          <div class="col-md-6">
-            <h2 class="mb-3">
-              {{ "landingPage.roomDetails.comment" | translate }}
-            </h2>
-            <div class="form-floating mt-5">
-              <textarea
-                class="form-control rounded"
-                placeholder="Leave a comment here"
-                id="floatingTextarea2"
-                style="height: 100px"
-                [(ngModel)]="comment"
-              ></textarea>
-              <label for="floatingTextarea2">{{
-                "landingPage.roomDetails.setComment" | translate
-              }}</label>
-            </div>
-            <button class="btn main-btn px-5 py-2" (click)="addComment()">
-              {{ "landingPage.roomDetails.rate" | translate }}
-            </button>
+            <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="prev"
+          >
+            <span
+              class="carousel-control-prev-icon"
+              aria-hidden="true"
+              ></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="next"
+          >
+            <span
+              class="carousel-control-next-icon"
+              aria-hidden="true"
+              
+            ></span>
+            <span class="visually-hidden">Next</span>
+          </button>
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-7 mt-4">
+          <p>
+            {{ "landingPage.roomDetails.1" | translate }}
+          </p>
+          <p>
+            {{ "landingPage.roomDetails.2" | translate }}
+          </p>
+          <p>
+            {{ "landingPage.roomDetails.3" | translate }}
+          </p>
+        </div>
+
+        <div class="col-md-5 box">
+          <form [formGroup]="rangeForm" (submit)="onSubmit(rangeForm)">
+            <div class="pe-5 p-4">
+              <h3>
+                {{ "landingPage.roomDetails.startBooking" | translate }}
+              </h3>
+              <p class="tiffany fs-2">
+                ${{ roomData?.price }}
+                <span class="text-muted">
+                  {{ "landingPage.roomDetails.perNight" | translate }}</span
+                >
+              </p>
+              <span class="text-danger my-3"
+                >Disccount {{ roomData?.discount }}% off</span
+              >
+
+              <p class="">Pick a date</p>
+              <mat-form-field
+                appearance="outline"
+                class="w-100"
+                [hideRequiredMarker]="hideRequiredMarker"
+              >
+                <mat-label class="dark-blue"> Enter a date range</mat-label>
+
+                <mat-date-range-input [rangePicker]="picker">
+                  <input
+                    matStartDate
+                    formControlName="start"
+                    placeholder="Start date"
+                  />
+                  <input
+                    matEndDate
+                    formControlName="end"
+                    placeholder="End date"
+                  />
+                </mat-date-range-input>
+                <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                <mat-datepicker-toggle
+                  matIconSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-date-range-picker
+                  #picker
+                  #ref
+                  (closed)="calculateDays()"
+                ></mat-date-range-picker>
+
+                <mat-error
+                  *ngIf="
+                    rangeForm.controls.start.touched &&
+                    rangeForm.controls.start.hasError('required')
+                  "
+                  >Start date required</mat-error
+                >
+
+                <mat-error
+                  *ngIf="
+                    rangeForm.controls.end.touched &&
+                    rangeForm.controls.end.hasError('required')
+                  "
+                  >End date required</mat-error
+                >
+              </mat-form-field>
+              <p class="text-muted fs-5">
+                You will pay
+                <span class="blue"> ${{ totalPrice }} USD</span> per
+                <span class="blue">{{ nigntsNum }} nights.</span>
+              </p>
+              <button
+                (click)="createBooking()"
+                class="btn main-btn m-auto pointer px-4 py-2"
+              >
+                Continue Booking
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- user reviews and comments -->
+      <div class="row my-5">
+        
+       <div class="col-md-6"> <div class=" reviews-card">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="img-reviews">
+              <!-- <img
+                src="http://upskilling-egypt.com:3000/{{
+                  userComment[0].user.profileImage
+                }}"
+                alt=""
+              /> -->
+              <img
+                src="../../../../../../assets/images/man.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="col-md-9">
+            
+            <p>Rate:<span>{{ userReview[0].rating }}</span> </p>
+            <p>Comment:<span>{{ userComment[0].comment }}</span></p>
+            <p>Review:<span>{{ userReview[0].review }}</span></p>
+            <p>User:<span>{{ userComment[0].user.userName }}</span></p>
+          </div>
+        </div>
+        
+      </div></div>
+       <div class="col-md-6"> <div class=" reviews-card">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="img-reviews">
+              <!-- <img
+                src="http://upskilling-egypt.com:3000/{{
+                  userComment[1].user.profileImage
+                }}"
+                alt=""
+              /> -->
+              <img
+                src="../../../../../../assets/images/man.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="col-md-9">
+            
+            <p>Rate:<span>{{ userReview[1]?.rating }}</span> </p>
+            <p>Comment:<span>{{ userComment[1]?.comment }}</span></p>
+            <p>Review:<span>{{ userReview[1]?.review }}</span></p>
+            <p>User:<span>{{ userComment[1]?.user.userName }}</span></p>
+          </div>
+        </div>
+        
+      </div></div>
+      </div>
+
+      <div class="row py-5 comment-box">
+        <div class="col-md-6">
+          <h3>{{ "landingPage.roomDetails.rate" | translate }}</h3>
+          <span class="py-4">
+            <div class="star-rating">
+              <ngb-rating
+                [(ngModel)]="currentRate"
+                [max]="maxRating"
+              ></ngb-rating>
+            </div>
+          </span>
+          <div>
+            <span class="py-2 fs-4">{{
+              "landingPage.roomDetails.message" | translate
+            }}</span>
+            <div class="form-floating mt-3">
+              <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="floatingTextarea2"
+                style="height: 100px"
+                [(ngModel)]="review"
+              ></textarea>
+              <label for="floatingTextarea2"></label>
+            </div>
+          </div>
+
+          <button class="btn main-btn px-5 py-2" (click)="addRate()">
+            {{ "landingPage.roomDetails.rate" | translate }}
+          </button>
+        </div>
+
+        <div class="col-md-6">
+          <h2 class="mb-3">
+            {{ "landingPage.roomDetails.comment" | translate }}
+          </h2>
+          <div class="form-floating mt-5">
+            <textarea
+              class="form-control rounded"
+              placeholder="Leave a comment here"
+              id="floatingTextarea2"
+              style="height: 100px"
+              [(ngModel)]="comment"
+            ></textarea>
+            <label for="floatingTextarea2">{{
+              "landingPage.roomDetails.setComment" | translate
+            }}</label>
+          </div>
+          <button class="btn main-btn px-5 py-2" (click)="addComment()">
+            {{ "landingPage.roomDetails.send" | translate }}
+          </button>
+        </div>
+      </div>
     </div>
-  
+  </div>
 </section>
