@@ -30,7 +30,8 @@ export class RoomDetailsComponent {
   routingTitle2: string = '';
   totalPrice:number =0 ; 
   nigntsNum:number =0 ;
- 
+ userComment:any;
+ userReview:any;
   constructor(
     private _ActivatedRoute: ActivatedRoute,
     private _RoomService: RoomService,
@@ -42,6 +43,8 @@ export class RoomDetailsComponent {
   ) {
     this.roomId = _ActivatedRoute.snapshot.params['id'];
     console.log(this.roomId);
+    this.viewUserComment(this.roomId)
+    this.viewUserReview(this.roomId)
     let token = localStorage.getItem('userToken');
     if (token) {
       this.showFlag = true;
@@ -52,6 +55,7 @@ export class RoomDetailsComponent {
   ngOnInit() {
     this.getRoomById(this.roomId);
     this.getTitle();
+    
   }
   getTitle() {
     this.routingTitle1 = this._TitleService.getTitle();
@@ -171,4 +175,30 @@ export class RoomDetailsComponent {
           this.review='';
         }
       }
+
+
+
+      viewUserComment(id:string){
+          this._RoomService.viewComment(id).subscribe({
+            next:(res)=>{
+              console.log(res.data.roomComments);
+this.userComment=res.data.roomComments
+            
+            },error:(err)=>{
+              this._ToastrService.error(err.error.message)
+              console.log(err.error.message);
+              
+            }
+          })}
+      viewUserReview(id:string){
+          this._RoomService.viewReview(id).subscribe({
+            next:(res)=>{
+              console.log(res.data.roomReviews);
+  this.userReview=res.data.roomReviews
+            
+            },error:(err)=>{
+              this._ToastrService.error(err.error.message)
+            }
+          })}
+       
 }

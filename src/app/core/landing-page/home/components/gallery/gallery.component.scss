@@ -19,14 +19,12 @@ section{
         
             .row{
                 .col-md-4 , .col-md-8{ 
-                    height: 600px ;
+                   min-height: 600px ;
                     .most-picked-img{
                         border-radius: 20px;
                          overflow: hidden;
-                       
                          position: relative;
                          cursor: pointer;
-                        
                          &:hover .most-picked-img-layer{
                             display: flex;
                          }
