@@ -132,10 +132,12 @@ export class RoomDetailsComponent {
  
   
   onSubmit(form:FormGroup){
-    // this.calculateDays()
-    // console.log(form.value);
-    this.createBooking()
-    // this._Router.navigate(['/landingPage/rooms/allRooms'])
+    if (this.showFlag) {
+      this.createBooking()
+    } else {
+      this._ToastrService.warning('Please Login First')
+    }
+   
       }
     
       
