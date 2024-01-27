@@ -1,157 +1,209 @@
 <app-navbar></app-navbar>
 <section>
-    <div class="container">
-        <div class="row mx-5">
-
-            <mat-stepper linear #stepper>
-               
-                <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
-                  <div class="row">
-                    <div class="my-1 text-center">
-                        <h2>Payment</h2>
-                    <p>Kindly follow the instructions below</p>
+  <div class="container">
+    <div class="row mx-5">
+        <ngx-stripe-elements [stripe]="stripe" [elementsOptions]="elementsOptions">
+            <ngx-stripe-payment />
+          </ngx-stripe-elements>
+      <!-- <mat-stepper linear #stepper>
+        <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+          <div class="row">
+            <div class="my-1 text-center">
+              <h2>Payment</h2>
+              <p>Kindly follow the instructions below</p>
+            </div>
+            <div class="col-md-6 border-end">
+              <div class="payment-data">
+                <ul>
+                  <li>Transfer Pembayaran:</li>
+                  <li>Tax: 10%</li>
+                  <li>Sub total: $480 USD</li>
+                  <li>Total: $580 USD</li>
+                  <li class="d-flex">
+                    <span
+                      ><img src="../../../../../assets/images/Bca.svg" alt=""
+                    /></span>
+                    <div class="mt-3 ps-2">
+                      <p>Bank Central Asia</p>
+                      <p>2208 1996</p>
+                      <p>BuildWith Angga</p>
                     </div>
-                    <div class="col-md-6 border-end ">
-                        <div class="payment-data">
-                            <ul>
-                                <li>Transfer Pembayaran:</li>
-                                <li>Tax: 10%</li>
-                                <li>Sub total: $480 USD</li>
-                                <li>Total: $580 USD</li>
-                                <li class="d-flex"><span><img src="../../../../../assets/images/Bca.svg" alt=""></span>
-                                <div class="mt-3 ps-2">
-                                    <p>Bank Central Asia</p>
-                                    <p>2208 1996</p>
-                                    <p>BuildWith Angga</p>
-                                </div>
-                                  </li>
-                                <li class="d-flex"><span><img src="../../../../../assets/images/mandiri.svg" alt=""></span>
-                                <div class="mt-3 ps-2">
-                                    <p>Bank Mandiri</p>
-                                    <p>2208 1996</p>
-                                    <p>BuildWith Angga</p>
-                                </div>
-                                  </li>
-                               
-                            </ul>
-                        </div>
+                  </li>
+                  <li class="d-flex">
+                    <span
+                      ><img
+                        src="../../../../../assets/images/mandiri.svg"
+                        alt=""
+                    /></span>
+                    <div class="mt-3 ps-2">
+                      <p>Bank Mandiri</p>
+                      <p>2208 1996</p>
+                      <p>BuildWith Angga</p>
                     </div>
-                    <div class="col-md-6 ps-5">
-                         <form [formGroup]="firstFormGroup">
-                        <!-- <ng-template matStepLabel>Fill out your name</ng-template> -->
-                        <mat-label>Upload Bukti Transfer</mat-label>
-                        <mat-form-field class="w-100 custom-mat" appearance="outline">
-                          
-                          <input matInput formControlName="firstCtrl" placeholder="Browse File" required>
-                        </mat-form-field>
-                        <mat-label>Asal Bank</mat-label>
-                        <mat-form-field class="w-100" appearance="outline">
-                          
-                          <input matInput formControlName="secCtrl" placeholder="Please type here.." required>
-                        </mat-form-field>
-                        <mat-label>Nama Pengirim</mat-label>
-                        <mat-form-field class="w-100" appearance="outline">
-                          
-                          <input matInput formControlName="thirdCtrl" placeholder="Please type here.." required>
-                        </mat-form-field>
-                        <div>
-                          <button class="main-btn py-1 px-3 me-3" matStepperNext>Next</button>
-                          <button type="button" class="main-btn py-1 px-3" routerLink="/landingPage/rooms">Cancel</button>
-                        </div>
-                      </form></div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 ps-5">
+              <form [formGroup]="firstFormGroup"> -->
+                
+                <!-- <mat-label>Upload Bukti Transfer</mat-label>
+                <mat-form-field class="w-100 custom-mat" appearance="outline">
+                  <input
+                    matInput
+                    formControlName="firstCtrl"
+                    placeholder="Browse File"
+                    required
+                  />
+                </mat-form-field> -->
+                <!-- <mat-label>Asal Bank</mat-label>
+                <mat-form-field class="w-100" appearance="outline">
+                  <input
+                    matInput
+                    formControlName="secCtrl"
+                    placeholder="Please type here.."
+                    required
+                  />
+                </mat-form-field>
+                <mat-label>Nama Pengirim</mat-label>
+                <mat-form-field class="w-100" appearance="outline">
+                  <input
+                    matInput
+                    formControlName="thirdCtrl"
+                    placeholder="Please type here.."
+                    required
+                  />
+                </mat-form-field>
+                <div>
+                  <button class="main-btn py-1 px-3 me-3" matStepperNext>
+                    Next
+                  </button>
+                  <button
+                    type="button"
+                    class="main-btn py-1 px-3"
+                    routerLink="/landingPage/rooms"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+          <div class="row">
+            <div class="my-1 text-center">
+              <h2>Payment</h2>
+              <p>Kindly follow the instructions below</p>
+            </div>
+            <div class="col-md-6 border-end">
+              <div class="payment-data">
+                <ul> -->
+                  <!-- <li>Transfer Pembayaran:</li>
+                  <li>Tax: 10%</li>
+                  <li>Sub total: $480 USD</li>
+                  <li>Total: $580 USD</li>
+                  <li class="d-flex">
+                    <span
+                      ><img src="../../../../../assets/images/Bca.svg" alt=""
+                    /></span>
+                    <div class="mt-3 ps-2">
+                      <p>Bank Central Asia</p>
+                      <p>2208 1996</p>
+                      <p>BuildWith Angga</p>
+                    </div>
+                  </li>
+                  <li class="d-flex">
+                    <span
+                      ><img
+                        src="../../../../../assets/images/mandiri.svg"
+                        alt=""
+                    /></span>
+                    <div class="mt-3 ps-2">
+                      <p>Bank Mandiri</p>
+                      <p>2208 1996</p>
+                      <p>BuildWith Angga</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6 ps-5"> -->
+              <!-- <form [formGroup]="secondFormGroup"> -->
+                <!-- <ng-template matStepLabel>Fill out your name</ng-template> -->
+                <!-- <mat-label>Upload Bukti Transfer</mat-label>
+                <mat-form-field class="w-100 custom-mat" appearance="outline">
+                  <input
+                    matInput
+                    formControlName="Ctrl1"
+                    placeholder="Browse File"
+                    required
+                  />
+                </mat-form-field>
+                <mat-label>Asal Bank</mat-label>
+                <mat-form-field class="w-100" appearance="outline">
+                  <input
+                    matInput
+                    formControlName="Ctrl2"
+                    placeholder="Please type here.."
+                    required
+                  />
+                </mat-form-field>
+                <mat-label>Nama Pengirim</mat-label>
+                <mat-form-field class="w-100" appearance="outline"> -->
+                  <!-- <input
+                    matInput
+                    formControlName="Ctrl3"
+                    placeholder="Please type here.."
+                    required
+                  />
+                </mat-form-field>
+                <div>
+                  <button class="main-btn py-1 px-3 me-3" matStepperNext>
+                    Next
+                  </button>
+                  <button type="button" class="main-btn py-1 px-3">
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </mat-step> -->
+        <!-- salma -->
+        <!-- <mat-step> -->
+          <!-- <ng-template matStepLabel>Done</ng-template> -->
+          <!-- <div class="row">
+            <div class="container">
+              <div class="col-md-6 mx-auto text-center py-5">
+                <div class="text-center">
+                  <h2 class="title">Yay! Completed</h2>
+                  <div class="text-center">
+                    <img
+                      src="../../../../../assets/images/Group 1 1.png"
+                      class="w-50 m-auto py-2"
+                      alt=""
+                    />
                   </div>
-                 
-                </mat-step>
-                <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
-                    <div class="row">
-                        <div class="my-1 text-center">
-                            <h2>Payment</h2>
-                        <p>Kindly follow the instructions below</p>
-                        </div>
-                        <div class="col-md-6 border-end ">
-                            <div class="payment-data">
-                                <ul>
-                                    <li>Transfer Pembayaran:</li>
-                                    <li>Tax: 10%</li>
-                                    <li>Sub total: $480 USD</li>
-                                    <li>Total: $580 USD</li>
-                                    <li class="d-flex"><span><img src="../../../../../assets/images/Bca.svg" alt=""></span>
-                                    <div class="mt-3 ps-2">
-                                        <p>Bank Central Asia</p>
-                                        <p>2208 1996</p>
-                                        <p>BuildWith Angga</p>
-                                    </div>
-                                      </li>
-                                    <li class="d-flex"><span><img src="../../../../../assets/images/mandiri.svg" alt=""></span>
-                                    <div class="mt-3 ps-2">
-                                        <p>Bank Mandiri</p>
-                                        <p>2208 1996</p>
-                                        <p>BuildWith Angga</p>
-                                    </div>
-                                      </li>
-                                   
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-6 ps-5">
-                             <form [formGroup]="secondFormGroup">
-                            <!-- <ng-template matStepLabel>Fill out your name</ng-template> -->
-                            <mat-label>Upload Bukti Transfer</mat-label>
-                            <mat-form-field class="w-100 custom-mat" appearance="outline">
-                              
-                              <input matInput formControlName="Ctrl1" placeholder="Browse File" required>
-                            </mat-form-field>
-                            <mat-label>Asal Bank</mat-label>
-                            <mat-form-field class="w-100" appearance="outline">
-                              
-                              <input matInput formControlName="Ctrl2" placeholder="Please type here.." required>
-                            </mat-form-field>
-                            <mat-label>Nama Pengirim</mat-label>
-                            <mat-form-field class="w-100" appearance="outline">
-                              
-                              <input matInput formControlName="Ctrl3" placeholder="Please type here.." required>
-                            </mat-form-field>
-                            <div>
-                              <button class="main-btn py-1 px-3 me-3" matStepperNext>Next</button>
-                              <button type="button" class="main-btn py-1 px-3">Cancel</button>
-                            </div>
-                          </form></div>
-                      </div>
-                </mat-step>
-                <!-- salma -->
-                <mat-step>
-                    <!-- <ng-template matStepLabel>Done</ng-template> -->
-                    <div class="row">
-                      <div class="container">
-                        <div class="col-md-6 mx-auto text-center py-5 ">
-                          <div class="text-center ">
-                            <h2 class="title">Yay! Completed</h2>
-                            <div class="text-center  ">
-                              <img
-                                src="../../../../../assets/images/Group 1 1.png"
-                                class="w-50 m-auto py-2  "
-                                alt=""
-                              />
-                            </div>
-                            <p class="text-muted">
-                              We will inform you via email later <br />
-                              once the transaction has been accepted
-                            </p>
-                            <button
-                              matStepperPrevious
-                              class="btn px-4 shadow-lg  main-btn "
-                              routerLink="/landingPage"
-                            >
-                              Back to Home
-                            </button>
-          
-                            <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </mat-step>
-              </mat-stepper>
-        </div>
- </div>
+                  <p class="text-muted">
+                    We will inform you via email later <br />
+                    once the transaction has been accepted
+                  </p>
+                  <button
+                    matStepperPrevious
+                    class="btn px-4 shadow-lg main-btn"
+                    routerLink="/landingPage"
+                  >
+                    Back to Home
+                  </button> -->
+
+                  <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
+                <!-- </div>
+              </div>
+            </div>
+          </div>
+        </mat-step>
+      </mat-stepper> -->
+    </div>
+  </div>
 </section>

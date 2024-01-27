@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { adminGuard } from './core/Guards/admin.guard';
+import { NotfoundComponent } from './shared/notfound/notfound.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
   
     loadChildren: () => import('./core/payment/payment.module').then(m => m.PaymentModule)
   },
+  {path:'**',component:NotfoundComponent}
 ];
 const RouterOptions:ExtraOptions = {
   scrollPositionRestoration:'enabled',

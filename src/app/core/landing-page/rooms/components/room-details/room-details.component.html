@@ -1,190 +1,337 @@
 <section class="details">
   <div class="container">
     <div class="row">
-      <div class="text-center">
+      <div class="text-center mt-3">
         <h1>{{ "landingPage.roomDetails.village" | translate }}</h1>
         <h3>{{ "landingPage.roomDetails.bogor" | translate }}</h3>
       </div>
       <p>
         <a routerLink="">Home</a> / <span>{{ routingTitle2 }}</span>
       </p>
-      <div class="col-md-7 mx-auto mt-3">
-        <div class="imgs">
-          <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="carousel-item active" *ngFor="let item of imgs">
-                <div class="row justify-content-center align-items-center">
-                  <div class="col-md-8">
-                    <div class="img-box">
-                      <img [src]="item" alt="" />
+
+      <div class="imgs">
+        <div id="carouselExample" class="carousel slide">
+          <div class="carousel-inner">
+          
+            <div class="carousel-item" [class.active]="i === 0" *ngFor="let item of imgs; let i=index">
+              <div class="col-md-9 mx-auto" >
+                <div class="img-box">
+                  <img [src]="item" alt="" />
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-7 mt-4">
+          <p>
+            {{ "landingPage.roomDetails.1" | translate }}
+          </p>
+          <p>
+            {{ "landingPage.roomDetails.2" | translate }}
+          </p>
+          <p>
+            {{ "landingPage.roomDetails.3" | translate }}
+          </p>
+          <div class="row">
+            <div class="col-md-3 ">
+              <div class="fac-img">
+                <img class="w-50" src="../../../../../../assets/images/facility/ic_bedroom.svg" alt="">
+                <p><span>5</span> bedroom</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="fac-img">
+                <img class="w-50" src="../../../../../../assets/images/facility/ic_livingroom.svg" alt="">
+                <p><span>5</span> Living Room</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="fac-img">
+                <img class="w-50" src="../../../../../../assets/images/facility/ic_bathroom.svg" alt="">
+                <p><span>1</span> bathroom</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="fac-img">
+                <img class="w-50" src="../../../../../../assets/images/facility/ic_diningroom 1.svg" alt="">
+                <p><span>1</span> diningroom</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-5 box">
+          <form [formGroup]="rangeForm" (submit)="onSubmit(rangeForm)">
+            <div class="pe-5 p-4">
+              <h3>
+                {{ "landingPage.roomDetails.startBooking" | translate }}
+              </h3>
+              <p class="tiffany fs-2">
+                ${{ roomData?.price }}
+                <span class="text-muted">
+                  {{ "landingPage.roomDetails.perNight" | translate }}</span
+                >
+              </p>
+              <span class="text-danger my-3"
+                >Disccount {{ roomData?.discount }}% off</span
+              >
+
+              <p class="">Pick a date</p>
+              <mat-form-field
+                appearance="outline"
+                class="w-100"
+                [hideRequiredMarker]="hideRequiredMarker"
+              >
+                <mat-label class="dark-blue"> Enter a date range</mat-label>
+
+                <mat-date-range-input [rangePicker]="picker">
+                  <input
+                    matStartDate
+                    formControlName="start"
+                    placeholder="Start date"
+                  />
+                  <input
+                    matEndDate
+                    formControlName="end"
+                    placeholder="End date"
+                  />
+                </mat-date-range-input>
+                <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                <mat-datepicker-toggle
+                  matIconSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-date-range-picker
+                  #picker
+                  #ref
+                  (closed)="calculateDays()"
+                ></mat-date-range-picker>
+
+                <mat-error
+                  *ngIf="
+                    rangeForm.controls.start.touched &&
+                    rangeForm.controls.start.hasError('required')
+                  "
+                  >Start date required</mat-error
+                >
+
+                <mat-error
+                  *ngIf="
+                    rangeForm.controls.end.touched &&
+                    rangeForm.controls.end.hasError('required')
+                  "
+                  >End date required</mat-error
+                >
+              </mat-form-field>
+              <p class="text-muted fs-5">
+                You will pay
+                <span class="blue"> ${{ totalPrice }} USD</span> per
+                <span class="blue">{{ nigntsNum }} nights.</span>
+              </p>
+              <button
+                (click)="createBooking()"
+                class="btn main-btn m-auto pointer px-4 py-2"
+              >
+                Continue Booking
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- user reviews -->
+      <div class="row " *ngIf="userReview.length != 0">
+        <div id="carouselExample" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="carousel-item py-5"[class.active]='i===0' *ngFor="let reviewCard of userReview;let i=index" >
+              <div class="col-md-9 mx-auto">
+                <div class="reviews-card">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="img-reviews">
+                        <!-- <img
+                      src="http://upskilling-egypt.com:3000/{{
+                        reviewCard.user.profileImage
+                      }}"
+                      alt=""
+                    /> -->
+                        <img
+                          src="../../../../../../assets/images/man.jpg"
+                          alt=""
+                        />
+                      </div>
                     </div>
-                    <div class="d-flex justify-content-center arrows my-2">
-                      <span
-                        class="i-circle mx-4"
-                        data-bs-target="#carouselExample"
-                        data-bs-slide="next"
-                        ><i class="fa-solid fs-4 fa-arrow-left"></i
-                      ></span>
-                      <span
-                        class="i-circle"
-                        data-bs-target="#carouselExample"
-                        data-bs-slide="next"
-                      >
-                        <i class="fa-solid fs-4 fa-arrow-right"></i
-                      ></span>
+                    <div class="col-md-8">
+                      <p>
+                        Rate:<span>{{ reviewCard.rating }}/5</span>
+                      </p>
+                      <p>
+                        Review:<span>{{ reviewCard.review }}</span>
+                      </p>
+                      <p>
+                        User:<span>{{ reviewCard.user.userName }}</span>
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+           
           </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        </div>
-        <div class="row">
-          <div class="col-md-7 mt-4">
-            <p>
-              {{ "landingPage.roomDetails.1" | translate }}
-            </p>
-            <p>
-              {{ "landingPage.roomDetails.2" | translate }}
-            </p>
-            <p>
-              {{ "landingPage.roomDetails.3" | translate }}
-            </p>
-          </div>
+      </div>
+      <!-- comment slider -->
 
-          <div class="col-md-5 box">
-            <form [formGroup]="rangeForm" (submit)="onSubmit(rangeForm)">
-              <div class="pe-5 p-4">
-                <h3>
-                  {{ "landingPage.roomDetails.startBooking" | translate }}
-                </h3>
-                <p class="tiffany fs-2">
-                  ${{roomData?.price}}
-                  <span class="text-muted">
-                    {{ "landingPage.roomDetails.perNight" | translate }}</span
-                  >
-                </p>
-                <span class="text-danger my-3"
-                  >Disccount {{ roomData?.discount }}% off</span
-                >
-
-                <p class="">Pick a date</p>
-                <mat-form-field
-                  appearance="outline"
-                  class="w-100"
-                  [hideRequiredMarker]="hideRequiredMarker"
-                >
-                  <mat-label class="dark-blue"> Enter a date range</mat-label>
-
-                  <mat-date-range-input [rangePicker]="picker">
-                    <input
-                      matStartDate
-                      formControlName="start"
-                      placeholder="Start date"
-                    />
-                    <input
-                      matEndDate
-                      formControlName="end"
-                      placeholder="End date"
-                    />
-                  </mat-date-range-input>
-                  <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
-                  <mat-datepicker-toggle
-                    matIconSuffix
-                    [for]="picker"
-                  ></mat-datepicker-toggle>
-                  <mat-date-range-picker
-                    #picker
-                    #ref
-                    (closed)="calculateDays()"
-                  ></mat-date-range-picker>
-
-                  <mat-error
-                    *ngIf="
-                      rangeForm.controls.start.touched &&
-                      rangeForm.controls.start.hasError('required')
-                    "
-                    >Start date required</mat-error
-                  >
-
-                  <mat-error
-                    *ngIf="
-                      rangeForm.controls.end.touched &&
-                      rangeForm.controls.end.hasError('required')
-                    "
-                    >End date required</mat-error
-                  >
-                </mat-form-field>
-                <p class="text-muted fs-5">
-                  You will pay
-                  <span class="blue"> ${{ totalPrice }} USD</span> per
-                  <span class="blue">{{ nigntsNum }} nights.</span>
-                </p>
-                <button
-                  (click)="createBooking()"
-                  class="btn main-btn m-auto pointer px-4 py-2"
-                >
-                  Continue Booking
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="row py-5 comment-box">
-          <div class="col-md-6">
-            <h3>{{ "landingPage.roomDetails.rate" | translate }}</h3>
-            <span class="py-4">
-              <div class="star-rating">
-                <ngb-rating
-                  [(ngModel)]="currentRate"
-                  [max]="maxRating"
-                ></ngb-rating>
-              </div>
-            </span>
-            <div>
-              <span class="py-2 fs-4">{{
-                "landingPage.roomDetails.message" | translate
-              }}</span>
-              <div class="form-floating mt-3">
-                <textarea
-                  class="form-control"
-                  placeholder="Leave a comment here"
-                  id="floatingTextarea2"
-                  style="height: 100px"
-                  [(ngModel)]="review"
-                ></textarea>
-                <label for="floatingTextarea2"></label>
+      <div class="row review-carsoul" *ngIf="userComment.length !== 0">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade">
+          <div class="carousel-inner">
+            <div
+              class="carousel-item py-5"[class.active]='i===0'
+              *ngFor="let commentCard of userComment;let i=index"
+            >
+              <div class="col-md-9 mx-auto">
+                <div class="reviews-card">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="img-reviews">
+                        <!-- <img
+                      src="http://upskilling-egypt.com:3000/{{
+                        commentCard.user.profileImage
+                      }}"
+                      alt=""
+                    /> -->
+                        <img
+                          src="../../../../../../assets/images/man.jpg"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <p>
+                        comment:<span>{{ commentCard.comment }}</span>
+                      </p>
+                      <p>
+                        User:<span>{{ commentCard.user.userName }}</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <button class="btn main-btn px-5 py-2" (click)="addRate()">
-              {{ "landingPage.roomDetails.rate" | translate }}
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleFade"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
             </button>
-          </div>
-
-          <div class="col-md-6">
-            <h2 class="mb-3">
-              {{ "landingPage.roomDetails.comment" | translate }}
-            </h2>
-            <div class="form-floating mt-5">
-              <textarea
-                class="form-control rounded"
-                placeholder="Leave a comment here"
-                id="floatingTextarea2"
-                style="height: 100px"
-                [(ngModel)]="comment"
-              ></textarea>
-              <label for="floatingTextarea2">{{
-                "landingPage.roomDetails.setComment" | translate
-              }}</label>
-            </div>
-            <button class="btn main-btn px-5 py-2" (click)="addComment()">
-              {{ "landingPage.roomDetails.rate" | translate }}
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleFade"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
             </button>
           </div>
         </div>
       </div>
+      <div class="row py-5 comment-box">
+        <div class="col-md-6">
+          <h3>{{ "landingPage.roomDetails.rate" | translate }}</h3>
+          <span class="py-4">
+            <div class="star-rating">
+              <ngb-rating
+                [(ngModel)]="currentRate"
+                [max]="maxRating"
+              ></ngb-rating>
+            </div>
+          </span>
+          <div>
+            <span class="py-2 fs-4">{{
+              "landingPage.roomDetails.message" | translate
+            }}</span>
+            <div class="form-floating mt-3">
+              <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="floatingTextarea2"
+                style="height: 100px"
+                [(ngModel)]="review"
+              ></textarea>
+              <label for="floatingTextarea2"></label>
+            </div>
+          </div>
+
+          <button class="btn main-btn px-5 py-2" (click)="addRate()">
+            {{ "landingPage.roomDetails.rate" | translate }}
+          </button>
+        </div>
+
+        <div class="col-md-6">
+          <h2 class="mb-3">
+            {{ "landingPage.roomDetails.comment" | translate }}
+          </h2>
+          <div class="form-floating mt-5">
+            <textarea
+              class="form-control rounded"
+              placeholder="Leave a comment here"
+              id="floatingTextarea2"
+              style="height: 100px"
+              [(ngModel)]="comment"
+            ></textarea>
+            <label for="floatingTextarea2">{{
+              "landingPage.roomDetails.setComment" | translate
+            }}</label>
+          </div>
+          <button class="btn main-btn px-5 py-2" (click)="addComment()">
+            {{ "landingPage.roomDetails.send" | translate }}
+          </button>
+        </div>
+      </div>
     </div>
-  
+  </div>
 </section>

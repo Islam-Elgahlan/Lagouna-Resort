@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes,ExtraOptions } from '@angular/router';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { favoritesGuard } from '../Guards/favorites.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landingPage', pathMatch: 'full' },
@@ -30,6 +31,7 @@ const routes: Routes = [
       {
         path: 'favorites',
         title:'Staycation-Favorites',
+        canActivate:[favoritesGuard],
         loadChildren: () =>
           import('./favorites/favorites.module').then((m) => m.FavoritesModule),
       }
