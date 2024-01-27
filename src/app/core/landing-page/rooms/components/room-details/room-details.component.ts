@@ -34,6 +34,7 @@ export class RoomDetailsComponent {
   nigntsNum:number =0 ;
  userComment:Icomment[]=[];
  userReview:Ireview[]=[];
+ bookingId:string='';
   constructor(
     private _ActivatedRoute: ActivatedRoute,
     private _RoomService: RoomService,
@@ -118,8 +119,9 @@ export class RoomDetailsComponent {
    }
    this._RoomService.createBooking(data).subscribe((res)=>{
     console.log(res);
+    this.bookingId=res.data.booking._id;
     this._ToastrService.success(res.message)
-    this._Router.navigate(['/payment'])
+    this._Router.navigate(['/payment'],{queryParams:{id:this.bookingId}})
     
    },(error)=>{
     this._ToastrService.error(error.message)
