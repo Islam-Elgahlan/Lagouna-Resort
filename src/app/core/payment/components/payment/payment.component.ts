@@ -17,6 +17,7 @@ import {
   StripeElementsOptions,
   StripeCardElementOptions
 } from '@stripe/stripe-js';
+import { MatStepper } from '@angular/material/stepper';
 
 
 @Component({
@@ -26,6 +27,8 @@ import {
 })
 export class PaymentComponent implements OnInit {
   bookingId: string = '';
+  totalprice:number=0;
+  totalWithtax:number=0;
   constructor(private _formBuilder: FormBuilder,
     private stripeService: StripeService,
     private _location: Location,
@@ -35,6 +38,7 @@ export class PaymentComponent implements OnInit {
   ) {
     this.bookingId = this._ActivatedRoute.snapshot.params['id'];
     //  console.log(this.bookingId);
+    this.getBookingdetails(this.bookingId)
 
   }
   ngOnInit(): void {
@@ -42,6 +46,7 @@ export class PaymentComponent implements OnInit {
 
   }
   @ViewChild(StripeCardComponent) card!: StripeCardComponent;
+   @ViewChild(MatStepper) myStepper!: MatStepper;
 
   private readonly fb = inject(UntypedFormBuilder);
 
@@ -53,8 +58,10 @@ export class PaymentComponent implements OnInit {
         fontWeight: '300',
         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
         fontSize: '18px',
+        lineHeight:'58px',
+
         '::placeholder': {
-          color: '#CFD7E0'
+          color: '#a99e9e'
         }
       }
     }
@@ -69,6 +76,7 @@ export class PaymentComponent implements OnInit {
     email: ['', [Validators.required, Validators.email]]
   });
 
+
   // Replace with your own public key
   stripe = injectStripe('pk_test_51OTjURBQWp069pqTmqhKZHNNd3kMf9TTynJtLJQIJDOSYcGM7xz3DabzCzE7bTxvuYMY0IX96OHBjsysHEKIrwCK006Mu7mKw8');
 
@@ -80,35 +88,34 @@ export class PaymentComponent implements OnInit {
         if (result.token) {
           // Use the token
           console.log(result.token.id);
-          this._PaymentService.payBooking(this.bookingId,result.token.id).subscribe((res) => {
-            this._ToastrService.success(res.message)
-
-          }, (error) => {
-            this._ToastrService.error(error.message)
-          })
+          this._PaymentService.payBooking(this.bookingId,result.token.id).subscribe({
+            next:(res)=>{
+              this.myStepper.next()
+              this._ToastrService.success(res.message)
+  
+            }, error:(err) => {
+            this._ToastrService.error(err.error.message,'first message')
+          }})
 
         } else if (result.error) {
           // Error creating the token
           console.log(result.error.message);
+          this._ToastrService.error('Please enter a card number')
         }
       });
   }
 
-  firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
-    secCtrl: ['', Validators.required],
-    thirdCtrl: ['', Validators.required],
-  });
-  secondFormGroup = this._formBuilder.group({
-    Ctrl1: ['', Validators.required],
-    Ctrl2: ['', Validators.required],
-    Ctrl3: ['', Validators.required],
-  });
   isEditable = false;
+ getBookingdetails(Id:string){
+  this._PaymentService.getBookingDetails(Id).subscribe({
+    next:(res)=>{
+      console.log(res.data.booking.totalPrice);
+      this.totalprice=res.data.booking.totalPrice
+      this.totalWithtax=this.totalprice+this.totalprice*.1;
+    }
+  })
+ }
 
-  submit() {
-    //  this.elements.submit()
-  }
   cancel() {
     this._location.back()
   }
