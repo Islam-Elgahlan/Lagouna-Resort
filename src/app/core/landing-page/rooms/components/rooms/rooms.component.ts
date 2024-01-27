@@ -22,7 +22,8 @@ export class RoomsComponent {
   routingTitle2: string = '';
   showItem:boolean=false;
   startDate:string='';
-  endDate:string=''
+  endDate:string='';
+  capacity:number=1;
   constructor(
     private _toastr: ToastrService,
     private _RoomService: RoomService,
@@ -57,6 +58,7 @@ export class RoomsComponent {
         page: 1,
         startDate:this.startDate,
         endDate:this.startDate,
+        capacity:this.capacity
        
       };
       this.onGetAllRooms(x);
@@ -115,11 +117,5 @@ export class RoomsComponent {
      
    
   }
-  // handlePageEvent(e:any){
-    
-  //   // console.log(e);
-  //   this.pageSize = e.pageSize
-  //   this.pageNumber = e.pageIndex + 1
-  //   this.onGetAllRooms()
-  // }
+
 }

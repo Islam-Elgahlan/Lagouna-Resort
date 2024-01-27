@@ -8,11 +8,11 @@ import { ChangePasswordComponent } from './components/chabge-password/change-pas
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'forgetPassword', component: ForgetPasswordComponent },
-  { path: 'resetPassword', component: ResetPasswordComponent },
-  { path: 'change-password', component: ChangePasswordComponent },
+  { path: 'login',title:'Staycation-Login', component: LoginComponent },
+  { path: 'register',title:'Staycation-Register', component: RegisterComponent },
+  { path: 'forgetPassword',title:'Staycation-ForgetPassword', component: ForgetPasswordComponent },
+  { path: 'resetPassword',title:'Staycation-ResetPassword', component: ResetPasswordComponent },
+  { path: 'change-password',title:'Staycation-ChangePassword', component: ChangePasswordComponent },
 ];
 
 @NgModule({

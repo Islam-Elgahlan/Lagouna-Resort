@@ -16,6 +16,8 @@ export class RegisterComponent {
   constructor(private _authService:AuthService,
     private _ToastrService :ToastrService,
     private _Router :Router,){}
+
+    
   registerForm= new FormGroup({
     userName:new FormControl(null,[Validators.required,Validators.pattern(/^[a-zA-z]{3,10}[0-9]{1,5}$/)]),
       email:new FormControl(null,[Validators.required,Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),

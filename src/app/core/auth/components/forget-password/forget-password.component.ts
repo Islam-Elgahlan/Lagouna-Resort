@@ -28,6 +28,7 @@ export class ForgetPasswordComponent {
   
       },complete:()=> {
         this._Router.navigate(['auth/resetPassword'])
+        localStorage.setItem('email',data.value.email)
       },
     })
   }
