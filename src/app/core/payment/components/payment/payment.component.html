@@ -2,10 +2,10 @@
 <section>
   <div class="container">
     <div class="row mx-5">
-        <ngx-stripe-elements [stripe]="stripe" [elementsOptions]="elementsOptions">
+         <ngx-stripe-elements [stripe]="stripe" [elementsOptions]="elementsOptions">
             <ngx-stripe-payment />
-          </ngx-stripe-elements>
-      <!-- <mat-stepper linear #stepper>
+          </ngx-stripe-elements> 
+      <mat-stepper linear #stepper>
         <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
           <div class="row">
             <div class="my-1 text-center">
@@ -45,9 +45,9 @@
               </div>
             </div>
             <div class="col-md-6 ps-5">
-              <form [formGroup]="firstFormGroup"> -->
+              <form [formGroup]="firstFormGroup"> 
                 
-                <!-- <mat-label>Upload Bukti Transfer</mat-label>
+                 <mat-label>Upload Bukti Transfer</mat-label>
                 <mat-form-field class="w-100 custom-mat" appearance="outline">
                   <input
                     matInput
@@ -55,8 +55,8 @@
                     placeholder="Browse File"
                     required
                   />
-                </mat-form-field> -->
-                <!-- <mat-label>Asal Bank</mat-label>
+                </mat-form-field> 
+                 <mat-label>Asal Bank</mat-label>
                 <mat-form-field class="w-100" appearance="outline">
                   <input
                     matInput
@@ -74,6 +74,13 @@
                     required
                   />
                 </mat-form-field>
+                <ngx-stripe-elements [stripe]="stripe" [elementsOptions]="elementsOptions">
+                  <ngx-stripe-card [options]="cardOptions" />
+              </ngx-stripe-elements>
+          
+              <button class="btn btn-primary" type="submit" (click)="createToken()">
+                  CREATE TOKEN
+              </button>
                 <div>
                   <button class="main-btn py-1 px-3 me-3" matStepperNext>
                     Next
@@ -98,8 +105,8 @@
             </div>
             <div class="col-md-6 border-end">
               <div class="payment-data">
-                <ul> -->
-                  <!-- <li>Transfer Pembayaran:</li>
+                <ul> 
+                   <li>Transfer Pembayaran:</li>
                   <li>Tax: 10%</li>
                   <li>Sub total: $480 USD</li>
                   <li>Total: $580 USD</li>
@@ -128,10 +135,10 @@
                 </ul>
               </div>
             </div>
-            <div class="col-md-6 ps-5"> -->
-              <!-- <form [formGroup]="secondFormGroup"> -->
-                <!-- <ng-template matStepLabel>Fill out your name</ng-template> -->
-                <!-- <mat-label>Upload Bukti Transfer</mat-label>
+            <div class="col-md-6 ps-5"> 
+               <form [formGroup]="secondFormGroup">
+                 <!-- <ng-template matStepLabel>Fill out your name</ng-template>  -->
+                 <mat-label>Upload Bukti Transfer</mat-label>
                 <mat-form-field class="w-100 custom-mat" appearance="outline">
                   <input
                     matInput
@@ -150,8 +157,8 @@
                   />
                 </mat-form-field>
                 <mat-label>Nama Pengirim</mat-label>
-                <mat-form-field class="w-100" appearance="outline"> -->
-                  <!-- <input
+                <mat-form-field class="w-100" appearance="outline"> 
+                  <input
                     matInput
                     formControlName="Ctrl3"
                     placeholder="Please type here.."
@@ -169,11 +176,11 @@
               </form>
             </div>
           </div>
-        </mat-step> -->
-        <!-- salma -->
-        <!-- <mat-step> -->
-          <!-- <ng-template matStepLabel>Done</ng-template> -->
-          <!-- <div class="row">
+        </mat-step>
+         salma 
+         <mat-step> 
+           <!-- <ng-template matStepLabel>Done</ng-template>  -->
+           <div class="row">
             <div class="container">
               <div class="col-md-6 mx-auto text-center py-5">
                 <div class="text-center">
@@ -195,15 +202,15 @@
                     routerLink="/landingPage"
                   >
                     Back to Home
-                  </button> -->
+                  </button> 
 
-                  <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
-                <!-- </div>
+                   <button mat-button (click)="stepper.reset()">Reset</button> 
+                 </div>
               </div>
             </div>
           </div>
         </mat-step>
-      </mat-stepper> -->
+      </mat-stepper> 
     </div>
   </div>
 </section>

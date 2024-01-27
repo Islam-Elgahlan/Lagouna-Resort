@@ -137,7 +137,7 @@ export class RoomDetailsComponent {
       }
     
       
-      addComment(){
+  addComment(){
         let data ={
           roomId:this.roomId,
           comment:this.comment
@@ -148,6 +148,7 @@ export class RoomDetailsComponent {
               console.log(res);
               this._ToastrService.success(res.message)
               this.comment='';
+              this.viewUserComment(data.roomId)
             },error:(err)=>{
               this._ToastrService.error('Please Enter a commet before send')
               this.comment='';
@@ -159,7 +160,7 @@ export class RoomDetailsComponent {
         }
         
       }
-      addRate(){
+    addRate(){
         let data ={
           roomId:this.roomId,
           review:this.review,
@@ -171,7 +172,7 @@ export class RoomDetailsComponent {
               console.log(res);
               this._ToastrService.success(res.message)
               this.review='';
-              // this.viewUserComment(data.roomId)
+               this.viewUserReview(data.roomId)
             },error:(err)=>{
               this._ToastrService.error('please enter rate and review')
               this.review='';
@@ -192,7 +193,7 @@ viewUserComment(id:string){
 this.userComment=res.data.roomComments
             
             },error:(err)=>{
-              this._ToastrService.error(err.error.message)
+              // this._ToastrService.error(err.error.message)
               console.log(err.error.message);
               
             }
@@ -205,7 +206,7 @@ this.userComment=res.data.roomComments
   this.userReview=res.data.roomReviews
             
             },error:(err)=>{
-              this._ToastrService.error(err.error.message)
+              // this._ToastrService.error(err.error.message)
             }
           })}
        
