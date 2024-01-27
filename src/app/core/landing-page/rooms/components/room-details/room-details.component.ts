@@ -45,8 +45,7 @@ export class RoomDetailsComponent {
   ) {
     this.roomId = _ActivatedRoute.snapshot.params['id'];
     console.log(this.roomId);
-    this.viewUserComment(this.roomId)
-    this.viewUserReview(this.roomId)
+   
     let token = localStorage.getItem('userToken');
     if (token) {
       this.showFlag = true;
@@ -57,7 +56,8 @@ export class RoomDetailsComponent {
   ngOnInit() {
     this.getRoomById(this.roomId);
     this.getTitle();
-    
+    this.viewUserComment(this.roomId)
+    this.viewUserReview(this.roomId)
   }
   getTitle() {
     this.routingTitle1 = this._TitleService.getTitle();
@@ -171,8 +171,9 @@ export class RoomDetailsComponent {
               console.log(res);
               this._ToastrService.success(res.message)
               this.review='';
+              // this.viewUserComment(data.roomId)
             },error:(err)=>{
-              this._ToastrService.error(err.error.message)
+              this._ToastrService.error('please enter rate and review')
               this.review='';
             }
           })

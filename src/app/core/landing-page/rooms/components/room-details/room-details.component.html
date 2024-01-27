@@ -220,8 +220,8 @@
         <div id="carouselExampleFade" class="carousel slide carousel-fade">
           <div class="carousel-inner">
             <div
-              class="carousel-item active py-5"
-              *ngFor="let commentCard of userComment"
+              class="carousel-item py-5"[class.active]='i===0'
+              *ngFor="let commentCard of userComment;let i=index"
             >
               <div class="col-md-9 mx-auto">
                 <div class="reviews-card">
