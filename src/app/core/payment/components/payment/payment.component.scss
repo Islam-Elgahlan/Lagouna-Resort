@@ -54,6 +54,12 @@ section {
       mat-label {
         color: $color-primary;
       }
+      .stripe{
+        
+        border:1px solid #a99e9e;
+        border-radius: 5px;
+        margin: 10px 0;
+      }
     }
   }
 }

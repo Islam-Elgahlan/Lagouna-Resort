@@ -118,7 +118,7 @@ export class RoomDetailsComponent {
     totalPrice :this.totalPrice
    }
    this._RoomService.createBooking(data).subscribe((res)=>{
-    console.log(res);
+    console.log(res.data.booking._id);
     this.bookingId=res.data.booking._id;
     this._ToastrService.success(res.message)
     this._Router.navigate([`payment/payment/${this.bookingId}`])
