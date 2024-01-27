@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { FormBuilder,UntypedFormBuilder, Validators } from '@angular/forms';
-
+import { Location } from '@angular/common';
 
 import {
   injectStripe,
@@ -21,7 +21,10 @@ import {
 })
 export class PaymentComponent implements OnInit{
  
-  constructor(private _formBuilder:FormBuilder,private stripeService:StripeService){
+  constructor(private _formBuilder:FormBuilder,
+    private stripeService:StripeService,
+    private _location: Location
+    ){
 
   }
   ngOnInit(): void {
@@ -90,5 +93,8 @@ export class PaymentComponent implements OnInit{
   submit() {
     //  this.elements.submit()
   }
+cancel(){
+  this._location.back()
+}
 
 }
