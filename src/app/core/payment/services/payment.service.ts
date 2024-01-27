@@ -12,6 +12,6 @@ export class PaymentService {
 
 
   payBooking(bookingId:string,tok:string):Observable<any>{
-return this._HttpClient.post(`portal/booking/${bookingId}/pay`,tok)
+return this._HttpClient.post(`portal/booking/${bookingId}/pay`,{'token':tok})
   }
 }
