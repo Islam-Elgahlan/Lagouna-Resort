@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'payment', pathMatch: 'full' },
   
       {
-        path:'payment',component:PaymentComponent
+        path:'payment/:id',component:PaymentComponent
       }
     
 ];

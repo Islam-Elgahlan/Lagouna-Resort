@@ -121,7 +121,7 @@ export class RoomDetailsComponent {
     console.log(res);
     this.bookingId=res.data.booking._id;
     this._ToastrService.success(res.message)
-    this._Router.navigate(['/payment'],{queryParams:{id:this.bookingId}})
+    this._Router.navigate([`payment/payment/${this.bookingId}`])
     
    },(error)=>{
     this._ToastrService.error(error.message)
