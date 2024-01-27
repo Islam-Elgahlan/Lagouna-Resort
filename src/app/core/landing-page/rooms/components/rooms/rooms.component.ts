@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { RoomService } from '../../services/room.service';
 import { Title } from '@angular/platform-browser';
@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.scss'],
 })
-export class RoomsComponent {
+export class RoomsComponent implements OnInit{
   pageSize: number = 10;
   pageNumber: number | undefined = 1;
   tableResponse: any;
@@ -48,42 +48,39 @@ export class RoomsComponent {
       this.endDate = params['endDate'];
       console.log(this.startDate);
 
-    });
+    });}
 
 
-  ngOnInit() {
-    if (this.startDate&& this.endDate) {
-      let x = {
-        size: 100,
-        page: 1,
-        startDate:this.startDate,
-        endDate:this.startDate,
-        capacity:this.capacity
-       
-      };
-      this.onGetAllRooms(x);
-    } else {
-      let x = {
-        size: 100,
-        page: 1,
-      
+    ngOnInit(): void {
+      if (this.startDate&& this.endDate) {
+        let x = {
+          size: 100,
+          page: 1,
+          startDate:this.startDate,
+          endDate:this.startDate,
+          capacity:this.capacity
+         
+        };
+        this.onGetAllRooms(x);
+      } else {
+        let x = {
+          size: 100,
+          page: 1,
+        
+      }
+      this.onGetAllRooms(x)
     }
-    this.onGetAllRooms(x);}
-    this.getTitle()
-
-
   }
-
-
+ 
   getTitle() {
     this.routingTitle1 = this._TitleService.getTitle();
     this.routingTitle2 = this.routingTitle1.substring(11);
     // console.log(this.routingTitle2);
   }
-  onGetAllRooms(param) {
+  onGetAllRooms(x:any) {
   
 
-    this._RoomService.getAllRooms(param).subscribe({
+    this._RoomService.getAllRooms(x).subscribe({
       next: (res) => {
         console.log(res);
         this.tableResponse = res.data;
@@ -123,7 +120,9 @@ export class RoomsComponent {
     // console.log(e);
     this.pageSize = e.pageSize
     this.pageNumber = e.pageIndex + 1
-    this.onGetAllRooms()
+    // this.onGetAllRooms()
   }
 
-}
+
+  
+  }
