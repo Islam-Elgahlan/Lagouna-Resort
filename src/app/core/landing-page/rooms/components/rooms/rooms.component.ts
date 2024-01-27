@@ -13,33 +13,35 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./rooms.component.scss'],
 })
 export class RoomsComponent {
-  pageSize: number = 100;
+  pageSize: number = 10;
   pageNumber: number | undefined = 1;
   tableResponse: any;
   tableData: any[] = [];
-  pageIndex : number = 0
+  pageIndex: number = 0
   routingTitle1: string = '';
   routingTitle2: string = '';
+
   showItem:boolean=false;
   startDate:string='';
   endDate:string='';
   capacity:number=1;
+
   constructor(
     private _toastr: ToastrService,
     private _RoomService: RoomService,
     private _TitleService: Title,
     private _TranslateService: TranslateService,
     private _HelperService: HelperService,
-    private _FavoritesService:FavoritesService,
-    private _ToastrService:ToastrService,
-    private _ActivatedRoute:ActivatedRoute
+    private _FavoritesService: FavoritesService,
+    private _ToastrService: ToastrService,
+    private _ActivatedRoute: ActivatedRoute
   ) {
-    let token = localStorage.getItem('userToken') ;
+    let token = localStorage.getItem('userToken');
     if (!token) {
       this.showItem = false
-    }else{
+    } else {
       this.showItem = true
-      
+
     }
     _ActivatedRoute.queryParams.subscribe(params => {
       this.startDate = params['startDate'];
@@ -47,9 +49,7 @@ export class RoomsComponent {
       console.log(this.startDate);
 
     });
-   
-    
-  }
+
 
   ngOnInit() {
     if (this.startDate&& this.endDate) {
@@ -69,20 +69,21 @@ export class RoomsComponent {
       
     }
     this.onGetAllRooms(x);}
-    
+    this.getTitle()
 
-    
 
-    this.getTitle();
   }
+
+
   getTitle() {
     this.routingTitle1 = this._TitleService.getTitle();
     this.routingTitle2 = this.routingTitle1.substring(11);
-    console.log(this.routingTitle2);
+    // console.log(this.routingTitle2);
   }
-  onGetAllRooms(x:any) {
-    
-    this._RoomService.getAllRooms(x).subscribe({
+  onGetAllRooms(param) {
+  
+
+    this._RoomService.getAllRooms(param).subscribe({
       next: (res) => {
         console.log(res);
         this.tableResponse = res.data;
@@ -99,23 +100,30 @@ export class RoomsComponent {
     this._HelperService.onChangeLang(lang);
     // console.log(this.translate.currentLang);
   }
-  addToFavorites(id:string){
+  addToFavorites(id: string) {
     if (this.showItem) {
       this._FavoritesService.addFavorites(id).subscribe({
-        next:(res)=>{
+        next: (res) => {
           console.log(res);
           this._ToastrService.success(res.message)
-        },error:(err)=> {
+        }, error: (err) => {
           this._ToastrService.warning('The Room alreedy in favorites')
         },
       })
     } else {
       this._ToastrService.warning('Please Sign In First')
       console.log("l");
-      
+
     }
-     
-   
+
+
+  }
+  handlePageEvent(e:any){
+
+    // console.log(e);
+    this.pageSize = e.pageSize
+    this.pageNumber = e.pageIndex + 1
+    this.onGetAllRooms()
   }
 
 }
