@@ -20,9 +20,12 @@ export class RoomsComponent {
   pageIndex: number = 0
   routingTitle1: string = '';
   routingTitle2: string = '';
-  showItem: boolean = false;
-  startDate: string | undefined = '';
-  endDate: string | undefined = ''
+
+  showItem:boolean=false;
+  startDate:string='';
+  endDate:string='';
+  capacity:number=1;
+
   constructor(
     private _toastr: ToastrService,
     private _RoomService: RoomService,
@@ -48,28 +51,37 @@ export class RoomsComponent {
     });
 
 
+  ngOnInit() {
+    if (this.startDate&& this.endDate) {
+      let x = {
+        size: 100,
+        page: 1,
+        startDate:this.startDate,
+        endDate:this.startDate,
+        capacity:this.capacity
+       
+      };
+      this.onGetAllRooms(x);
+    } else {
+      let x = {
+        size: 100,
+        page: 1,
+      
+    }
+    this.onGetAllRooms(x);}
+    this.getTitle()
+
+
   }
 
-  ngOnInit() {
-    this.onGetAllRooms();
-    this.getTitle();
-  }
+
   getTitle() {
     this.routingTitle1 = this._TitleService.getTitle();
     this.routingTitle2 = this.routingTitle1.substring(11);
     // console.log(this.routingTitle2);
   }
-  onGetAllRooms() {
-    let param = {
-      size: this.pageSize,
-      page: this.pageNumber,
-      startDate: this.startDate,
-      endDate: this.startDate,
-    };
-    if (!this.startDate && !this.endDate) {
-      delete param.startDate;
-      delete param.endDate;
-    }
+  onGetAllRooms(param) {
+  
 
     this._RoomService.getAllRooms(param).subscribe({
       next: (res) => {
@@ -113,4 +125,5 @@ export class RoomsComponent {
     this.pageNumber = e.pageIndex + 1
     this.onGetAllRooms()
   }
+
 }

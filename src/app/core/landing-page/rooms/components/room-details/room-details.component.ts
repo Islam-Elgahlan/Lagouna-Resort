@@ -7,6 +7,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Title } from '@angular/platform-browser';
 import { IRoom } from '../../../interfaces/rooms';
+import { Ireview } from '../../interfaces/ireview';
+import { Icomment } from '../../interfaces/icomment';
 
 @Component({
   selector: 'app-room-details',
@@ -16,7 +18,7 @@ import { IRoom } from '../../../interfaces/rooms';
 export class RoomDetailsComponent {
   roomData: IRoom | undefined;
   roomId: string = '';
-  imgs: any;
+  imgs: string[]=[];
   counter: number = 1;
   hideRequiredMarker: boolean = true;
 
@@ -30,8 +32,8 @@ export class RoomDetailsComponent {
   routingTitle2: string = '';
   totalPrice:number =0 ; 
   nigntsNum:number =0 ;
- userComment:any;
- userReview:any;
+ userComment:Icomment[]=[];
+ userReview:Ireview[]=[];
   constructor(
     private _ActivatedRoute: ActivatedRoute,
     private _RoomService: RoomService,
@@ -70,8 +72,8 @@ export class RoomDetailsComponent {
       },
       error: (err) => {},
       complete: () => {
-         console.log(this.roomData?.images);
-         this.imgs = this.roomData?.images;
+         console.log(this.roomData?.images[0]);
+         this.imgs = this.roomData!.images;
         // this.price = this.roomData?.price;
       },
     });
@@ -145,8 +147,10 @@ export class RoomDetailsComponent {
             next:(res)=>{
               console.log(res);
               this._ToastrService.success(res.message)
+              this.comment='';
             },error:(err)=>{
               this._ToastrService.error('Please Enter a commet before send')
+              this.comment='';
             }
           })
         } else {
@@ -166,8 +170,10 @@ export class RoomDetailsComponent {
             next:(res)=>{
               console.log(res);
               this._ToastrService.success(res.message)
+              this.review='';
             },error:(err)=>{
               this._ToastrService.error(err.error.message)
+              this.review='';
             }
           })
         } else {
@@ -178,7 +184,7 @@ export class RoomDetailsComponent {
 
 
 
-      viewUserComment(id:string){
+viewUserComment(id:string){
           this._RoomService.viewComment(id).subscribe({
             next:(res)=>{
               console.log(res.data.roomComments);
@@ -190,7 +196,8 @@ this.userComment=res.data.roomComments
               
             }
           })}
-      viewUserReview(id:string){
+
+ viewUserReview(id:string){
           this._RoomService.viewReview(id).subscribe({
             next:(res)=>{
               console.log(res.data.roomReviews);

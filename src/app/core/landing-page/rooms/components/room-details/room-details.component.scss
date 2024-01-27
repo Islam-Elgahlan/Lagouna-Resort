@@ -2,6 +2,9 @@
 @import "../../../../../../assets/styles/abstracts/buttons";
 .container{
   .row{
+    .img-box{
+      max-height: 400px;
+    }
     .carousel-control-prev-icon,.carousel-control-next-icon{
       background-color: #4866ed;
       border-radius: 50%;
@@ -11,17 +14,19 @@
     }
    
     .reviews-card {
-    
+      
       padding: 20px;
       background-color: #fff;
-      box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.1);
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
       border-radius: 16px;
-    
+      // border: 1px solid $color-tertiary;
      
       .img-reviews{
-        border-radius: 10px;
+        border-radius: 50%;
+        height: 150px;
+        width: 150px;
         border: #B0B0B0 1px solid;
-        box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         overflow: hidden;
        
       }
@@ -68,8 +73,12 @@
         color: #4866ed;
       }
     }
+    // .review-carsoul{
+      
+    // }
   }
  
+  
 }
 
 
@@ -134,4 +143,11 @@ p{
     width: 1px;
   }
 
-  
+  @media (max-width:768px){
+   
+    .comment-box {
+    
+    &>div:first-child{
+      border-right: none;
+    }}
+  }

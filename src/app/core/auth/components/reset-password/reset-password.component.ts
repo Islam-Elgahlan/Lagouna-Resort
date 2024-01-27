@@ -11,7 +11,7 @@ export class ResetPasswordComponent {
   hide: boolean = true;
   constructor(private _AuthService: AuthService) {}
   resetPasswordForm = new FormGroup({
-    email: new FormControl(null),
+    email: new FormControl(localStorage.getItem('email')),
     password: new FormControl(null),
     seed: new FormControl(null),
     confirmPassword: new FormControl(null),
