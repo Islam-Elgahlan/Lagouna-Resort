@@ -41,7 +41,7 @@
                       <input matInput placeholder="name" formControlName="name" />
                     </mat-form-field>
                     <mat-form-field class="example-full-width w-100" appearance="outline">
-                      <input matInput placeholder="Email" type="email" formControlName="email" />
+                      <input matInput placeholder="abc@bb" type="email" formControlName="email" />
                     </mat-form-field>
                     <div class="stripe">
                       <ngx-stripe-elements 
@@ -55,7 +55,7 @@
                
               
                 <div>
-                  <button class="main-btn py-1 px-3 me-3"  (click)="createToken()">
+                  <button class="main-btn py-1 px-3 me-3"[disabled]="checkoutForm.invalid"  (click)="createToken()">
                     Send
                   </button>
                   <button type="button" class="main-btn py-1 px-3" (click)="cancel()">
