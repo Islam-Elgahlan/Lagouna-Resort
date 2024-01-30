@@ -15,15 +15,15 @@
           </p> -->
         </div>
       
-          <div class="pe-5">
-            <h3>Start Booking</h3>
-            <p class=" lead">Pick a Date</p>
+          <div class=" start-booking" [class]="_HelperService.textDirection==='ltr'?'pe-5':'ps-5'">
+            <h3>{{'landingPage.header.Booking.startBooking' | translate}}</h3>
+            <p class=" lead">{{'landingPage.header.Booking.pickDate'| translate}}</p>
      
             <mat-form-field appearance="outline" class="w-100 " [formGroup]="rangeForm" [hideRequiredMarker]="hideRequiredMarker">
-              <mat-label class="dark-blue ">Enter a date range</mat-label>
+              <mat-label class="dark-blue ">{{'landingPage.header.Booking.daterange'| translate}}</mat-label>
               <mat-date-range-input  [rangePicker]="picker">
-                <input matStartDate formControlName="start" placeholder="Start date">
-                <input matEndDate formControlName="end" placeholder="End date">
+                <input matStartDate formControlName="start" placeholder="{{'landingPage.header.Booking.start'| translate}}">
+                <input matEndDate formControlName="end" placeholder="{{'landingPage.header.Booking.end'| translate}}">
               </mat-date-range-input>
               <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
               <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -35,9 +35,11 @@
                 <mat-error *ngIf="rangeForm.controls.end.touched&&rangeForm.controls.end.hasError('required')">End date required</mat-error>
               
             </mat-form-field>
-            <p class="">Capacity</p>
+            <p class="">{{'landingPage.header.Booking.capacity'| translate}}</p>
             <div class="input-group mb-3 pointer">
-              <span class="input-group-text bg-danger  px-4" id="basic-addon1" (click)="onDecrement()"
+              <span class=" bg-danger  px-4"
+              [class]="_HelperService.textDirection==='ltr'?'input-group-text':'minus-icon'"
+              id="basic-addon1" (click)="onDecrement()"
                 ><i class="fa-solid fa-minus text-white "></i
               ></span>
               <input
@@ -46,11 +48,13 @@
                 aria-label="Username"
                 aria-describedby="basic-addon1" [(ngModel)]="this.counter" 
               />
-              <span class="input-group-text dark-blue-btn pointer px-4" id="basic-addon1"(click)="onIncrement()"
+              <span class=" dark-blue-btn pointer px-4"
+              [class]="_HelperService.textDirection==='ltr'?'input-group-text':'plus-icon'"
+              id="basic-addon1"(click)="onIncrement()"
                 ><i class="fa-solid fa-plus text-white"></i
               ></span>
             </div>
-            <button  class="btn dark-blue-btn  px-5" [disabled]="rangeForm.invalid" (click)="onSubmit(rangeForm)">Explore</button>
+            <button  class="btn dark-blue-btn  px-5" [disabled]="rangeForm.invalid" (click)="onSubmit(rangeForm)">{{'landingPage.header.Booking.explore'| translate}}</button>
           </div> 
         
        
@@ -58,8 +62,9 @@
        
       </div>
       <div
-        class="col-md-6 pt-5 py-3 disappear justify-content-end"
-        [class]="_HelperService.textDirection === 'ltr' ? 'row' : 'row-reverse'"
+        class="col-md-6 pt-5  disappear  d-flex"
+        [style]="_HelperService.textDirection === 'ltr' ? '' : 'transform:scaleX(-1)'"
+        [class]="_HelperService.textDirection === 'ltr' ? 'justify-content-end' : 'justify-content-start'"
       >
         <div class="img-block">
           <img src="../../../../../../assets/images/picture.svg" alt="" />

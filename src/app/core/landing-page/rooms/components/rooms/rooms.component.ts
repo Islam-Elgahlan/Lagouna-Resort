@@ -52,6 +52,7 @@ export class RoomsComponent implements OnInit{
 
 
     ngOnInit(): void {
+      this.getTitle()
       if (this.startDate&& this.endDate) {
         let x = {
           size: 100,
@@ -74,6 +75,7 @@ export class RoomsComponent implements OnInit{
  
   getTitle() {
     this.routingTitle1 = this._TitleService.getTitle();
+
     this.routingTitle2 = this.routingTitle1.substring(11);
     // console.log(this.routingTitle2);
   }
