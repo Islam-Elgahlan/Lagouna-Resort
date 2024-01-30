@@ -1,8 +1,8 @@
 <section>
     <div class="container">
         <h2 class="my-4 text-center"> {{"landingPage.explore.explore"|translate}} </h2>
-        <p><a>{{"landingPage.explore.home"|translate}}</a> / <span>{{routingTitle2}}</span></p>
-        <h3>All Rooms</h3>
+        <p><a>{{"landingPage.general.home"|translate}}</a> / <span>{{routingTitle2}}</span></p>
+        <h3 class="mb-4">{{"landingPage.explore.Allrooms"|translate}}</h3>
         <div class="row gy-5">
       
             <div *ngFor="let item of tableData" class="col-md-4 ">
@@ -21,7 +21,7 @@
                   <img class="h-100" [src]=" item.images[0]" />
                 </div>
                 <div class="houses-text">
-                  <h3>{{"landingPage.explore.roomNo"|translate}}<span class="text-info">{{item.roomNumber}}</span></h3>
+                  <h3>{{"landingPage.general.roomNo"|translate}}<span class="text-info">{{item.roomNumber}}</span></h3>
                   <!-- <p>{{item.price}}</p> -->
                 </div>
               </div>

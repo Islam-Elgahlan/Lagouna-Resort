@@ -18,10 +18,14 @@
       "3": "We provide what you need to enjoy your holiday with family. Time to make another memorable moments.",
       "4": "holiday with family. Time to make",
       "5": "another memorable moments.",
-      "icons": {
-        "room": "Room",
-        "visitor": "Visitor",
-        "city": "City"
+      "Booking": {
+        "startBooking": "Start Booking",
+        "pickDate": "Pick a Date",
+        "daterange": "Enter a Date Range",
+        "start": "ٍStart Date",
+        "end": "End Date",
+        "capacity": "Capacity",
+        "explore": "Explore"
       }
     },
 
@@ -33,7 +37,10 @@
       "Popular Choice": "Popular Choice",
       "Per Night": "Per Night",
       "Popular": "Popular",
-      "Choice": "Choice"
+      "Choice": "Choice",
+      "tobby":"Tobby Town",
+      "indonesia":"Gunung Batu, Indonesia",
+      "discount":"Discount"
     },
     "testimonials": {
       "h2": "Happy Family",
@@ -72,9 +79,15 @@
     },
     "explore":{
         "explore":"Explore all rooms Here",
-        "home":"Home",
-        "roomNo":"Room No:"
+        "Allrooms":"All Rooms"
 
-    }
+    } ,
+    "favorites":{
+      "myFavorites":"My Favorites"
+  },
+  "general":{
+    "home":"Home",
+    "roomNo":"Room No"
+  }
   }
 }
