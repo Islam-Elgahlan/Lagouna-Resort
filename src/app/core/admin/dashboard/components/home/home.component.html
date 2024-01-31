@@ -1,90 +1,66 @@
 <section class="home mt-2">
   <div class="container-fluid layer">
     <div class="row flex-column justify-content-between">
-      <div
-        [routerLink]="'/landingPage/home'"
-        class="col-md-3 rounded-5 my-4 py-2 pointer ms-5 d-flex landing-card justify-content-evenly align-items-center text-center"
-      >
-        <span class="font" [routerLink]="'/landingPage/home'">
-          Landing Page
-        </span>
-        <span class="i-circle pointer shadow-lg"
-          ><i class="fa-solid fa-caret-up"></i
-        ></span>
-      </div>
-
-      <div class="m-auto text-center">
-        <div>
-          <i class="fa-solid fa-mountain-city fs-1 text-white-50"></i>
+    <div>
+      <div class="row">
+        <div class="col-md-6">
+          <div>
+          <canvas id="canvas">{{chart}}</canvas>
         </div>
-        <h2 class="m-auto text-center text-white py-2 fs-3">
-          Welcome to Staycation Hotel
-        </h2>
-        <span class="m-auto grey">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
-          ipsam?
-        </span>
       </div>
+        <div class="col-md-6 pie m-auto">
+          <div>
+            <canvas id="pie">{{chart}}</canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    
       <div class="d-flex justify-content-evenly g-5">
         <div
-          class="col-md-3 home-card"
-          [routerLink]="'/admin/dashboard/rooms/addeditview'"
+          class="col-md-3 blue-card"
+          
         >
-          <span class="fw-bold "> ADD ROOM</span>
+          <span class="fw-bold ">All Rooms </span>
           <div
             class="my-2 me-5 d-flex justify-content-center align-items-center text-center"
           >
-            <i class="fa-solid fa-person-shelter px-5 fs-1"></i>
-            <span class="i-circle"> <i class="fa-solid fa-plus"></i></span>
+            <i class="fa-solid fa-person-shelter text-white-50 px-5 fs-1"></i>
+            <span class="i-circle">{{allRooms}}</span>
           </div>
-          <span class="blue">shortcut</span>
+           <span class="pointer" routerLink="/admin/dashboard/rooms/addeditview"><i class="fa-solid fa-plus"></i> ADD ROOM</span> 
         </div>
         <div
-          class="col-md-3 home-card"
-          [routerLink]="'/admin/dashboard/ads/addAds'"
+          class="col-md-3 blue-card"
+          
         >
-          <span class="fw-bold "> ADD ADS.</span>
+          <span class="fw-bold ">All Facilities</span>
           <div
             class="my-2 me-5 d-flex justify-content-center align-items-center text-center"
           >
-            <i class="fa-solid fa-book-open-reader px-5 fs-1"></i>
-            <span class="i-circle"> <i class="fa-solid fa-plus"></i></span>
+            <i class="fa-solid fa-wifi text-white-50 px-5 fs-1"></i>
+            <span class="i-circle">{{allFacilities}}</span>
           </div>
-          <span class="blue">shortcut</span>
+          <span class="pointer" routerLink="/admin/dashboard/facilities"><i class="fa-solid fa-plus"></i> ADD Facility</span> 
+
         </div>
-        <!-- <div class="col-md-3 home-card">
-          <span class=""> ADD ROOM</span>
-          <div
-            class="my-2 me-5 d-flex justify-content-center align-items-center text-center"
-          >
-            <i class="fa-solid fa-person-shelter px-5 fs-1"></i>
-            <span class="i-circle"> <i class="fa-solid fa-plus"></i></span>
-          </div>
-          <span>shortcut</span>
-        </div> -->
+       
         <div class="col-md-3 blue-card text-white pointer " routerLink="/admin/dashboard/bookings">
-          <span class="">All Bookings</span>
+          <span class="fw-bold">All Ads</span>
           <div
             class="my-2 me-5 d-flex justify-content-center align-items-center text-center"
           >
           <i class="fa-solid fa-clipboard-list text-white-50  fs-1 px-5"></i>
-            <span class="i-circle reverse">
-              <i class="fa-solid fa-plus"></i
-            ></span>
+          
+          
+          <span class="i-circle">{{allAds}}</span>
+         
           </div>
-          <span class="text-white-50">shortcut</span>
+          <span class="pointer" routerLink="/admin/dashboard/ads/addAds"><i class="fa-solid fa-plus"></i> ADD Ads</span>
+          
         </div>
 
-        <!-- <div class="col-md-3 home-card ad">
-          <span class=""> ADD AD</span>
-          <div
-            class="my-2 me-5 d-flex justify-content-center align-items-center text-center"
-          >
-          <i class="fa-solid fa-rectangle-ad px-5 fs-1"></i>
-            <span class="i-circle"> <i class="fa-solid fa-plus"></i></span>
-          </div>
-          <span>shortcut</span>
-        </div> -->
+        
       </div>
     </div>
   </div>
