@@ -1,17 +1,20 @@
 @import "../../../../../../assets/styles/abstracts/variables";
 .home {
-  background-image: url(../../../../../../assets/images/hotel-1749602_1280.jpg);
-  height: 88.8vh;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  overflow-y: hidden;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
+  // background-image: url(../../../../../../assets/images/hotel-1749602_1280.jpg);
+   height: 88vh;
+  // background-position: center center;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // overflow-y: hidden;
+  // border-top-right-radius: 20px;
+  // border-top-left-radius: 20px;
   position: relative;
   // font-family:  'Cinzel', serif;
   font-family: "Economica", sans-serif;
-  
+  .pie{
+    height: 310px;
+    width: 310px;
+  }
 }
 
 .layer {
@@ -78,9 +81,10 @@
   padding: 15px 30px;
   border-radius: 35px;
   margin: 10px 5px;
+  color: #fff;
   &:hover {
     transition: all 0.5s;
-    background-color: rgba(255, 255, 255, 0.457);
+    background-color: rgba(111, 181, 239, 0.457);
     color: black !important;
     i {
       color: black !important;
