@@ -35,7 +35,7 @@
                           </ngx-dropzone-label>
                           <ngx-dropzone-label *ngIf="imgSrc">
                             <img [src]="img" alt="" *ngFor="let img of roomData.images" >
-                          </ngx-dropzone-label>
+                          </ngx-dropzone-label> 
                          
                           <ngx-dropzone-image-preview  ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"
                             [removable]="true"  [file]="f" (removed)="onRemove(f)">
