@@ -1,0 +1,43 @@
+.custom-table {
+    width: 100%;
+    margin: 0p 15px;
+    margin: 0;
+  
+    thead {
+      font-size: 17px;
+      height: 60px;
+      background-color: #e2e5eb;
+      color: black;
+      text-align: center;
+      th {
+        font-weight: 400;
+      }
+    }
+    tr {
+      transition: all 0.5 s;
+      text-align: center;
+      height: 50px !important;
+    
+      &:hover {
+        box-shadow: 2px 2px 10px #aaa3a3;
+      }
+    }
+    .table-img{
+        height: 100px;
+        width: 100px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        margin: 10px 0;
+        
+    }
+    .dropdown-toggle::after {
+        display: none;
+      }
+  }
+ 
+  .blue{
+    color: $color-blue;
+  }

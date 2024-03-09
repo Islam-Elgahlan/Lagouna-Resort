@@ -1,0 +1,93 @@
+{
+  "landingPage": {
+    "navBar": {
+      "home": "Home",
+      "gallery": "Gallery",
+      "explore": "Explore",
+
+      "reviews": "Reviews",
+      "favorites": "Favorites",
+      "signIn": "Log In",
+
+      "logOut": "Logout",
+      "En": "En"
+    },
+    "header": {
+      "1": "Forget Busy Work,",
+      "2": "Start Next Vacation",
+      "3": "We provide what you need to enjoy your holiday with family. Time to make another memorable moments.",
+      "4": "holiday with family. Time to make",
+      "5": "another memorable moments.",
+      "Booking": {
+        "startBooking": "Start Booking",
+        "pickDate": "Pick a Date",
+        "daterange": "Enter a Date Range",
+        "start": "ٍStart Date",
+        "end": "End Date",
+        "capacity": "Capacity",
+        "explore": "Explore"
+      }
+    },
+
+    "gallery": {
+      "Most Picked": "Most Picked",
+      "Houses with beauty backyard": "Houses with beauty backyard",
+      "Hotels with large living room": "Hotels with large living room",
+      "Ads":"Ads",
+      "Popular Choice": "Popular Choice",
+      "Per Night": "Per Night",
+      "Popular": "Popular",
+      "Choice": "Choice",
+      "tobby":"Tobby Town",
+      "indonesia":"Gunung Batu, Indonesia",
+      "discount":"Discount"
+    },
+    "testimonials": {
+      "h2": "Happy Family",
+      "p": "What a great trip with my family and I should try again next time soon ...",
+      "button": "Read Their Story"
+    },
+    "footer": {
+      "staycation": "We kaboom your beauty holiday instantly and memorable",
+      "forBeginners": "For Beginners",
+      "newAccount": "New Account",
+      "startBooking": "Start Booking a Room",
+      "payments": "Use Payments",
+
+      "Explore": "Explore Us",
+      "careers": "Our Careers",
+      "privacy": "Privacy",
+      "terms": "Terms & Conditions",
+
+      "contact": "Connect Us"
+    },
+    "roomDetails": {
+      "village": "Village Angga",
+      "bogor": "Bogor, Indonesia",
+      "1": "Minimal techno music is a simple subgenre of techno music. It is characterized by an abstract aesthetic that exploits the use of repetition and simple development. The minimalist technique is believed to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.",
+      "2": "Such trends saw the demise of the soul-infused techno that typified the original Detroit sound. Robert Hood has noted that he and Daniel Bell both realized something was missing from techno in the post-rave era.",
+      "3": "Such trends saw the demise of the soul-infused techno that typified the original Detroit sound. Robert Hood has noted that he and Daniel Bell both realized something was missing from techno in the post-rave era.",
+      "rate": "Rate",
+      "send": "Send",
+      "message": "Message",
+      "comment": "Add your comment",
+      "startBooking": "Start Booking ",
+      "perNight": "Per night",
+      "date": "Pick a date",
+      "enterDate": "enter a date range ",
+      "setComment": "Set your Comment"
+    },
+    "explore":{
+        "explore":"Explore all rooms Here",
+        "Allrooms":"All Rooms"
+
+    } ,
+    "favorites":{
+      "myFavorites":"My Favorites"
+  },
+  "general":{
+    "home":"Home",
+    "roomNo":"Room No"
+  }
+  }
+}
