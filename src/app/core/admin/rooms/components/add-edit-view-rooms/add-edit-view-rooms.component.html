@@ -30,12 +30,12 @@
                 <div class="col-md-12">
                     <div >
                         <ngx-dropzone [multiple]="true" (change)="onSelect($event)" >
-                          <ngx-dropzone-label *ngIf="!imgSrc">
+                           <ngx-dropzone-label *ngIf="!imgSrc">
                             <i class="fa-solid fa-arrow-up-from-bracket d-block"></i> Upload
                           </ngx-dropzone-label>
                           <ngx-dropzone-label *ngIf="imgSrc">
                             <img [src]="img" alt="" *ngFor="let img of roomData.images" >
-                          </ngx-dropzone-label>
+                          </ngx-dropzone-label> 
                          
                           <ngx-dropzone-image-preview  ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"
                             [removable]="true"  [file]="f" (removed)="onRemove(f)">

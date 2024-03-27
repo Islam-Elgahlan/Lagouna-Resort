@@ -106,7 +106,7 @@
                 <img src="../../../../../../assets/images/img3.png" alt="" *ngIf="!room.images[0]"> 
             </div>
            <div class="houses-text">
-              <h3>Room No:<span class="text-info">{{room.roomNumber}}</span></h3>
+              <h3>{{"landingPage.general.roomNo"|translate}}:<span class="text-info">{{room.roomNumber}}</span></h3>
               <!-- <p>{{room.price}}</p> -->
             </div>
         </div>
@@ -127,8 +127,8 @@
                 
             </div>
            <div class="houses-text">
-              <h3>Tobby Town</h3>
-              <p>Gunung Batu, Indonesia</p>
+              <h3>{{'landingPage.gallery.tobby'|translate}}</h3>
+              <p>{{'landingPage.gallery.indonesia'|translate}}</p>
             </div>
         </div>
         <div class="col-md-3">
@@ -140,8 +140,8 @@
                 <img src="../../../../../../assets/images/img4.png" alt="">
             </div>
            <div class="houses-text">
-              <h3>Tobby Town</h3>
-              <p>Gunung Batu, Indonesia</p>
+              <h3>{{'landingPage.gallery.tobby'|translate}}</h3>
+              <p>{{'landingPage.gallery.indonesia'|translate}}</p>
             </div>
         </div>
         <div class="col-md-3">
@@ -153,8 +153,8 @@
                 <img src="../../../../../../assets/images/a1.png" alt="">
             </div>
            <div class="houses-text">
-              <h3>Tobby Town</h3>
-              <p>Gunung Batu, Indonesia</p>
+              <h3>{{'landingPage.gallery.tobby'|translate}}</h3>
+              <p>{{'landingPage.gallery.indonesia'|translate}}</p>
             </div>
         </div>
         <div class="col-md-3">
@@ -171,8 +171,8 @@
                 <img src="../../../../../../assets/images/img6.png" alt="">
             </div>
             <div class="houses-text">
-              <h3>Tobby Town</h3>
-              <p>Gunung Batu, Indonesia</p>
+              <h3>{{'landingPage.gallery.tobby'|translate}}</h3>
+              <p>{{'landingPage.gallery.indonesia'|translate}}</p>
             </div>
            
         </div>
@@ -186,7 +186,7 @@
             <div class="houses-img border border-1">
               <div class="img-widge bg-danger">
                 <h3 class="">
-                  <span>{{item.room.discount}} %</span>Discount
+                  <span>{{item.room.discount}} %</span>{{'landingPage.gallery.discount'|translate}}
                 </h3>
               </div>
               <div class="houses-img-layer">
@@ -194,11 +194,13 @@
                 <a  (click)="addToFavorites(item.room._id)"><i class="fa-solid fa-2x fa-heart"></i></a>
               </div>
                 <img [src]="item.room.images" alt="" *ngIf="item.room.images">
-                <img src="../../../../../../assets/images/img3.png" alt="" *ngIf="!item.room.images"> 
+                <img src="../../../../../../assets/images/img3.png"
+                
+                 alt="" *ngIf="!item.room.images"> 
                 
             </div>
             <div class="houses-text">
-            <h3>Room No:<span class="text-info">{{item.room.roomNumber}}</span></h3>
+            <h3>{{"landingPage.general.roomNo"|translate}}:<span class="text-info">{{item.room.roomNumber}}</span></h3>
           </div>
         </div>
        

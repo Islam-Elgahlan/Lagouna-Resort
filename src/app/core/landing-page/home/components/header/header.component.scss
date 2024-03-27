@@ -13,24 +13,25 @@ section{
             padding: 10px 0;
         }
     }
-    .icon-count{
-    li{
-        
-        i{
-            font-size: 2.5rem;
-          }
-          p{
-            color: $color-tertiary;
-            font-size: .7rem;
-            span{
-                color: $color-primary;
-                font-size: 1rem;
-                padding-right: 5px;
-            }
+    .start-booking{
+    h3{
+        color: $color-primary;
     }
-
-        
-      }
+    p{
+        color: $color-primary;
+    }
+    .plus-icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px 0 0 5px !important;
+    }
+    .minus-icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius:  0  5px 5px 0 !important;
+    }
     }
     
         .form-control{

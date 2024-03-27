@@ -176,15 +176,18 @@ export class RoomDetailsComponent {
               console.log(res);
               this._ToastrService.success(res.message)
               this.review='';
+              this.currentRate=0
                this.viewUserReview(data.roomId)
             },error:(err)=>{
-              this._ToastrService.error('please enter rate and review')
+              this._ToastrService.error(err.error.message)
               this.review='';
+              this.currentRate=0
             }
           })
         } else {
           this._ToastrService.warning('You must be sign in to add a review');
           this.review='';
+          this.currentRate=0
         }
       }
 

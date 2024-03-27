@@ -22,8 +22,8 @@ export class RoomsComponent implements OnInit{
   routingTitle2: string = '';
 
   showItem:boolean=false;
-  startDate:string='';
-  endDate:string='';
+  startDate: string | undefined = '';
+  endDate: string | undefined = ''
   capacity:number=1;
 
   constructor(
@@ -51,36 +51,31 @@ export class RoomsComponent implements OnInit{
     });}
 
 
-    ngOnInit(): void {
-      if (this.startDate&& this.endDate) {
-        let x = {
-          size: 100,
-          page: 1,
-          startDate:this.startDate,
-          endDate:this.startDate,
-          capacity:this.capacity
-         
-        };
-        this.onGetAllRooms(x);
-      } else {
-        let x = {
-          size: 100,
-          page: 1,
-        
-      }
-      this.onGetAllRooms(x)
+    ngOnInit() {
+      this.onGetAllRooms();
+      this.getTitle();
     }
-  }
  
   getTitle() {
     this.routingTitle1 = this._TitleService.getTitle();
+
     this.routingTitle2 = this.routingTitle1.substring(11);
     // console.log(this.routingTitle2);
   }
-  onGetAllRooms(x:any) {
+  onGetAllRooms() {
   
+    let param = {
+      size: this.pageSize,
+      page: this.pageNumber,
+      startDate: this.startDate,
+      endDate: this.startDate,
+    };
+    if (!this.startDate && !this.endDate) {
+      delete param.startDate;
+      delete param.endDate;
+    }
 
-    this._RoomService.getAllRooms(x).subscribe({
+    this._RoomService.getAllRooms(param).subscribe({
       next: (res) => {
         console.log(res);
         this.tableResponse = res.data;
@@ -120,7 +115,7 @@ export class RoomsComponent implements OnInit{
     // console.log(e);
     this.pageSize = e.pageSize
     this.pageNumber = e.pageIndex + 1
-    // this.onGetAllRooms()
+    this.onGetAllRooms()
   }
 
 
